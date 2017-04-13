@@ -5,21 +5,19 @@ using UnityEngine;
 
 public class CameraController : MonoBehaviour {
 
+	[HideInInspector]
 	public GameObject player;
 	public float rotationSpeed;
 
-	private Transform myTransform;
-	private Vector3 offset;
+	private Vector3 offset = new Vector3(0, 5, -10);
 
-	void Start () {
-		myTransform = GetComponent<Transform> ();
-		offset = myTransform.position - player.transform.position;
-	}
+	void LateUpdate () {
+		if (!player)
+			return;
 
-	void Update () {
 		var h = CnInputManager.GetAxis("TouchPadX");
 		offset = Quaternion.AngleAxis (h * rotationSpeed, Vector3.up) * offset;
-		myTransform.position = player.transform.position + offset;
-		myTransform.LookAt (player.transform.position);
+		transform.position = player.transform.position + offset;
+		transform.LookAt (player.transform.position);
 	}
 }
