@@ -26,7 +26,7 @@ public class PlayerController : MonoBehaviour {
 		mainCamera = Camera.main;
 	}
 
-	void Update () {
+	void FixedUpdate () {
 		inputVec = new Vector3 (CnInputManager.GetAxis ("JoyStickX"), CnInputManager.GetAxis ("JoyStickY"));
 		moveVec = Vector3.zero;
 
