@@ -1,42 +1,51 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using CnControls;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour {
 
 	public float moveSpeed;
-	public float jumpForce;
+	public float jumpSpeed;
+	public float gravity;
 
-	private Transform tr;
-	private Rigidbody rb;
+	private bool isJumping;
+	private Transform myTransform;
+	private Rigidbody myRigidbody;
+	private CharacterController myCharacterController;
+	private Camera mainCamera;
+	private Vector3 inputVec;
+	private Vector3 moveVec;
+	private float jumpVal;
 
 	void Start () {
-		tr = GetComponent<Transform> ();
-		rb = GetComponent<Rigidbody> ();
+		isJumping = false;
+		myTransform = GetComponent<Transform> ();
+		myRigidbody = GetComponent<Rigidbody> ();
+		myCharacterController = GetComponent<CharacterController> ();
+		mainCamera = Camera.main;
 	}
 
-	void Update () {
-		Move ();
+	void FixedUpdate () {
+		inputVec = new Vector3 (CnInputManager.GetAxis ("JoyStickX"), CnInputManager.GetAxis ("JoyStickY"));
+		moveVec = Vector3.zero;
 
-		if (Input.GetKeyDown ("space")) {
-			Jump ();
+		if (inputVec.sqrMagnitude > 0.001f) {
+			moveVec = mainCamera.transform.TransformDirection (inputVec);
+			moveVec.y = 0f;
+			moveVec.Normalize ();
+			myTransform.forward = moveVec;
+			moveVec *= moveSpeed;
 		}
-	}
+		 
+		if (myCharacterController.isGrounded) {
+			if (CnInputManager.GetButtonDown ("Jump")) {
+				jumpVal = jumpSpeed;
+			}
+		}
 
-	void Move() {
-		float h = Input.GetAxis ("Horizontal");
-		float v = Input.GetAxis ("Vertical");
-
-		Debug.Log ("H = " + h.ToString ());
-		Debug.Log ("V = " + v.ToString ());
-
-		Vector3 moveDir = new Vector3(h, 0, v);
-		moveDir *= moveSpeed;
-
-		tr.Translate(moveDir * Time.deltaTime, Space.Self);
-	}
-
-	void Jump() {
-		rb.AddForce (Vector3.up * jumpForce, ForceMode.Impulse);
+		jumpVal -= gravity * Time.deltaTime;
+		moveVec.y = jumpVal;
+		myCharacterController.Move (moveVec * Time.deltaTime);
 	}
 }
