@@ -167,7 +167,12 @@ namespace CnControls
             {
                 stickAnchoredPosition.y = _intermediateStickPosition.y;
             }
+				
 
+			Debug.Log (stickAnchoredPosition);
+
+			stickAnchoredPosition.x = Mathf.Clamp (stickAnchoredPosition.x, -80f, 20f);
+			stickAnchoredPosition.y = Mathf.Clamp (stickAnchoredPosition.y, -80f, 20f);
             _stickTransform.anchoredPosition = stickAnchoredPosition;
 
             // Find current difference between the previous central point of the joystick and it's current position
@@ -185,8 +190,8 @@ namespace CnControls
                     // We move the base so it maps the new joystick center position
                     var baseMovementDifference = difference.magnitude - MovementRange;
                     var addition = normalizedDifference * baseMovementDifference;
-                    _baseTransform.anchoredPosition += addition;
-                    _intermediateStickPosition += addition;
+              //      _baseTransform.anchoredPosition += addition;
+                     _intermediateStickPosition += addition;
                 }
                 else
                 {
@@ -197,8 +202,10 @@ namespace CnControls
             // We should now calculate axis values based on final position and not on "virtual" one
             var finalStickAnchoredPosition = _stickTransform.anchoredPosition;
             // Sanity recalculation
-            Vector2 finalDifference = new Vector2(finalStickAnchoredPosition.x, finalStickAnchoredPosition.y) - _intermediateStickPosition;
+			Vector2 finalDifference = new Vector2(finalStickAnchoredPosition.x, finalStickAnchoredPosition.y) - _intermediateStickPosition;
             // We don't need any values that are greater than 1 or less than -1
+
+
             var horizontalValue = Mathf.Clamp(finalDifference.x * _oneOverMovementRange, -1f, 1f);
             var verticalValue = Mathf.Clamp(finalDifference.y * _oneOverMovementRange, -1f, 1f);
 
@@ -234,10 +241,12 @@ namespace CnControls
                 Vector3 localBasePosition;
                 RectTransformUtility.ScreenPointToWorldPointInRectangle(_stickTransform, eventData.position,
                     CurrentEventCamera, out localStickPosition);
-                RectTransformUtility.ScreenPointToWorldPointInRectangle(_baseTransform, eventData.position,
+
+
+      /*          RectTransformUtility.ScreenPointToWorldPointInRectangle(_baseTransform, eventData.position,
                     CurrentEventCamera, out localBasePosition);
 
-                _baseTransform.position = localBasePosition;
+                _baseTransform.position = localBasePosition;*/
                 _stickTransform.position = localStickPosition;
                 _intermediateStickPosition = _stickTransform.anchoredPosition;
             }
