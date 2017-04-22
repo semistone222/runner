@@ -713,6 +713,16 @@ Prefab:
       propertyPath: m_Color.a
       value: 0.078
       objectReference: {fileID: 0}
+    - target: {fileID: 114179197190594036, guid: 7207131c965416244ac87b8785fb5579,
+        type: 2}
+      propertyPath: MoveBase
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114179197190594036, guid: 7207131c965416244ac87b8785fb5579,
+        type: 2}
+      propertyPath: SnapsToFinger
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7207131c965416244ac87b8785fb5579, type: 2}
   m_IsPrefabParent: 0

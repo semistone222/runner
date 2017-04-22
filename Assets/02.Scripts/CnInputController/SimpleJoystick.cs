@@ -205,9 +205,8 @@ namespace CnControls
 			Vector2 finalDifference = new Vector2(finalStickAnchoredPosition.x, finalStickAnchoredPosition.y) - _intermediateStickPosition;
             // We don't need any values that are greater than 1 or less than -1
 
-
-            var horizontalValue = Mathf.Clamp(finalDifference.x * _oneOverMovementRange, -1f, 1f);
-            var verticalValue = Mathf.Clamp(finalDifference.y * _oneOverMovementRange, -1f, 1f);
+			var horizontalValue = Mathf.Clamp(finalDifference.x * _oneOverMovementRange, -1f, 1f); 
+			var verticalValue = Mathf.Clamp(finalDifference.y * _oneOverMovementRange, -1f, 1f); 
 
             // Finally, we update our virtual axis
             HorizintalAxis.Value = horizontalValue;
@@ -243,10 +242,10 @@ namespace CnControls
                     CurrentEventCamera, out localStickPosition);
 
 
-      /*          RectTransformUtility.ScreenPointToWorldPointInRectangle(_baseTransform, eventData.position,
+                RectTransformUtility.ScreenPointToWorldPointInRectangle(_baseTransform, eventData.position,
                     CurrentEventCamera, out localBasePosition);
 
-                _baseTransform.position = localBasePosition;*/
+                _baseTransform.position = localBasePosition;
                 _stickTransform.position = localStickPosition;
                 _intermediateStickPosition = _stickTransform.anchoredPosition;
             }
