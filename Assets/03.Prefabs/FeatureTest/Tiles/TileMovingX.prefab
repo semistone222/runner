@@ -9,22 +9,22 @@ Prefab:
     m_Modifications: []
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 1333215757895746}
+  m_RootGameObject: {fileID: 1737540634249072}
   m_IsPrefabParent: 1
---- !u!1 &1333215757895746
+--- !u!1 &1737540634249072
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 5
   m_Component:
-  - component: {fileID: 4858012515145188}
-  - component: {fileID: 33998384461583464}
-  - component: {fileID: 64801447569105374}
-  - component: {fileID: 23502176404180930}
-  - component: {fileID: 114485265818674890}
-  - component: {fileID: 65197314871536094}
-  - component: {fileID: 114753220836708236}
+  - component: {fileID: 4077757615475170}
+  - component: {fileID: 33372583078445136}
+  - component: {fileID: 64965817696642948}
+  - component: {fileID: 23139652684769480}
+  - component: {fileID: 114958299424650852}
+  - component: {fileID: 65204013695818406}
+  - component: {fileID: 114587611581788054}
   m_Layer: 0
   m_Name: TileMovingX
   m_TagString: Untagged
@@ -32,25 +32,25 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4858012515145188
+--- !u!4 &4077757615475170
 Transform:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1333215757895746}
+  m_GameObject: {fileID: 1737540634249072}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -12, y: 0, z: 12}
+  m_LocalPosition: {x: 48, y: 12, z: 60}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!23 &23502176404180930
+--- !u!23 &23139652684769480
 MeshRenderer:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1333215757895746}
+  m_GameObject: {fileID: 1737540634249072}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -77,19 +77,19 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!33 &33998384461583464
+--- !u!33 &33372583078445136
 MeshFilter:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1333215757895746}
+  m_GameObject: {fileID: 1737540634249072}
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
---- !u!64 &64801447569105374
+--- !u!64 &64965817696642948
 MeshCollider:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1333215757895746}
+  m_GameObject: {fileID: 1737540634249072}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
@@ -98,45 +98,45 @@ MeshCollider:
   m_InflateMesh: 0
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
---- !u!65 &65197314871536094
+--- !u!65 &65204013695818406
 BoxCollider:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1333215757895746}
+  m_GameObject: {fileID: 1737540634249072}
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 10, y: 1, z: 10}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &114485265818674890
+--- !u!114 &114587611581788054
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1333215757895746}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8ab595c957b4e8a43b73927ac9056a07, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isCheckRespawnPoint: 1
-  isVanish: 0
-  timeVanishing: 3
-  timeRespawning: 2
-  isMoveWithPlayers: 1
---- !u!114 &114753220836708236
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1333215757895746}
+  m_GameObject: {fileID: 1737540634249072}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a75d93cf470e14342810f8685a83d3b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: -0.75
+  moveSpeed: -0.5
   isRepeat: 1
   maxAmount: 12
+--- !u!114 &114958299424650852
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1737540634249072}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ab595c957b4e8a43b73927ac9056a07, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isCheckRespawnPoint: 0
+  isVanish: 0
+  timeVanishing: 0
+  timeRespawning: 0
+  isMoveWithPlayers: 1

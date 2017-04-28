@@ -21,9 +21,6 @@ public class TileInfo : Tile
 
     public bool isMoveWithPlayers = false; //움직이는 타일일경우, 플레이어와 같이 이동할 것인가?
 
-    private float MOVESPD_ORIGIN;
-    private float JUMPSPD_ORIGIN;
-
     private void Awake()
     {
         DoNotCheckRespawnIfVanish(); /*isVanish가 체크된 타일인 경우, 강제로 isCheckRespawnPoint 체크 해제*/

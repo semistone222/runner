@@ -27,6 +27,8 @@ public class ObjectMovingY : MonoBehaviour
     void Awake()
     {
         maxAmount = Mathf.Abs(maxAmount);
+        start = transform.position.y;
+        StartCoroutine(MovingCoroutine());
     }
 
     void Start()

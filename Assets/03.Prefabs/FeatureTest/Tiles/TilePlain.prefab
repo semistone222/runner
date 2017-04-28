@@ -121,3 +121,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isCheckRespawnPoint: 1
+  isVanish: 0
+  timeVanishing: 0
+  timeRespawning: 0
+  isMoveWithPlayers: 0

@@ -17,6 +17,13 @@ public class PlayerControllerOff : MonoBehaviour
     public float jumpSpeed;
     public float gravity;
 
+    [HideInInspector]
+    public float MOVESPD_ORIGIN;    //플레이어의 최초 이동 속도
+    [HideInInspector]
+    public float JUMPSPD_ORIGIN;    //플레이어의 최초 이동 속도
+
+    private CrowdControl[] ccArray; //플레이어에게 부착된 상태이상을 체크할 배열
+
     private Transform myTransform;
     private CharacterController myCharacterController;
     //private PhotonView myPhotonView;
@@ -42,6 +49,9 @@ public class PlayerControllerOff : MonoBehaviour
         //{
         Camera.main.GetComponent<CameraController>().player = this.gameObject;
         //}
+
+        MOVESPD_ORIGIN = moveSpeed;
+        JUMPSPD_ORIGIN = jumpSpeed;
 
         currPos = myTransform.position;
         currRot = myTransform.rotation;
@@ -82,6 +92,28 @@ public class PlayerControllerOff : MonoBehaviour
         if (myCharacterController.isGrounded)
         {
             jumpVal = jumpSpeed;
+        }
+    }
+
+    void Update()
+    {
+        ccArray = GetComponents<CrowdControl>();
+        if(ccArray.Length != 0)
+        {
+            float movespdFactor = 1f;
+            float jumpspdFactor = 1f;
+            foreach (CrowdControl cc in ccArray)
+            {
+                movespdFactor *= cc.movespdMultiplier;
+                jumpspdFactor *= cc.jumpspdMultiplier;
+            }
+            moveSpeed = MOVESPD_ORIGIN * movespdFactor;
+            jumpSpeed = JUMPSPD_ORIGIN * jumpspdFactor;
+        }
+        else
+        {
+            moveSpeed = MOVESPD_ORIGIN;
+            jumpSpeed = JUMPSPD_ORIGIN;
         }
     }
     /*
