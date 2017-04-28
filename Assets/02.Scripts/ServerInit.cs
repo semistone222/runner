@@ -18,6 +18,7 @@ public class ServerInit : MonoBehaviour {
 
 	void Awake () {
 		if (!PhotonNetwork.connected) {
+			PhotonNetwork.autoJoinLobby = true;
 			PhotonNetwork.ConnectUsingSettings (version);
 		}
 
