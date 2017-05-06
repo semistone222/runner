@@ -38,11 +38,13 @@ public class GameManager : MonoBehaviour {
 	}
 
 	void OnPhotonPlayerConnected(PhotonPlayer newPlayer) {
+		Debug.Log("OnPhotonPlayerConnected: " + newPlayer);
 		Debug.Log (newPlayer.ToStringFull ());
 		GetConnectPlayerCount ();
 	}
 
 	void OnPhotonPlayerDisConnected(PhotonPlayer outPlayer) {
+		Debug.Log("OnPhotonPlayerDisconnected: " + outPlayer);
 		Debug.Log (outPlayer.ToStringFull ());
 		GetConnectPlayerCount ();
 	}
@@ -56,6 +58,7 @@ public class GameManager : MonoBehaviour {
 	}
 
 	void OnLeftRoom() {
+		Debug.Log("OnLeftRoom");
 		SceneManager.LoadScene("Lobby");
 	}
 

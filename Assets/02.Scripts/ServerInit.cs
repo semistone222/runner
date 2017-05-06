@@ -18,7 +18,6 @@ public class ServerInit : MonoBehaviour {
 
 	void Awake () {
 		if (!PhotonNetwork.connected) {
-			PhotonNetwork.autoJoinLobby = true;
 			PhotonNetwork.ConnectUsingSettings (version);
 		}
 
@@ -27,7 +26,7 @@ public class ServerInit : MonoBehaviour {
 	}
 
 	void OnJoinedLobby() {
-		Debug.Log ("Entered Lobby !");
+		Debug.Log ("OnJoinedLobby !");
 	}
 
 	// TODO : PeerCreated에서 멈춘다. autoJoinLobby 이것 때문인가...
@@ -66,6 +65,7 @@ public class ServerInit : MonoBehaviour {
 	}
 
 	void OnPhotonCreateRoomFailed (object[] error) {
+		Debug.Log("OnPhotonCreateRoomFailed");
 		Debug.Log(error[0].ToString()); // error code
 		Debug.Log(error[1].ToString()); // error message
 	}
