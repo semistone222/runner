@@ -60,9 +60,8 @@ public class PlayerController : MonoBehaviour {
 		moveVec.y = jumpVal;
 		myCharacterController.Move (moveVec * Time.deltaTime);
 	}
-    
+
 	void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info) {
-        Debug.Log("OnPhontonSerializeView");
 
 		if (stream.isWriting) {
 			stream.SendNext (myTransform.position);
@@ -78,8 +77,8 @@ public class PlayerController : MonoBehaviour {
 		if (myPhotonView.isMine) {
 
 		} else {
-            myTransform.position = Vector3.Lerp (myTransform.position, currPos, Time.deltaTime * 10.0f);
-            myTransform.rotation = Quaternion.Slerp (myTransform.rotation, currRot, Time.deltaTime * 10.0f);
-        }
-    }
+			myTransform.position = Vector3.Lerp (myTransform.position, currPos, Time.deltaTime * 3.0f);
+			myTransform.rotation = Quaternion.Slerp (myTransform.rotation, currRot, Time.deltaTime * 3.0f);
+		}
+	}
 }
