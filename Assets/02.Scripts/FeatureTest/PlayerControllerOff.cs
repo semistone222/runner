@@ -17,12 +17,16 @@ public class PlayerControllerOff : MonoBehaviour
     public float jumpSpeed;
     public float gravity;
 
+    /*추가한 내용*/
     [HideInInspector]
     public float MOVESPD_ORIGIN;    //플레이어의 최초 이동 속도
     [HideInInspector]
     public float JUMPSPD_ORIGIN;    //플레이어의 최초 이동 속도
 
+
     private CrowdControl[] ccArray; //플레이어에게 부착된 상태이상을 체크할 배열
+    /// ///////////////
+
 
     private Transform myTransform;
     private CharacterController myCharacterController;
@@ -35,8 +39,13 @@ public class PlayerControllerOff : MonoBehaviour
     private Vector3 currPos = Vector3.zero;
     private Quaternion currRot = Quaternion.identity;
 
+    /*추가한 내용*/
     //[HideInInspector]
     public Vector3 respawnPoint; /*플레이어가 죽었을때 리스폰 할 위치입니다. 디버깅 용으로 HideInInspector 해제해놨습니다.*/
+    private bool isMoveAccel = false;
+    private bool isJumpAccel = false;
+    /// ///////////////
+
 
     void Awake()
     {
@@ -49,10 +58,10 @@ public class PlayerControllerOff : MonoBehaviour
         //{
         Camera.main.GetComponent<CameraController>().player = this.gameObject;
         //}
-
+        /*추가한 내용*/
         MOVESPD_ORIGIN = moveSpeed;
         JUMPSPD_ORIGIN = jumpSpeed;
-
+        ///////////////
         currPos = myTransform.position;
         currRot = myTransform.rotation;
 
@@ -74,7 +83,15 @@ public class PlayerControllerOff : MonoBehaviour
             moveVec.y = 0f;
             moveVec.Normalize();
             myTransform.forward = moveVec;
-            moveVec *= moveSpeed;
+
+            if(isMoveAccel)
+            {
+                moveVec *= moveSpeed * inputVec.sqrMagnitude;
+            }
+            else
+            {
+                moveVec *= moveSpeed;
+            }
         }
 
         if (CnInputManager.GetButtonDown("Jump"))
@@ -84,21 +101,47 @@ public class PlayerControllerOff : MonoBehaviour
 
         jumpVal -= gravity * Time.deltaTime;
         moveVec.y = jumpVal;
+
+
         myCharacterController.Move(moveVec * Time.deltaTime);
     }
+
+    /*테스트 용으로 넣은 함수로, 온라인에선 사용할 수 없습니다.*/
+    public void MoveAccelCheck()
+    {
+        isMoveAccel = !isMoveAccel;
+    }
+    public void JumpAccelCheck()
+    {
+        isJumpAccel = !isJumpAccel;
+    }
+    /// ////////////////////////////////////////////////////////////
 
     public void JumpCheck()
     {
         if (myCharacterController.isGrounded)
         {
-            jumpVal = jumpSpeed;
+
+            if (isJumpAccel)
+            {
+                jumpVal = jumpSpeed * (0.5f + inputVec.sqrMagnitude);
+            }
+            else
+            {
+                jumpVal = jumpSpeed;
+            }
         }
     }
 
     void Update()
     {
+        CrowdControlCheck();
+    }
+
+    private void CrowdControlCheck()
+    {
         ccArray = GetComponents<CrowdControl>();
-        if(ccArray.Length != 0)
+        if (ccArray.Length != 0)
         {
             float movespdFactor = 1f;
             float jumpspdFactor = 1f;
