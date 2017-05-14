@@ -21,7 +21,7 @@ public class Gimmick : MonoBehaviour
     private BoxCollider bpCollider; //오브젝트가 가지고 있어야하는 물리적 박스 콜라이더
     private BoxCollider bCollider; //위와 같으나, BoxCollider 인 경우
 
-    static float bColFactor = 0.05f;
+    static float bColFactor = 0.15f;
     static float sColFactor = 0.05f;
 
     private void Start()
@@ -47,8 +47,9 @@ public class Gimmick : MonoBehaviour
                 bpCollider = GetComponent<BoxCollider>();
 
                 bCollider = CopyComponent(bpCollider, this.gameObject);
-                bCollider.center = new Vector3(bCollider.center.x, bCollider.center.y + bColFactor
-                    , bCollider.center.z);
+                // bCollider.center = new Vector3(bCollider.center.x, bCollider.center.y + bColFactor
+                //     , bCollider.center.z);
+                bCollider.size = new Vector3(bCollider.size.x, bCollider.size.y * (1 + bColFactor), bCollider.size.z);
                 bCollider.isTrigger = true;
             }
             else if (pCollider == null)

@@ -98,7 +98,7 @@ Transform:
   m_GameObject: {fileID: 1465652058971556}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 3, z: 0}
-  m_LocalScale: {x: 1, y: 3, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4252456582267200}
   - {fileID: 4555342656326298}
@@ -233,9 +233,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ed4328296e84f747badfcecc8f029df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 15
-  jumpSpeed: 10
-  gravity: 10
+  moveSpeed: 45
+  jumpSpeed: 20
+  gravity: 40
   MOVESPD_ORIGIN: 0
   JUMPSPD_ORIGIN: 0
   respawnPoint: {x: 0, y: 0, z: 0}
@@ -250,7 +250,7 @@ CharacterController:
   m_Enabled: 1
   serializedVersion: 2
   m_Height: 1
-  m_Radius: 0.75
+  m_Radius: 0.5
   m_SlopeLimit: 45
   m_StepOffset: 0.3
   m_SkinWidth: 0.08
