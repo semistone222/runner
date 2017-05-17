@@ -56,8 +56,19 @@ public class GameManager : MonoBehaviour {
 	}
 
 	void OnLeftRoom() {
+        Debug.Log("OnLeftRoom");
 		SceneManager.LoadScene("Lobby");
 	}
+    
+    void OnPhotonPlayerDisconnected(PhotonPlayer player)
+    {
+        Debug.Log("OnPhotonPlayerDisconnected: " + player);
+
+        if (PhotonNetwork.isMasterClient)
+        {
+            Debug.Log("OnPhotonPlayerDisconnected - isMasterClient");
+        }
+    }
 
 	[PunRPC]
 	void LogMsg(string msg) {

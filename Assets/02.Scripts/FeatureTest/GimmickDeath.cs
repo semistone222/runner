@@ -27,7 +27,7 @@ public class GimmickDeath : Gimmick
         /*온라인일때*/
         if (other.GetComponent<PlayerController>() != null)
         {
-            other.transform.position = other.GetComponent<PlayerController>().respawnPoint;
+            //other.transform.position = other.GetComponent<PlayerController>().respawnPoint;
         }
         /*오프라인일때*/
         else if (other.GetComponent<PlayerControllerOff>() != null)

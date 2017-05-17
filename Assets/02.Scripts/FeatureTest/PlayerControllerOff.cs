@@ -94,11 +94,8 @@ public class PlayerControllerOff : MonoBehaviour
             }
         }
 
-        if (CnInputManager.GetButtonDown("Jump"))
-        {
-            JumpCheck();
-        }
-
+		JumpCheck ();
+	
         jumpVal -= gravity * Time.deltaTime;
         moveVec.y = jumpVal;
 
@@ -119,21 +116,16 @@ public class PlayerControllerOff : MonoBehaviour
 
     public void JumpCheck()
     {
-        if (myCharacterController.isGrounded)
-        {
-
-            if (isJumpAccel)
-            {
-                jumpVal = jumpSpeed * (0.5f + inputVec.sqrMagnitude);
-            }
-            else
-            {
-                jumpVal = jumpSpeed;
-            }
-        }
+		if (myCharacterController.isGrounded) {
+			if (CnInputManager.GetButtonDown ("Jump")) {
+				jumpVal = jumpSpeed;
+			} else {
+				jumpVal = 0;
+			}
+		}
     }
 
-    void Update()
+    void Update()	
     {
         CrowdControlCheck();
     }

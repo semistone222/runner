@@ -10,7 +10,7 @@ using UnityEngine;
  *  각 특수 오브젝트의 기능과 관련한 컴포넌트입니다. Inspector에서 설정 가능합니다.
  *  
  *  May 14th, 2017 : isMoveWithPlayer 관련 이슈 발생으로, 현재 강제 해제 중.
- */
+ */	
 
 public class GimmickInfo : Gimmick
 {
@@ -125,10 +125,13 @@ public class GimmickInfo : Gimmick
             Invoke("RespawnTile", timeVanishing + timeRespawning);
         }
 
+        
         if (isCheckRespawnPoint)
-        {/*리스폰 포인트인 오브젝트 인 경우*/
+        {//리스폰 포인트인 오브젝트 인 경우
             SetRespawnPoint(other);
         }
+        
+
 
         if (isJumper)
         {
@@ -138,8 +141,8 @@ public class GimmickInfo : Gimmick
                 /*온라인일때*/
                 if (other.GetComponent<PlayerController>() != null)
                 {
-                    other.GetComponent<PlayerController>().JumpCheck();
-                    other.GetComponent<PlayerController>().jumpSpeed = other.GetComponent<PlayerController>().JUMPSPD_ORIGIN * jumperMultiplier;
+                    //other.GetComponent<PlayerController>().JumpCheck();
+                    //other.GetComponent<PlayerController>().jumpSpeed = other.GetComponent<PlayerController>().JUMPSPD_ORIGIN * jumperMultiplier;
                 }
                 /*오프라인일때*/
                 else if (other.GetComponent<PlayerControllerOff>() != null)
@@ -157,6 +160,14 @@ public class GimmickInfo : Gimmick
 
     }
 
+    protected override void StayFunc(Collider other)
+    {
+       // if (isCheckRespawnPoint)
+        //{//리스폰 포인트인 오브젝트 인 경우
+       //     SetRespawnPoint(other);
+       // }
+    }
+
     protected override void ExitFunc(Collider other)
     {
         if (isJumper)
@@ -167,7 +178,7 @@ public class GimmickInfo : Gimmick
                 /*온라인일때*/
                 if (other.GetComponent<PlayerController>() != null)
                 {
-                    other.GetComponent<PlayerController>().jumpSpeed = other.GetComponent<PlayerController>().JUMPSPD_ORIGIN / jumperMultiplier;
+                    //other.GetComponent<PlayerController>().jumpSpeed = other.GetComponent<PlayerController>().JUMPSPD_ORIGIN / jumperMultiplier;
                 }
                 /*오프라인일때*/
                 else if (other.GetComponent<PlayerControllerOff>() != null)
@@ -188,18 +199,49 @@ public class GimmickInfo : Gimmick
         /*Player면*/
         if (CheckPlayer(other))
         {
-            /*같은 리스폰포인트를 또 저장하지 않는 코드를 추가해야 함*/
 
-            respawnPoint = new Vector3(transform.position.x, other.transform.position.y + 3f, transform.position.z);
+            if (other.GetComponent<CharacterController>().isGrounded == false)
+            {/*땅을 밟고 있을 때만 저장*/
+                Debug.Log("Fuck!");
+                return;
+            }
+
+            float xSin = Mathf.Sin(transform.rotation.x  * 4); //왜 *4인지 1도 모르겠음...
+            float yFactor = Mathf.Pow((transform.lossyScale.y / 2), 2);
+            float zFactor = Mathf.Pow((transform.lossyScale.z / 2) * xSin, 2);
+
+            Debug.Log(yFactor + " " + zFactor + " " + xSin + " " + transform.rotation.x);
+
+            //밟은 오브젝트의 중앙좌표의 높이와, 밟은 순간 플레이어의 y 위치중에 큰 것 + 3f
+            float xPos = transform.position.x;
+            float yPos = Mathf.Max(transform.position.y + Mathf.Sqrt(yFactor + zFactor), other.transform.position.y) + 3f;
+            float zPos = transform.position.z;
+
+            respawnPoint = new Vector3(xPos, yPos, zPos);
+
             /*온라인일때*/
             if (other.GetComponent<PlayerController>() != null)
             {
-                other.GetComponent<PlayerController>().respawnPoint = respawnPoint;
+                //Vector3 formerRespawnPoint = other.GetComponent<PlayerController>().respawnPoint;
+
+              //  if (xPos != formerRespawnPoint.x
+              //      && zPos != formerRespawnPoint.z)
+               // {
+                    //other.GetComponent<PlayerController>().respawnPoint = respawnPoint;
+              //  }
             }
             /*오프라인일때*/
             else if (other.GetComponent<PlayerControllerOff>() != null)
             {
-                other.GetComponent<PlayerControllerOff>().respawnPoint = respawnPoint;
+                Vector3 formerRespawnPoint = other.GetComponent<PlayerControllerOff>().respawnPoint;
+                
+              //  if (xPos != formerRespawnPoint.x
+               //     && zPos != formerRespawnPoint.z)
+             //   {
+                    other.GetComponent<PlayerControllerOff>().respawnPoint = respawnPoint;
+
+                    Debug.Log("COOL");
+             //   }
             }
 
         }
