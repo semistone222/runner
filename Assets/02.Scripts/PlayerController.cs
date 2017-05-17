@@ -53,6 +53,8 @@ public class PlayerController : MonoBehaviour {
 		if (myCharacterController.isGrounded) {
 			if (CnInputManager.GetButtonDown ("Jump")) {
 				jumpVal = jumpSpeed;
+			} else {
+				jumpVal = 0;
 			}
 		}
 
