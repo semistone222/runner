@@ -54,7 +54,7 @@ public class UIManager : MonoBehaviour
         audioMixer.SetFloat("SEVol", 0f);
     }
 
-    private void ClickSound()
+	private void ClickSound()
     {
         if (clickSound.isPlaying == false)
         {
@@ -64,7 +64,7 @@ public class UIManager : MonoBehaviour
 
     public void UISettingToggle()
     {
-        ClickSound();
+       // ClickSound();
         isUISettingOn = !isUISettingOn;
         UISetting.SetActive(isUISettingOn);
     }

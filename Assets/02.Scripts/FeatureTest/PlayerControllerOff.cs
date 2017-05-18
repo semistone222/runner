@@ -1,4 +1,4 @@
-﻿﻿using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using CnControls;
 using UnityEngine;
@@ -47,6 +47,9 @@ public class PlayerControllerOff : MonoBehaviour
 	/// ///////////////
 
 
+	public Animator ani;
+
+
 	void Awake()
 	{
 		myTransform = GetComponent<Transform>();
@@ -76,6 +79,16 @@ public class PlayerControllerOff : MonoBehaviour
                 */
 		inputVec = new Vector3(CnInputManager.GetAxis("JoyStickX"), CnInputManager.GetAxis("JoyStickY"));
 		moveVec = Vector3.zero;
+
+// Animation 동작 부분
+		if (inputVec.x == 0 && inputVec.y == 0) {
+			ani.SetBool ("IsRun", false);
+
+		} else {
+			ani.SetBool ("IsRun", true);
+		}
+
+
 
 		if (inputVec.sqrMagnitude > 0.001f)
 		{
