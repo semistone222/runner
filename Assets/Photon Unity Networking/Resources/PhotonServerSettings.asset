@@ -43,4 +43,9 @@ MonoBehaviour:
   - RequestForPickupTimes
   - TaggedPlayer
   - LogMsg
+  - OnGameEnd
+  - OnGameReady
+  - OnGameStart
+  - OnReadyCancel
+  - StopStartgame
   DisableAutoOpenWizard: 1

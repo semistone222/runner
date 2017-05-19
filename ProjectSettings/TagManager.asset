@@ -8,6 +8,10 @@ TagManager:
   - FinishLine
   - Tile
   - DeathTile
+  - StartZone
+  - EndZone
+  - StartText
+  - StartBoundary
   layers:
   - Default
   - TransparentFX

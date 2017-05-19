@@ -72,15 +72,23 @@ public class ServerInit : MonoBehaviour {
 
 	void OnJoinedRoom() {
 		Debug.Log ("Enter Room");
-		StartCoroutine (this.LoadGround ());
+		StartCoroutine (this.LoadProtoMap ());
 	}
 
-	IEnumerator LoadGround() {
+/*	IEnumerator LoadGround() {
 		PhotonNetwork.isMessageQueueRunning = false; // stop networking until loading scene
 
 		SceneManager.LoadScene ("Ground");
 		yield return null;
+	}*/
+
+	IEnumerator LoadProtoMap() {
+		PhotonNetwork.isMessageQueueRunning = false; // stop networking until loading scene
+
+		SceneManager.LoadScene ("ProtoMap");
+		yield return null;
 	}
+
 
 	public void OnClickJoinRandomRoom() {
 		string _userId = userId.text;
