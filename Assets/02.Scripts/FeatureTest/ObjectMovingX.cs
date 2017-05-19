@@ -10,7 +10,7 @@ using UnityEngine;
  *  Y방향으로 이동하는 오브젝트를 위한 컴포넌트 입니다.
  */
 
-public class ObjectMovingY : MonoBehaviour
+public class ObjectMovingX : MonoBehaviour
 {
 
     public float moveSpeed;    //오브젝트의 이동속도
@@ -31,7 +31,7 @@ public class ObjectMovingY : MonoBehaviour
 
     void Start()
     {
-        start = transform.position.y;
+        start = transform.position.x;
         StartCoroutine(MovingCoroutine());
     }
 
@@ -39,13 +39,13 @@ public class ObjectMovingY : MonoBehaviour
     {
         for (;;)
         {
-            moveVector = (Vector3.up * moveSpeed) * minusFactor;
+            moveVector = (Vector3.right * moveSpeed) * minusFactor;
             transform.Translate(moveVector, Space.World);
 
-            moveVector = new Vector3(transform.position.x, Mathf.Clamp(transform.position.y, start-maxAmount, start+maxAmount), transform.position.z);
+            moveVector = new Vector3(Mathf.Clamp(transform.position.x, start-maxAmount, start+maxAmount), transform.position.y, transform.position.z);
             transform.position = moveVector;
 
-            last = transform.position.y;
+            last = transform.position.x;
 
             yield return new WaitForSeconds(Time.deltaTime);    //On-line에서도 문제 없을지 확인해야함!
 

@@ -12,7 +12,7 @@ using UnityEngine;
 
 public class GimmickDeath : Gimmick
 {
-	protected override void EnterFunc(Collider other)
+	public override void EnterFunc(Collider other)
 	{
 		BeforeRespawn();
 		Respawn(other);
