@@ -74,15 +74,12 @@ public class GimmickInfo : Gimmick
 	{
 		if (other.gameObject.tag == "Player")
 		{
-			Debug.Log("Player!");
 			return true;
 		}
-
-		Debug.Log("No!");
 		return false;
 	}
 
-	protected override void EnterFunc(Collider other)
+	public override void EnterFunc(Collider other)
 	{
 		/*사용자에게 상태이상을 거는 장애물*/
 		hasTag = false;
@@ -160,7 +157,7 @@ public class GimmickInfo : Gimmick
 
 	}
 
-	protected override void StayFunc(Collider other)
+	public override void StayFunc(Collider other)
 	{
 		// if (isCheckRespawnPoint)
 		//{//리스폰 포인트인 오브젝트 인 경우
@@ -168,7 +165,7 @@ public class GimmickInfo : Gimmick
 		// }
 	}
 
-	protected override void ExitFunc(Collider other)
+	public override void ExitFunc(Collider other)
 	{
 		if (isJumper)
 		{
@@ -199,10 +196,8 @@ public class GimmickInfo : Gimmick
 		/*Player면*/
 		if (CheckPlayer(other))
 		{
-
 			if (other.GetComponent<CharacterController>().isGrounded == false)
 			{/*땅을 밟고 있을 때만 저장*/
-				Debug.Log("Fuck!");
 				return;
 			}
 
@@ -239,9 +234,7 @@ public class GimmickInfo : Gimmick
 				//     && zPos != formerRespawnPoint.z)
 				//   {
 				other.GetComponent<PlayerControllerOff>().respawnPoint = respawnPoint;
-
-				Debug.Log("COOL");
-				//   }
+                //   }
 			}
 
 		}

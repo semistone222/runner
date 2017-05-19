@@ -6,6 +6,12 @@ TagManager:
   tags:
   - ROOM_ITEM
   - FinishLine
+  - Tile
+  - DeathTile
+  - StartZone
+  - EndZone
+  - StartText
+  - StartBoundary
   layers:
   - Default
   - TransparentFX

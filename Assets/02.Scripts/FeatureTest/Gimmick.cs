@@ -5,9 +5,11 @@ using UnityEngine;
 /*
  *  Gimmick , by Jin-seok, Yu
  * 
- *  Last Update : Apr 29th, 2017
+ *  Last Update : May 19th, 2017
  * 
  *  모든 특수 오브젝트의 기초가 될 super class 입니다.
+
+    -현재 충돌이슈문제로, 콜라이더 생성 기능을 제거하였습니다.
  */
 
 public class Gimmick : MonoBehaviour
@@ -21,12 +23,14 @@ public class Gimmick : MonoBehaviour
 	private BoxCollider bpCollider; //오브젝트가 가지고 있어야하는 물리적 박스 콜라이더
 	private BoxCollider bCollider; //위와 같으나, BoxCollider 인 경우
 
-	static float bColFactor = 0.15f;
-	static float sColFactor = 0.05f;
+	static float bColFactorX = 0.03f;
+    static float bColFactorY = 0.03f;
+    static float bColFactorZ = 0.03f;
+    static float sColFactor = 0.05f;
 
 	private void Start()
 	{/*기동시 콜라이더 있는지 확인*/
-		FindCollider(); 
+		//FindCollider(); 
 	}
 
 	private void FindCollider()
@@ -49,7 +53,7 @@ public class Gimmick : MonoBehaviour
 				bCollider = CopyComponent(bpCollider, this.gameObject);
 				// bCollider.center = new Vector3(bCollider.center.x, bCollider.center.y + bColFactor
 				//     , bCollider.center.z);
-				bCollider.size = new Vector3(bCollider.size.x, bCollider.size.y * (1 + bColFactor), bCollider.size.z);
+				bCollider.size = new Vector3(bCollider.size.x * (1 + bColFactorX), bCollider.size.y * (1 + bColFactorY), bCollider.size.z * (1 + bColFactorZ));
 				bCollider.isTrigger = true;
 			}
 			else if (pCollider == null)
@@ -83,7 +87,7 @@ public class Gimmick : MonoBehaviour
 		}
 		return copy as T;
 	}
-
+    /*
 	private void OnTriggerEnter(Collider other)
 	{
 		EnterFunc(other);
@@ -98,17 +102,18 @@ public class Gimmick : MonoBehaviour
 	{
 		StayFunc(other);
 	}
+    */
 
 	/*Obstacle의 sub class에서 override해 사용할 함수입니다.*/
-	protected virtual void EnterFunc(Collider other)
+	public virtual void EnterFunc(Collider other)
 	{
 		//Collider에 접근했을 때 호출할 함수.
 	}
-	protected virtual void ExitFunc(Collider other)
+	public virtual void ExitFunc(Collider other)
 	{
 		//Collider를 빠져나갔을 때 호출할 함수.
 	}
-	protected virtual void StayFunc(Collider other)
+	public virtual void StayFunc(Collider other)
 	{
 		//Collider에 머무를 때 호출할 함수
 	}
