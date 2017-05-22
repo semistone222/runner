@@ -18,6 +18,6 @@ public class CameraController : MonoBehaviour {
 		var h = CnInputManager.GetAxis("TouchPadX");
 		offset = Quaternion.AngleAxis (h * rotationSpeed, Vector3.up) * offset;
 		transform.position = player.transform.position + offset;
-		transform.LookAt (player.transform.position);
+		transform.LookAt (player.transform.position - offset);
 	}
 }

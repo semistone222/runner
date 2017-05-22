@@ -17,10 +17,10 @@ public class UIManager : MonoBehaviour
     public GameObject UIJoystick;
     public GameObject PadToggle;
 
-    public GameObject CameraPad;
+    private GameObject CameraObject;
     public Image CameraToggleLevelSprite;
     public Sprite[] CameraToggleSprites;
-    public int[] CameraValues;
+    public float[] CameraValues;
     private int spriteIndex = 0;
 
     private AudioSource clickSound;
@@ -31,7 +31,8 @@ public class UIManager : MonoBehaviour
         clickSound.playOnAwake = false;
 
         //spriteIndex = 현재 카메라 감도 값에 비례해서 대입한 후
-        CameraPad.GetComponent<Touchpad>().Friction = CameraValues[spriteIndex % CameraValues.Length];
+        CameraObject = Camera.main.gameObject;
+        CameraObject.GetComponent<CameraController>().rotationSpeed = CameraValues[spriteIndex % CameraValues.Length];
     }
 
     private void Start()
@@ -88,7 +89,7 @@ public class UIManager : MonoBehaviour
             spriteIndex = spriteIndex % length;
 
             CameraToggleLevelSprite.sprite = CameraToggleSprites[spriteIndex];
-            CameraPad.GetComponent<Touchpad>().Friction = CameraValues[spriteIndex];
+            CameraObject.GetComponent<CameraController>().rotationSpeed = CameraValues[spriteIndex];
         }
     }
 

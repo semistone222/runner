@@ -1217,13 +1217,15 @@ MonoBehaviour:
   UISetting: {fileID: 1665158407583944}
   UIJoystick: {fileID: 1162121951613608}
   PadToggle: {fileID: 1022005597218690}
-  CameraPad: {fileID: 1736492091486070}
   CameraToggleLevelSprite: {fileID: 114860994251566536}
   CameraToggleSprites:
   - {fileID: 21300000, guid: f5aab64d84639534281911171b4e13c2, type: 3}
   - {fileID: 21300000, guid: d96365ec5ef1df7498823b60a4f36cc1, type: 3}
   - {fileID: 21300000, guid: 9b727b5a999105040964f517c2b9a249, type: 3}
-  CameraValues: c0c62d001027000003000000
+  CameraValues:
+  - 0
+  - 10000
+  - 3
 --- !u!114 &114247062837027648
 MonoBehaviour:
   m_ObjectHideFlags: 1
