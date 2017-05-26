@@ -24,11 +24,13 @@ public class UIManager : MonoBehaviour
     private int spriteIndex = 0;
 
     private AudioSource clickSound;
+    public AudioSource clickSound2;
 
     private void Awake()
     {
         clickSound = GetComponent<AudioSource>();
         clickSound.playOnAwake = false;
+        clickSound2.playOnAwake = false;
 
         //spriteIndex = 현재 카메라 감도 값에 비례해서 대입한 후
         CameraObject = Camera.main.gameObject;
@@ -63,9 +65,24 @@ public class UIManager : MonoBehaviour
         }
     }
 
+    private void ClickSound2()
+    {
+        if (clickSound2.isPlaying == false)
+        {
+            clickSound2.Play();
+        }
+    }
+
     public void UISettingToggle()
     {
-       // ClickSound();
+        if(isUISettingOn)
+        {
+            ClickSound();
+        }
+        else
+        {
+            ClickSound2();
+        }
         isUISettingOn = !isUISettingOn;
         UISetting.SetActive(isUISettingOn);
     }
