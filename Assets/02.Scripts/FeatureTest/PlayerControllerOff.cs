@@ -41,12 +41,15 @@ public class PlayerControllerOff : MonoBehaviour
     private Vector3 currPos = Vector3.zero;
     private Quaternion currRot = Quaternion.identity;
 
+    private AudioSource JumpSound;
+
+
     /*추가한 내용*/
     //[HideInInspector]
     public Vector3 respawnPoint; /*플레이어가 죽었을때 리스폰 할 위치입니다. 디버깅 용으로 HideInInspector 해제해놨습니다.*/
     private bool isMoveAccel = false;
     private bool isJumpAccel = false;
-    /// ///////////////
+    public bool isGround = false;
 
 
     public Animator ani;
@@ -73,6 +76,9 @@ public class PlayerControllerOff : MonoBehaviour
         currRot = myTransform.rotation;
 
         respawnPoint = currPos;
+
+        JumpSound = GetComponent<AudioSource>();
+        JumpSound.playOnAwake = false;
     }
 
     void FixedUpdate()
@@ -81,6 +87,26 @@ public class PlayerControllerOff : MonoBehaviour
             if (!myPhotonView.isMine)
                 return;
                 */
+
+
+        if (CnInputManager.GetButtonDown("Jump"))
+        {
+            if (myCharacterController.isGrounded)
+            {
+                JumpingSound();
+                jumpVal = jumpSpeed;
+            }
+        }
+        else
+        {
+            if (myCharacterController.isGrounded)
+            {
+                jumpVal = 0;
+            }
+        }
+
+
+
         inputVec = new Vector3(CnInputManager.GetAxis("JoyStickX"), CnInputManager.GetAxis("JoyStickY"));
         moveVec = Vector3.zero;
 
@@ -111,18 +137,6 @@ public class PlayerControllerOff : MonoBehaviour
             else
             {
                 moveVec *= moveSpeed;
-            }
-        }
-
-        if (myCharacterController.isGrounded)
-        {
-            if (CnInputManager.GetButtonDown("Jump"))
-            {
-                jumpVal = jumpSpeed;
-            }
-            else
-            {
-                jumpVal = 0;
             }
         }
 
@@ -160,7 +174,21 @@ public class PlayerControllerOff : MonoBehaviour
     {
 
         CrowdControlCheck();
+
+        //For Debug
+        Debug.Log(myCharacterController.isGrounded);
     }
+
+
+    private void JumpingSound()
+    {
+        if (JumpSound.isPlaying == false)
+        {
+            JumpSound.Play();
+        }
+    }
+
+
 
     private void CrowdControlCheck()
     {
@@ -203,7 +231,7 @@ public class PlayerControllerOff : MonoBehaviour
 
             Debug.Log(col.name);
             col.GetComponent<Gimmick>().EnterFunc(hit.controller);
-        }        
+        }
         else if (col.tag == "FinishLine")
         {
             //현재 FinishLine에선 충돌이슈가 발생하지 않으므로 무시.

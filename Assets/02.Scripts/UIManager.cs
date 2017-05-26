@@ -17,21 +17,24 @@ public class UIManager : MonoBehaviour
     public GameObject UIJoystick;
     public GameObject PadToggle;
 
-    public GameObject CameraPad;
+    private GameObject CameraObject;
     public Image CameraToggleLevelSprite;
     public Sprite[] CameraToggleSprites;
-    public int[] CameraValues;
+    public float[] CameraValues;
     private int spriteIndex = 0;
 
     private AudioSource clickSound;
+    public AudioSource clickSound2;
 
     private void Awake()
     {
         clickSound = GetComponent<AudioSource>();
         clickSound.playOnAwake = false;
+        clickSound2.playOnAwake = false;
 
         //spriteIndex = 현재 카메라 감도 값에 비례해서 대입한 후
-        CameraPad.GetComponent<Touchpad>().Friction = CameraValues[spriteIndex % CameraValues.Length];
+        CameraObject = Camera.main.gameObject;
+        CameraObject.GetComponent<CameraController>().rotationSpeed = CameraValues[spriteIndex % CameraValues.Length];
     }
 
     private void Start()
@@ -62,9 +65,24 @@ public class UIManager : MonoBehaviour
         }
     }
 
+    private void ClickSound2()
+    {
+        if (clickSound2.isPlaying == false)
+        {
+            clickSound2.Play();
+        }
+    }
+
     public void UISettingToggle()
     {
-       // ClickSound();
+        if(isUISettingOn)
+        {
+            ClickSound();
+        }
+        else
+        {
+            ClickSound2();
+        }
         isUISettingOn = !isUISettingOn;
         UISetting.SetActive(isUISettingOn);
     }
@@ -88,7 +106,7 @@ public class UIManager : MonoBehaviour
             spriteIndex = spriteIndex % length;
 
             CameraToggleLevelSprite.sprite = CameraToggleSprites[spriteIndex];
-            CameraPad.GetComponent<Touchpad>().Friction = CameraValues[spriteIndex];
+            CameraObject.GetComponent<CameraController>().rotationSpeed = CameraValues[spriteIndex];
         }
     }
 

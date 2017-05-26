@@ -7,6 +7,7 @@ public class SendSence : MonoBehaviour {
 	public GameObject StagePopup;
 	public GameObject ExitPopup;
 	private AudioSource clickSound;
+    public AudioSource clickSound2;
 
 	private void Awake()
 	{
@@ -24,18 +25,26 @@ public class SendSence : MonoBehaviour {
 		}
 	}
 
-	public void ClickExitButton(){	
+    private void ClickSound2()
+    {
+        if (clickSound2.isPlaying == false)
+        {
+            clickSound2.Play();
+        }
+    }
+
+    public void ClickExitButton(){	
 		clickSound.Play();
 		ExitPopup.SetActive (true);
 	}
 
 	public void ClickNoExitButton(){	
-		clickSound.Play();
+		clickSound2.Play();
 		ExitPopup.SetActive (false);
 	}
 		
 	public void ClickStagePopupExitButton(){	
-		clickSound.Play();
+		clickSound2.Play();
 		StagePopup.SetActive (false);
 	}
 	public void ClickYesExitButton(){

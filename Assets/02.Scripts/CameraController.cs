@@ -8,8 +8,8 @@ public class CameraController : MonoBehaviour {
 	[HideInInspector]
 	public GameObject player;
 	public float rotationSpeed;
-
-	private Vector3 offset = new Vector3(0, 5, -10);
+	private Vector3 plus = new Vector3 (0, 7, 0);
+	private Vector3 offset = new Vector3(0, -1, -8);
 
 	void LateUpdate () {
 		if (!player)
@@ -17,7 +17,7 @@ public class CameraController : MonoBehaviour {
 
 		var h = CnInputManager.GetAxis("TouchPadX");
 		offset = Quaternion.AngleAxis (h * rotationSpeed, Vector3.up) * offset;
-		transform.position = player.transform.position + offset;
-		transform.LookAt (player.transform.position);
+		transform.position = player.transform.position + offset + plus;
+		transform.LookAt (player.transform.position - offset);
 	}
 }
