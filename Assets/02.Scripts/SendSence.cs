@@ -8,12 +8,13 @@ public class SendSence : MonoBehaviour {
 	public GameObject ExitPopup;
 	private AudioSource clickSound;
     public AudioSource clickSound2;
-
+	public static string SceneName;
 	private void Awake()
 	{
 
 		clickSound = GetComponent<AudioSource>();
 		clickSound.playOnAwake = false;
+		Debug.Log ("SceneName = " +SceneName);
 
 	}
 
@@ -64,27 +65,39 @@ public class SendSence : MonoBehaviour {
 
 	public void ClickStage1(){
 		clickSound.Play();
-		Application.LoadLevel ("Ch.1_Stage1");
+		SceneName = "Ch.1_Stage1";
+		Debug.Log ("SceneName = " +SceneName);
+		Application.LoadLevel ("Loading");
 	}
 	public void ClickStage2(){
 		clickSound.Play();
-		Application.LoadLevel ("Ch.1_Stage2");
+		SceneName = "Ch.1_Stage2";
+		Debug.Log ("SceneName = " +SceneName);
+		Application.LoadLevel ("Loading");
 	}
 	public void ClickStage3(){
 		clickSound.Play();
-		Application.LoadLevel ("Ch.1_Stage3");
+		SceneName = "Ch.1_Stage3";
+		Debug.Log ("SceneName = " +SceneName);
+		Application.LoadLevel ("Loading");
 	}
 	public void ClickStage4(){
 		clickSound.Play();
-		Application.LoadLevel ("Ch.1_Stage4");
+		SceneName = "Ch.1_Stage4";
+		Debug.Log ("SceneName = " +SceneName);
+		Application.LoadLevel ("Loading");
 	}
 	public void ClickStage5(){
 		clickSound.Play();
-		Application.LoadLevel ("Ch.1_Stage5");
+		SceneName = "Ch.1_Stage5";
+		Debug.Log ("SceneName = " +SceneName);
+		Application.LoadLevel ("Loading");
 	}
 	public void ClickStage6(){
 		clickSound.Play();
-		Application.LoadLevel ("Ch.1_Stage6");
+		SceneName = "Ch.1_Stage6";
+		Debug.Log ("SceneName = " +SceneName);
+		Application.LoadLevel ("Loading");
 	}
 
 }

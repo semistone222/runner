@@ -176,7 +176,7 @@ public class PlayerControllerOff : MonoBehaviour
         CrowdControlCheck();
 
         //For Debug
-        Debug.Log(myCharacterController.isGrounded);
+        //Debug.Log(myCharacterController.isGrounded);
     }
 
 
