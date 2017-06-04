@@ -146,6 +146,7 @@ public class PlayerControllerOff : MonoBehaviour
 
 
 
+		// Debug.Log ("isGrounded : " + myCharacterController.isGrounded);
 
 		// 내리막길일때 표면따라서 움직이게
 		if(Vector3.Dot(moveVec, tileNormal) > 0) {
