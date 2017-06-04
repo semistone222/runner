@@ -43,7 +43,6 @@ public class PlayerControllerOff : MonoBehaviour
 
     private AudioSource JumpSound;
 
-
     /*추가한 내용*/
     //[HideInInspector]
     public Vector3 respawnPoint; /*플레이어가 죽었을때 리스폰 할 위치입니다. 디버깅 용으로 HideInInspector 해제해놨습니다.*/
@@ -56,6 +55,9 @@ public class PlayerControllerOff : MonoBehaviour
 
     private string formerColName;
 
+	private Vector3 tileNormal;
+	private Vector3 slidingDirection;
+	private bool isSliding;
 
     void Awake()
     {
@@ -79,6 +81,9 @@ public class PlayerControllerOff : MonoBehaviour
 
         JumpSound = GetComponent<AudioSource>();
         JumpSound.playOnAwake = false;
+
+		slidingDirection = Vector3.zero;
+		tileNormal = Vector3.zero;
     }
 
     void FixedUpdate()
@@ -87,7 +92,6 @@ public class PlayerControllerOff : MonoBehaviour
             if (!myPhotonView.isMine)
                 return;
                 */
-
 
         if (CnInputManager.GetButtonDown("Jump"))
         {
@@ -140,8 +144,21 @@ public class PlayerControllerOff : MonoBehaviour
             }
         }
 
-        jumpVal -= gravity * Time.deltaTime;
-        moveVec.y = jumpVal;
+
+
+		// Debug.Log ("isGrounded : " + myCharacterController.isGrounded);
+
+		// 내리막길일때 표면따라서 움직이게
+		if(Vector3.Dot(moveVec, tileNormal) > 0) {
+			Vector3 temp = Vector3.Cross (tileNormal, moveVec);
+			moveVec = Vector3.Cross (temp, tileNormal);	
+		}
+		// 중력과 점프
+		jumpVal -= gravity * Time.deltaTime;
+		moveVec.y += jumpVal;
+		// 경사면 슬라이딩
+		moveVec += slidingDirection;
+		// 적용
         myCharacterController.Move(moveVec * Time.deltaTime);
     }
 
@@ -214,6 +231,23 @@ public class PlayerControllerOff : MonoBehaviour
 
     void OnControllerColliderHit(ControllerColliderHit hit)
     {
+
+		/* for determing down or up slope */
+		tileNormal = hit.normal;
+
+		/* sliding on slope */
+		if (tileNormal != Vector3.up) {
+			isSliding = true;
+			Vector3 c = Vector3.Cross (Vector3.up, tileNormal);
+			Vector3 u = Vector3.Cross (c, tileNormal);
+			slidingDirection = u * 10;
+		} else {
+			isSliding = false;
+			slidingDirection = Vector3.zero;
+		}
+
+
+
         Collider col = hit.collider;
         if (col.tag == "Tile")
         {
