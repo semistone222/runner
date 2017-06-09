@@ -15,7 +15,7 @@ using UnityEngine;
 
 public class PlayerControllerOff : MonoBehaviour
 {
-    public float moveSpeed;
+   	public float moveSpeed;
     public float jumpSpeed;
     public float gravity;
 
@@ -72,6 +72,7 @@ public class PlayerControllerOff : MonoBehaviour
         //}
         /*추가한 내용*/
         MOVESPD_ORIGIN = moveSpeed;
+		moveSpeed = 45;
         JUMPSPD_ORIGIN = jumpSpeed;
         ///////////////
         currPos = myTransform.position;

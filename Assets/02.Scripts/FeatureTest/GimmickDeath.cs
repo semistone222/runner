@@ -1,7 +1,7 @@
-﻿﻿using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.UI;
 /*
  *  GimmickDeath , by Jin-seok, Yu
  * 
@@ -12,8 +12,36 @@ using UnityEngine;
 
 public class GimmickDeath : Gimmick
 {
+	public static int LifeCount = 2;
+	private  GameObject Life1;
+	private  GameObject Life2;
+	private  GameObject Life3;
+
+	void Start(){
+
+	//	life1 = GameObject.FindGameObjectsWithTag ("LifeImage");
+		Life1 = GameObject.Find ("Life1");
+		Life2 = GameObject.Find ("Life2");
+		Life3 = GameObject.Find ("Life3");
+
+		if (LifeCount == 2) {
+			Life3.SetActive (false);
+		}
+	}
+
 	public override void EnterFunc(Collider other)
 	{
+		LifeCount--;
+		if (LifeCount == 2) {
+			Life3.SetActive (false);
+		} else if (LifeCount == 1) {
+			Life2.SetActive (false);
+		} else {
+			// LifeCount가 0일 때  팝업창 띄우기  
+
+			Life1.SetActive (false);
+		}
+	
 		BeforeRespawn();
 		Respawn(other);
 	}
@@ -35,5 +63,4 @@ public class GimmickDeath : Gimmick
 			other.transform.position = other.GetComponent<PlayerControllerOff>().respawnPoint;
 		}
 	}
-
 }

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<Loading>
+	<Field id="1" Tip="골드는 최대 999,999까지 소지할 수 있습니다."/>
+	<Field id="2" Tip="획득한 골드로 캐릭터를 강화하세요! 캐릭터 별로 성능이 다릅니다."/>
+	<Field id="3" Tip="토순이는 당근을 좋아하나, 발견하기는 쉽지 않습니다."/>
+	<Field id="4" Tip="타일 마지막에 점프하세요!"/>
+	<Field id="5" Tip="카메라는 우측 화면을 좌우로 움직여 회전할 수 있습니다."/>
+</Loading>

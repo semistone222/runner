@@ -1,10 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class FinishLine : MonoBehaviour {
 	public GameObject text;
-
+	public GameObject FinishTimer;
+	public GameObject RunningTimer;
+	public Text Timetext;
 	// Use this for initialization
 	void Start () {
 		text.SetActive (false);
@@ -20,6 +23,9 @@ public class FinishLine : MonoBehaviour {
 		if (other.transform.tag == "Player") {
 			Debug.Log ("hi");
 			text.SetActive (true);
+			FinishTimer.SetActive (true);
+			Timetext.text = Timer.timesec;
+			RunningTimer.SetActive(false);
 			StartCoroutine (FinishGame());
 
 		}
@@ -27,6 +33,6 @@ public class FinishLine : MonoBehaviour {
 
 	IEnumerator FinishGame(){
 		yield return new WaitForSeconds (3.5f);
-		Application.LoadLevel("SelectMode");
+		Application.LoadLevel("Result");
 	}
 }
