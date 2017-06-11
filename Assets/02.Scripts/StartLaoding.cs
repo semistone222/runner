@@ -26,8 +26,7 @@ public class StartLaoding : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-
-		StageText.text = "Stage" + SendSence.StageNumber;
+		StageText.text = "Stage" + SendSence.StageNumber	;
 		InitTimeImage.SetActive (true);
 		StartBackGround.SetActive (true);
 		Sound.SetActive (false);

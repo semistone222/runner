@@ -41,20 +41,8 @@ public class SendSence : MonoBehaviour {
         }
     }
 
-	public void ClickShopButton(){
-		
-	}
-
-	public void ClickCharacterButton(){
-		
-	}
-
 	public void ClickSingleButton(){
 		StagePopup.SetActive (true);
-	}
-		
-	public void ClickMultiButton(){
-		
 	}
 		
     public void ClickExitButton(){	
@@ -92,8 +80,14 @@ public class SendSence : MonoBehaviour {
 
 	public void ShowLoadingScene(){
 		clickSound.Play();
-		GameObject.Find ("StageManager").GetComponent<StageManager>().ActiveItems();
-		Application.LoadLevel ("Loading");
+		if (PlayerInfoManager.RunPoint > 0) {
+			Debug.Log ("ShowLoadingSceneShowLoadingSceneShowLoadingScene");
+			PlayerInfoManager.RunPoint--; // Player 게임 횟수 1감소
+			GameObject.Find ("StageManager").GetComponent<StageManager> ().ActiveItems ();
+			Application.LoadLevel ("Loading");
+		} else {
+			Debug.Log ("하트가 부족합니다.");
+		}
 	}
 
 	public void ClickBackButton(){

@@ -605,6 +605,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   StagePopup: {fileID: 0}
   ExitPopup: {fileID: 669088326}
+  Shop: {fileID: 0}
+  Character: {fileID: 0}
+  Single: {fileID: 0}
+  Multi: {fileID: 0}
   clickSound2: {fileID: 164522310}
 --- !u!82 &359067763
 AudioSource:
@@ -1155,7 +1159,7 @@ Prefab:
     - target: {fileID: 114468456591943856, guid: 22e86abd3769bcf49ae5e1e0f1595ca9,
         type: 2}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: ClickYesExitButton
+      value: ShowSelectMode
       objectReference: {fileID: 0}
     - target: {fileID: 114806794376760554, guid: 22e86abd3769bcf49ae5e1e0f1595ca9,
         type: 2}
@@ -2349,8 +2353,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1778999983}
   m_HandleRect: {fileID: 1778999982}
   m_Direction: 3
-  m_Value: 1
-  m_Size: 0.3999997
+  m_Value: 0
+  m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:

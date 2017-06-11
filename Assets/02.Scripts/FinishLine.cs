@@ -21,7 +21,6 @@ public class FinishLine : MonoBehaviour {
 	void OnTriggerEnter(Collider other)
 	{
 		if (other.transform.tag == "Player") {
-			Debug.Log ("hi");
 			text.SetActive (true);
 			FinishTimer.SetActive (true);
 			Timetext.text = Timer.timesec;
