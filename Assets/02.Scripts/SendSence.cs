@@ -68,9 +68,13 @@ public class SendSence : MonoBehaviour {
 	}
 		
 	public void ClickStagePopupExitButton(){	
+		for (int i = 0; i < 3; i++) {
+			StageManager.ItemChecked [i] = false;
+		}
 		clickSound2.Play();
 		StagePopup.SetActive (false);
 	}
+
 	public void ShowSelectMode(){
 		clickSound.Play();
 		Application.LoadLevel ("SelectMode");
@@ -86,47 +90,70 @@ public class SendSence : MonoBehaviour {
 		Application.LoadLevel ("Lobby");
 	}
 
+	public void ShowLoadingScene(){
+		clickSound.Play();
+		GameObject.Find ("StageManager").GetComponent<StageManager>().ActiveItems();
+		Application.LoadLevel ("Loading");
+	}
+
+	public void ClickBackButton(){
+		for(int i = 0 ; i < 3 ; i++){
+			if(StageManager.ItemChecked[i]  == true){
+				PlayerInfoManager.Gold += 1000; 
+				StageManager.ItemChecked [i] = false;
+			}
+		}
+		Application.LoadLevel ("SelectMode");
+	}
+	public void ClickAgainStage(){
+		clickSound.Play();
+		SceneName = "Ch.1_Stage"+StageNumber;
+		Application.LoadLevel ("StageLobby");
+	}
+
+
+	public void ClickNextStage(){
+		clickSound.Play();
+		StageNumber++;
+		SceneName = "Ch.1_Stage"+StageNumber;
+		Application.LoadLevel ("StageLobby");
+	}
+
 	public void ClickStage1(){
 		clickSound.Play();
-		SceneName = "Ch.1_Stage1";
 		StageNumber = 1;
-		Debug.Log ("SceneName = " +SceneName);
-		Application.LoadLevel ("Loading");
+		SceneName = "Ch.1_Stage"+StageNumber;
+		Application.LoadLevel ("StageLobby");
 	}
 	public void ClickStage2(){
 		clickSound.Play();
-		SceneName = "Ch.1_Stage2";
 		StageNumber = 2;
-		Debug.Log ("SceneName = " +SceneName);
-		Application.LoadLevel ("Loading");
+		SceneName = "Ch.1_Stage"+StageNumber;
+		Application.LoadLevel ("StageLobby");
 	}
 	public void ClickStage3(){
 		clickSound.Play();
-		SceneName = "Ch.1_Stage3";
 		StageNumber = 3;
-		Debug.Log ("SceneName = " +SceneName);
-		Application.LoadLevel ("Loading");
+		SceneName = "Ch.1_Stage"+StageNumber;
+		Application.LoadLevel ("StageLobby");
 	}
 	public void ClickStage4(){
 		clickSound.Play();
-		SceneName = "Ch.1_Stage4";
 		StageNumber = 4;
-		Debug.Log ("SceneName = " +SceneName);
-		Application.LoadLevel ("Loading");
+		SceneName = "Ch.1_Stage"+StageNumber;
+		Application.LoadLevel ("StageLobby");
 	}
 	public void ClickStage5(){
 		clickSound.Play();
-		SceneName = "Ch.1_Stage5";
 		StageNumber = 5;
-		Debug.Log ("SceneName = " +SceneName);
-		Application.LoadLevel ("Loading");
+		SceneName = "Ch.1_Stage"+StageNumber;
+		Application.LoadLevel ("StageLobby");
 	}
 	public void ClickStage6(){
 		clickSound.Play();
-		SceneName = "Ch.1_Stage6";
 		StageNumber = 6;
-		Debug.Log ("SceneName = " +SceneName);
-		Application.LoadLevel ("Loading");
+		SceneName = "Ch.1_Stage"+StageNumber;
+		Application.LoadLevel ("StageLobby");
 	}
 
 }

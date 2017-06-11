@@ -17,6 +17,7 @@ public class GimmickDeath : Gimmick
 	private  GameObject Life2;
 	private  GameObject Life3;
 
+
 	void Start(){
 
 	//	life1 = GameObject.FindGameObjectsWithTag ("LifeImage");
@@ -31,14 +32,13 @@ public class GimmickDeath : Gimmick
 
 	public override void EnterFunc(Collider other)
 	{
+
 		LifeCount--;
 		if (LifeCount == 2) {
 			Life3.SetActive (false);
 		} else if (LifeCount == 1) {
 			Life2.SetActive (false);
 		} else {
-			// LifeCount가 0일 때  팝업창 띄우기  
-
 			Life1.SetActive (false);
 		}
 	

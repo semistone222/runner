@@ -26,12 +26,14 @@ public class BoosterButton : MonoBehaviour {
 		}
 		btn.enabled = false;
 		BoosterSpeed = GameObject.FindGameObjectWithTag ("Player").GetComponent <PlayerControllerOff> ().MOVESPD_ORIGIN;
-		Debug.Log ("BoosterSpeed"+BoosterSpeed);
-
 	}
-	
+
 	// Update is called once per frame
 	void Update () {	
+		if (StageManager.ItemChecked [2] == true) { // Booster 구매시 
+			leftTime = 0;
+		}
+
 		if(BoosterOn){
 			BoosterTime += Time.deltaTime;
 			if (BoosterTime > 2) {
@@ -42,7 +44,7 @@ public class BoosterButton : MonoBehaviour {
 			}
 		}
 
-			if (leftTime > 0) {
+			if (leftTime >= 0) {
 				leftTime -= Time.deltaTime;
 				if (leftTime < 0) {
 					leftTime = 0;
@@ -67,6 +69,7 @@ public class BoosterButton : MonoBehaviour {
 	}
 	public void ResetBoostertime(){  // 클릭시
 		Debug.Log("Click Button");
+		StageManager.ItemChecked [2] = false;
 		leftTime = 32; 
 		if (btn)
 			btn.enabled = false;

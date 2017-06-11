@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class StartLaoding : MonoBehaviour {
 
+	public Text StageText;
 	public GameObject InitTimeImage;
 	public GameObject TimeImage;
 	public GameObject StartBackGround;
@@ -25,13 +26,12 @@ public class StartLaoding : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+
+		StageText.text = "Stage" + SendSence.StageNumber;
 		InitTimeImage.SetActive (true);
 		StartBackGround.SetActive (true);
 		Sound.SetActive (false);
-		Booster.SetActive (false);
 		StartLoading = StartCoroutine (startLoadingControl());
-
-		
 	}
 
 	IEnumerator startLoadingControl(){

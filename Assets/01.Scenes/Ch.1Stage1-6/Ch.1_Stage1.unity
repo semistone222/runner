@@ -13612,7 +13612,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1154639189
 RectTransform:
   m_ObjectHideFlags: 0
@@ -16018,6 +16018,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da47427b76c89224e831748abe9d5dad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  StageText: {fileID: 772993091}
   InitTimeImage: {fileID: 38829637}
   TimeImage: {fileID: 47705722}
   StartBackGround: {fileID: 675030726}
@@ -23850,7 +23851,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1911529742
 RectTransform:
   m_ObjectHideFlags: 0
