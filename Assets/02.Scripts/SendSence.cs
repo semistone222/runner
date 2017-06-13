@@ -21,8 +21,6 @@ public class SendSence : MonoBehaviour {
 
 		clickSound = GetComponent<AudioSource>();
 		clickSound.playOnAwake = false;
-		Debug.Log ("SceneName = " +SceneName);
-
 	}
 
 	private void ClickSound()

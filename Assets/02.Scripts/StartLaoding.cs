@@ -13,6 +13,10 @@ public class StartLaoding : MonoBehaviour {
 	public GameObject Booster;
 	public GameObject Sound;
 	public GameObject number;
+	public GameObject StartPosition;
+
+	private GameObject Character;
+
 
 	public Sprite number1;
 	public Sprite number2;
@@ -26,6 +30,8 @@ public class StartLaoding : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+		Character = Resources.Load ("Character/"+PlayerInfoManager.SelectCharacter) as GameObject;
+		Instantiate (Character, StartPosition.transform.position, StartPosition.transform.rotation);
 		StageText.text = "Stage" + SendSence.StageNumber	;
 		InitTimeImage.SetActive (true);
 		StartBackGround.SetActive (true);

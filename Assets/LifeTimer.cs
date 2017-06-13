@@ -4,16 +4,12 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class LifeTimer : MonoBehaviour {
-	public static float CountLifeTime= 20;
+	public static float CountLifeTime= 300;
 	private float LifeTimesec;
 	private float	LifeTimemin;
 	public static string TimeText;
 	private int sec;
 	// Update is called once per frame
-	void Start(){
-		Debug.Log("PlayerInfoManager.Life : "+PlayerInfoManager.RunPoint);
-
-	}
 
 	void Update () {
 		LifeTimemin = CountLifeTime / 60;

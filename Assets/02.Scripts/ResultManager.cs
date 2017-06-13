@@ -35,6 +35,8 @@ public class ResultManager : MonoBehaviour {
 	public GameObject RewardBrozen;
 
 
+	public GameObject PlayerPosition;
+	private GameObject Character;
 
 
 	public List<ResultInfo> itemList = new List<ResultInfo>(); 
@@ -61,6 +63,16 @@ public class ResultManager : MonoBehaviour {
 			BrozenRankCheckingRank ();
 		}
 		PlayerInfoManager.Gold += RewardMoney;
+
+
+		// 플레이어 캐릭터 애니메이션 표기 
+		Character = Resources.Load ("Character/"+PlayerInfoManager.SelectCharacter+"StageAni") as GameObject;
+		Instantiate (Character, PlayerPosition.transform.position, PlayerPosition.transform.rotation);
+	}
+	void Update(){	
+		
+		GameObject.Find (PlayerInfoManager.SelectCharacter+"StageAni(Clone)").GetComponent<ShopCharacter>().Shopani.SetBool ("IsWin", true);
+	
 	}
 
 	public static List<ResultInfo> Read(string filepath)

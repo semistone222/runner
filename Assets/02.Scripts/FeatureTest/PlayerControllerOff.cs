@@ -98,6 +98,7 @@ public class PlayerControllerOff : MonoBehaviour
         {
             if (myCharacterController.isGrounded)
             {
+				Debug.Log ("Jump");
                 JumpingSound();
                 jumpVal = jumpSpeed;
             }

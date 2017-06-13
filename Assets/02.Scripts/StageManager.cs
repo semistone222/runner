@@ -10,6 +10,9 @@ public class StageManager : MonoBehaviour {
 	public AudioSource clickSound2;
 	public Toggle[] ItemToggles = new Toggle[MAX_ItemCount];
 
+	public GameObject PlayerPosition;
+	private GameObject Character;
+
 
 	enum Item:int{
 		Heart, Shield, Booster
@@ -22,7 +25,7 @@ public class StageManager : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		Timer.CompareTime = 0;  // 타이머 리셋 
+		Timer.CompareTime = 0;  // 타이머 리셋 	
 		Stagetext.text = "Stage "+SendSence.StageNumber;
 		ItemText.text = "";
 		ItemString [0] = "하트 아이템을 사용하면 추가 생명력을 얻을 수 있어요";
@@ -31,6 +34,12 @@ public class StageManager : MonoBehaviour {
 		for (int i = 0; i < MAX_ItemCount; i++) {
 			ItemToggles [i].isOn = ItemChecked [i];
 		}
+		// 플레이어 캐릭터 애니메이션 표기 
+		Character = Resources.Load ("Character/"+PlayerInfoManager.SelectCharacter+"StageAni") as GameObject;
+		Instantiate (Character, PlayerPosition.transform.position, PlayerPosition.transform.rotation);
+		GameObject.Find (PlayerInfoManager.SelectCharacter+"StageAni(Clone)").GetComponent<ShopCharacter>().Shopani.SetBool ("IsRun", true);
+
+
 	}
 	public void ShowLoadingScene(){
 		clickSound2.Play();
