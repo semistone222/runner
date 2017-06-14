@@ -35,6 +35,8 @@ public class CharacterManager : MonoBehaviour {
 	public Text BuyPriceText;
 	public Text BuyCharacterText;
 
+	private Text PriceText;
+
 	public List<CharacterInfo> itemList = new List<CharacterInfo>(); 
 
 
@@ -59,15 +61,27 @@ public class CharacterManager : MonoBehaviour {
 			UpgradeLevelText[i].text = "LV." +PlayerInfoManager.PlayerCharacterinfo [1, i];
 			if ( itemList [i * 60].Name == PlayerInfoManager.SelectCharacter) {// 현재 선택한 캐릭터 표기 
 				SelectButton [i].GetComponent<Image>().sprite = RunningImage;	
+				if(i != 0){  // 살 캐릭터가 아닌 곳은 가격 텍스트 공백
+					GameObject.Find ("Price" + i).GetComponent<Text> ().text = "";
+				}
 			}
-
 			if (System.Convert.ToInt32 (PlayerInfoManager.PlayerCharacterinfo [1, i]) == 0) { // 선택하지 않은 캐릭터 상태 구매하지 않은 상태 표기  
 			//	Debug.Log ("Convert.ToInt32 "+PlayerInfoManager.PlayerCharacterinfo [1, 2]);
 				SelectButton [i].GetComponent<Image>().sprite = BuyImage;	
 				UpgradeLevelText [i].text = " LV.1"; //구매하지 않을 경우 lv1로 표기   
+				if (i == 1) { // 살 수 있는 캐릭터는 가격 표시 (후에 데이터 테이블로 수정)
+					GameObject.Find ("Price" + i).GetComponent<Text> ().text = "100";
+				} else if (i == 2) {
+					GameObject.Find ("Price" + i).GetComponent<Text> ().text = "200";
+				} else if (i == 3) {
+					GameObject.Find ("Price" + i).GetComponent<Text> ().text = "300";
+				}
 			}
 			else if (PlayerInfoManager.SelectCharacter != PlayerInfoManager.PlayerCharacterinfo[0,i]){ // 현재 선택 가능한 캐릭터 표기
 				SelectButton [i].GetComponent<Image>().sprite = SelectImage;	
+				if(i != 0){ // 살 캐릭터가 아닌 곳은 가격 텍스트 공백
+					GameObject.Find ("Price" + i).GetComponent<Text> ().text = "";
+				}
 			}
 
 
@@ -106,27 +120,6 @@ public class CharacterManager : MonoBehaviour {
 	}
 
 
-	public void ClickSelectButton1(){
-		ClickButtonNunmber = 0;
-		ClickChangeButton (ClickButtonNunmber);
-	}
-
-	public void ClickSelectButton2(){
-		ClickButtonNunmber = 1;
-		ClickChangeButton (ClickButtonNunmber);
-	}
-	public void ClickSelectButton3(){
-		ClickButtonNunmber = 2;
-		ClickChangeButton (ClickButtonNunmber);
-	}
-	public void ClickSelectButton4(){
-		ClickButtonNunmber = 3;
-		ClickChangeButton (ClickButtonNunmber);
-	}
-
-	public void ClickBuyButton(){
-		ClickBuyfuntion (ClickButtonNunmber);
-	}
 
 	public void ClickBuyfuntion(int ClickButtonNunmber){
 		if (CharacterBuyPrice < PlayerInfoManager.Diamond) { // 캐릭터  구매시
@@ -146,10 +139,15 @@ public class CharacterManager : MonoBehaviour {
 		Scrollrect.GetComponent<ScrollRect> ().horizontal = true; // 구매 버튼 누를시 캐릭터 ScrollRect 고정해제 
 		BuyPopup.SetActive (false);
 	}
+		
+	public void ClickBuyButton(){
+		ClickBuyfuntion (ClickButtonNunmber);
+	}
 
 
-	public void ClickChangeButton(int index){
-
+	public void ClickSelectButton(int index){
+		index--; // 버튼과 주소 일치시킴
+		ClickButtonNunmber = index; //구매 버튼의 번호 값을 저장 
 		if (SelectButton [index].GetComponent<Image>().sprite == RunningImage) {
 			
 		} else if (SelectButton [index].GetComponent<Image>().sprite == SelectImage) {  // 버튼이  선택버튼일 경우 
@@ -161,6 +159,7 @@ public class CharacterManager : MonoBehaviour {
 				SelectButton [i].GetComponent<Button>().interactable = false; //구매 버튼 누를시 나머지 버튼 비활성화 
 			}
 				Scrollrect.GetComponent<ScrollRect> ().horizontal = false; // 구매 버튼 누를시 캐릭터 ScrollRect 고정 
+				
 
 				if(index == 1){  // 캐릭터 가격 표시
 					CharacterBuyPrice = 100;
@@ -174,26 +173,15 @@ public class CharacterManager : MonoBehaviour {
 				}
 			}
 	}
+		
 
-
-	public void ClickUpgradeButton1(){
-		ClickChangeButton (0);
-	}
-
-	public void ClickUpgradeButton2(){
-		ClickChangeButton (1);
-	}
-	public void ClickUpgradeButton3(){
-		ClickChangeButton (2);
-	}
-	public void ClickUpgradeButton4(){
-		ClickChangeButton (3);
-	}
 
 	public void ClickUpgradeButton(int index){
-
-
-
+		index--; // 주소 값 일치 
+		if (PlayerInfoManager.PlayerCharacterinfo [1, index] != "0") {
+			PlayerInfoManager.PlayerCharacterinfo [1, index] = "" + (System.Convert.ToInt32 (PlayerInfoManager.PlayerCharacterinfo [1, index]) + 1);
+			Debug.Log (PlayerInfoManager.PlayerCharacterinfo [1, index]);
+		}
 	}
 
 

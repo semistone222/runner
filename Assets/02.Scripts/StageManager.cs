@@ -36,7 +36,7 @@ public class StageManager : MonoBehaviour {
 		}
 		// 플레이어 캐릭터 애니메이션 표기 
 		Character = Resources.Load ("Character/"+PlayerInfoManager.SelectCharacter+"StageAni") as GameObject;
-		Instantiate (Character, PlayerPosition.transform.position, PlayerPosition.transform.rotation);
+		Instantiate (Character, PlayerPosition.transform.position, PlayerPosition.transform.rotation).transform.SetParent (PlayerPosition.transform);
 		GameObject.Find (PlayerInfoManager.SelectCharacter+"StageAni(Clone)").GetComponent<ShopCharacter>().Shopani.SetBool ("IsRun", true);
 
 
