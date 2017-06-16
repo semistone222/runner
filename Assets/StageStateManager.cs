@@ -29,7 +29,7 @@ public class StageStateManager : MonoBehaviour {
 				StageMedal [i].GetComponent<Image> ().sprite = PlayingStageImage;
 			} else if (StageRank [i] == "Gold") {
 				StageMedal [i].GetComponent<Image> ().sprite = GoldMedal;
-			} else if (StageRank [i] == "Sivler") {
+			} else if (StageRank [i] == "Silver") {
 				StageMedal [i].GetComponent<Image> ().sprite = SilverMedal;
 			} else if (StageRank [i] == "Brozen") {
 				StageMedal [i].GetComponent<Image> ().sprite = BrozenMedal;

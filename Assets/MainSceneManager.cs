@@ -23,6 +23,8 @@ public class MainSceneManager : MonoBehaviour {
 
 	void Start(){
 		ClickStageButton ();
+
+
 	}
 
 	public void ClickShopButton(){
