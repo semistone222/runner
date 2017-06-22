@@ -119,6 +119,11 @@ namespace CnControls
             }
         }
 
+        private void Update()
+        {
+            SnapsToFinger = !UIValue.snapsToFinger;
+        }
+
         private void OnEnable()
         {
             // When we enable, we get our virtual axis
