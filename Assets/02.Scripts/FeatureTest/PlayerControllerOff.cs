@@ -29,9 +29,11 @@ public class PlayerControllerOff : MonoBehaviour
     private CrowdControl[] ccArray; //플레이어에게 부착된 상태이상을 체크할 배열
                                     /// ///////////////
 
+	public GameObject moveDustParticle;
 
     private Transform myTransform;
     private CharacterController myCharacterController;
+	private TrailRenderer myTrailRenderer;
     //private PhotonView myPhotonView;
     private Camera mainCamera;
     private Vector3 inputVec;
@@ -65,6 +67,8 @@ public class PlayerControllerOff : MonoBehaviour
         myCharacterController = GetComponent<CharacterController>();
         //myPhotonView = GetComponent<PhotonView>();
         mainCamera = Camera.main;
+
+		myTrailRenderer = GetComponent<TrailRenderer> ();
 
         //if (myPhotonView.isMine)
         //{
@@ -119,15 +123,14 @@ public class PlayerControllerOff : MonoBehaviour
         // Animation 동작 부분
         if (inputVec.x == 0 && inputVec.y == 0)
         {
-            ani.SetBool("IsRun", false);
-
+			ani.SetBool("IsRun", false);
+			moveDustParticle.SetActive (false);
         }
         else
         {
             ani.SetBool("IsRun", true);
+			moveDustParticle.SetActive (true);
         }
-
-
 
         if (inputVec.sqrMagnitude > 0.001f)
         {
@@ -167,7 +170,8 @@ public class PlayerControllerOff : MonoBehaviour
     /*테스트 용으로 넣은 함수로, 온라인에선 사용할 수 없습니다.*/
     public void MoveAccelCheck()
     {
-        isMoveAccel = !isMoveAccel;
+		isMoveAccel = !isMoveAccel;
+		// myTrailRenderer.enabled = false; 시간 단위로 되어있어야 렌더러를 적용할 수 있으므로 추후 수정 필요.
     }
     public void JumpAccelCheck()
     {
