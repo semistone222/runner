@@ -18,7 +18,7 @@ public class PlayerControllerOff : MonoBehaviour
    	public float moveSpeed;
     public float jumpSpeed;
     public float gravity;
-	public float aaa;
+	public static float DeathBeforeSpeed;
     /*추가한 내용*/
     [HideInInspector]
     public float MOVESPD_ORIGIN;    //플레이어의 최초 이동 속도
@@ -34,7 +34,7 @@ public class PlayerControllerOff : MonoBehaviour
     private CharacterController myCharacterController;
     //private PhotonView myPhotonView;
     private Camera mainCamera;
-    private Vector3 inputVec;
+	public Vector3 inputVec;
     private Vector3 moveVec;
     private float jumpVal;
     private Vector3 currPos = Vector3.zero;
@@ -72,6 +72,7 @@ public class PlayerControllerOff : MonoBehaviour
         /*추가한 내용*/
 
 		moveSpeed = 45 *  System.Convert.ToSingle (CharacterManager.CharacterInfoList [ ((CharacterManager.SelectCharacterNumber) * 60) +  System.Convert.ToInt32 (PlayerInfoManager.PlayerCharacterinfo [1, CharacterManager.SelectCharacterNumber])-1].MaxSpeed); 
+		DeathBeforeSpeed = moveSpeed;
 		Debug.Log("Speed" +CharacterManager.SelectCharacterNumber.ToString());
 		MOVESPD_ORIGIN = moveSpeed;
 	//	CharacterManager.CharacterInfoList [ ((CharacterManager.SelectCharacterNumber) * 60) + System.Convert.ToInt32 (PlayerInfoManager.PlayerCharacterinfo [1, CharacterManager.SelectCharacterNumber
@@ -95,7 +96,7 @@ public class PlayerControllerOff : MonoBehaviour
 		tileNormal = Vector3.zero;
     }
 
-    void FixedUpdate()
+    void Update()
     {
         /*
             if (!myPhotonView.isMine)
@@ -120,7 +121,7 @@ public class PlayerControllerOff : MonoBehaviour
         }
 
 
-
+		CrowdControlCheck(); // 중력 제어 함수 
         inputVec = new Vector3(CnInputManager.GetAxis("JoyStickX"), CnInputManager.GetAxis("JoyStickY"));
         moveVec = Vector3.zero;
 
@@ -137,7 +138,7 @@ public class PlayerControllerOff : MonoBehaviour
 
 
 
-        if (inputVec.sqrMagnitude > 0.001f)
+		if (inputVec.sqrMagnitude > 0.001f && GimmickDeath.Death == false)
         {
             moveVec = mainCamera.transform.TransformDirection(inputVec);
             moveVec.y = 0f;
@@ -193,7 +194,7 @@ public class PlayerControllerOff : MonoBehaviour
         myCharacterController.Move(moveVec * Time.deltaTime);
     }
 
-    void Update()
+  /*  void Update()
     {
 
         CrowdControlCheck();
@@ -201,7 +202,7 @@ public class PlayerControllerOff : MonoBehaviour
         //For Debug
         //Debug.Log(myCharacterController.isGrounded);
     }
-
+*/
 
     private void JumpingSound()
     {

@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
+using CnControls;
 /*
  *  GimmickDeath , by Jin-seok, Yu
  * 
@@ -10,17 +12,20 @@ using UnityEngine.UI;
  *  떨어지면 사망 판정되어, 다시 Respawn 시키는 오브젝트입니다.
  */
 
+
+
 public class GimmickDeath : Gimmick
 {
+	public GameObject DeathRetryPopup;
+	public GameObject JoyStick;
 	public static int LifeCount = 2;
 	private  GameObject Life1;
 	private  GameObject Life2;
 	private  GameObject Life3;
-
+	public static bool Death = false;
 
 	void Start(){
-
-	//	life1 = GameObject.FindGameObjectsWithTag ("LifeImage");
+		
 		Life1 = GameObject.Find ("Life1");
 		Life2 = GameObject.Find ("Life2");
 		Life3 = GameObject.Find ("Life3");
@@ -28,22 +33,36 @@ public class GimmickDeath : Gimmick
 		if (LifeCount == 2) {
 			Life3.SetActive (false);
 		}
+		Death = false;
 	}
 
 	public override void EnterFunc(Collider other)
 	{
 
 		LifeCount--;
+
+		Respawn(other);
+		StartCoroutine ("DeadAnimarter");
+
 		if (LifeCount == 2) {
 			Life3.SetActive (false);
 		} else if (LifeCount == 1) {
 			Life2.SetActive (false);
 		} else {
 			Life1.SetActive (false);
+			if (DeathRetry.DeathRetryPopupAgain == false) {
+				DeathRetryPopup.SetActive (true);
+				Time.timeScale = 0;
+			} else { // 리트라이 이후 죽을 경우 바로 스테이지 이동 
+				ResultManager.InitItems ();  // 아이템 목숨 초기화 
+				DeathRetry.DeathRetryPopupAgain = false;
+				Application.LoadLevel ("SelectMode");
+			}
 		}
-	
-		BeforeRespawn();
-		Respawn(other);
+
+	//	GameObject.Find ("JoyStick").GetComponent<SimpleJoystick> ().OnPointerUp (PointerEventData);
+	//	BeforeRespawn();
+
 	}
 	private void BeforeRespawn()
 	{
@@ -62,5 +81,20 @@ public class GimmickDeath : Gimmick
 		{
 			other.transform.position = other.GetComponent<PlayerControllerOff>().respawnPoint;
 		}
+	}
+
+
+
+	public IEnumerator DeadAnimarter(){
+		GameObject.Find("ButtonJump").GetComponent<SimpleButton>().enabled = false;
+		GameObject.FindGameObjectWithTag ("Player").GetComponent<Animator> ().SetBool ("IsDead", true);
+		GameObject.FindGameObjectWithTag ("Player").GetComponent<PlayerControllerOff> ().MOVESPD_ORIGIN = 0;
+		Death = true;
+		yield return new WaitForSeconds(3);
+		Death = false;
+		GameObject.Find("ButtonJump").GetComponent<SimpleButton>().enabled = true;
+		GameObject.FindGameObjectWithTag ("Player").GetComponent<PlayerControllerOff> ().MOVESPD_ORIGIN = PlayerControllerOff.DeathBeforeSpeed;
+		GameObject.FindGameObjectWithTag ("Player").GetComponent<Animator> ().SetBool ("IsDead", false);
+
 	}
 }

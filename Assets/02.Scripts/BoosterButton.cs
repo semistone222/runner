@@ -30,7 +30,6 @@ public class BoosterButton : MonoBehaviour {
 
 		// 각 캐릭터 부스터 유지 시간
 		BoosteringTime = 2 * System.Convert.ToSingle (CharacterManager.CharacterInfoList [ ((CharacterManager.SelectCharacterNumber) * 60) +  System.Convert.ToInt32 (PlayerInfoManager.PlayerCharacterinfo [1, CharacterManager.SelectCharacterNumber])-1].Booster);
-		Debug.Log (BoosteringTime.ToString());
 	}
 
 	// Update is called once per frame

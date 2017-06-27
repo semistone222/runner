@@ -9,6 +9,7 @@ namespace CnControls
     /// </summary>
     public class CnInputManager
     {
+		public static float axisValue;
         private static CnInputManager _instance;
 
         private static CnInputManager Instance
@@ -42,6 +43,7 @@ namespace CnControls
         {
             get
             {
+				Debug.Log (Input.touchCount);
                 return Input.touchCount;
             }
         }
@@ -268,7 +270,7 @@ namespace CnControls
             // If it IS zero, we return first non-zero value of any of the passed virtual axis
             // Or zero if all of them are zero
 
-            float axisValue = isRaw ? Input.GetAxisRaw(axisName) : Input.GetAxis(axisName);
+           	axisValue = isRaw ? Input.GetAxisRaw(axisName) : Input.GetAxis(axisName);
             if (!Mathf.Approximately(axisValue, 0f))
             {
                 return axisValue;

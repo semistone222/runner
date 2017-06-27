@@ -7,9 +7,9 @@ using Debug = UnityEngine.Debug;
 public class PlayerInfoManager : MonoBehaviour {
 	const int StageMaxCount = 10;
 
-	public static int RunPoint = 5;
-	public static int Diamond = 330;
-	public static int Gold = 2000;
+	public static int RunPoint = 0;
+	public static int Diamond = 500;
+	public static int Gold = 8000;
 	public static string SelectCharacter = "rabbit";
 	public static string[,] PlayerCharacterinfo = new string[2, 4]  {{"rabbit", "turtle", "cat", "tiger"}, {"60", "2", "0", "0"}};
 
@@ -20,8 +20,9 @@ public class PlayerInfoManager : MonoBehaviour {
 		Life, Diamond, Gold
 	}
 		
+
 	// Use this for initialization
-	void FixedUpdate () {
+	void Update () {
 		if (Gold >= 999999) {
 			Gold = 999999;
 		}

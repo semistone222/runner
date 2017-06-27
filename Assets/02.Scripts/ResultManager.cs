@@ -43,14 +43,11 @@ public class ResultManager : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		for (int i = 0; i < 3; i++) { // 구매한 아이템 제거 
-			StageManager.ItemChecked [i] = false;
-		}
 		RewardMoney = 0;
 		itemList = Read("ResultData"); 
 		StageText.text =  ("Stage"+ SendSence.StageNumber);
 		FinishTimetext.text = Timer.timesec;
-		InitItems ();
+		InitItems ();// 구매한 아이템 및 목숨 초기화
 		ClearRankCheckingRank ();
 		if (StageStateManager.StageRank [SendSence.StageNumber - 1] == null) {
 			NoRankCheckingRank ();
@@ -204,7 +201,7 @@ public class ResultManager : MonoBehaviour {
 		}
 	}
 
-	public void InitItems(){  // 하트, 쉴드, 부스터 아이템 초기화  
+	public static void InitItems(){  // 하트, 쉴드, 부스터 아이템 초기화  
 		GimmickDeath.LifeCount = 2; // 생명 갯수 초기화
 		StageManager.ItemChecked [0] = false;
 		StageManager.ItemChecked [1] = false;

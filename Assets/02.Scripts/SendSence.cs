@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.UI;
 public class SendSence : MonoBehaviour {
 
 	public GameObject StagePopup;
@@ -10,11 +10,13 @@ public class SendSence : MonoBehaviour {
 	public GameObject Character;
 	public GameObject Single;
 	public GameObject Multi;
+	public GameObject ShowMovePopup;
 
 	private AudioSource clickSound;
     public AudioSource clickSound2;
 	public static string SceneName;
 	public static int StageNumber ;
+	public static bool RunPointShop = false; 
 
 	private void Awake()
 	{
@@ -79,12 +81,13 @@ public class SendSence : MonoBehaviour {
 	public void ShowLoadingScene(){
 		clickSound.Play();
 		if (PlayerInfoManager.RunPoint > 0) {
-			Debug.Log ("ShowLoadingSceneShowLoadingSceneShowLoadingScene");
 			PlayerInfoManager.RunPoint--; // Player 게임 횟수 1감소
 			GameObject.Find ("StageManager").GetComponent<StageManager> ().ActiveItems ();
 			Application.LoadLevel ("Loading");
-		} else {
-			Debug.Log ("하트가 부족합니다.");
+		} else {  // 런 포인트 부족시 상점이동 팝업창 활성
+			ShowMovePopup.SetActive(true);
+			RunPointShop = true;
+			GameObject.Find ("ShowDetailText").GetComponent<Text> ().text = "런 포인트가 부족합니다";
 		}
 	}
 

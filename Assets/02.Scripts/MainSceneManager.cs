@@ -22,14 +22,24 @@ public class MainSceneManager : MonoBehaviour {
 
 
 	void Start(){
-
-		if (ShopMove.StageToStore == true) {
-			CharacterManager.CharacterInfoList = CharacterManager.Read ("CharacterData");  // 첫 캐릭터 XML정보 값 불러오기 
-			ClickShopButton ();
-			ShopMove.StageToStore = false;
-		} else {
-			CharacterManager.CharacterInfoList = CharacterManager.Read ("CharacterData");  // 첫 캐릭터 XML정보 값 불러오기 
-			ClickStageButton ();
+			// 만약에 상점으로 이동 팝업창을 통해 메인에 들어오면 상점에 들어감
+			if (SendSence.RunPointShop == true) { // 스테이지 화면에서 런포인트가 부족해서 상점으로 이동하면 런 포인트 상품 보여줌
+				CharacterManager.CharacterInfoList = CharacterManager.Read ("CharacterData");  // 첫 캐릭터 XML정보 값 불러오기 
+				ClickShopButton ();
+				GameObject.Find ("ShopPopup").GetComponent<RectTransform> ().anchoredPosition = new Vector2 (-88, 0);
+				SendSence.RunPointShop = false;
+			}else if(ShopMove.StageToStore == true){
+				CharacterManager.CharacterInfoList = CharacterManager.Read ("CharacterData");  // 첫 캐릭터 XML정보 값 불러오기 
+				ClickShopButton ();
+				GameObject.Find ("ShopPopup").GetComponent<RectTransform> ().anchoredPosition = new Vector2 (-510, 0);  // 스테이지 화면에서 골드가 부족해서 상점으로 이동하면 골드 상품 보여줌
+				ShopMove.StageToStore = false;
+			}else if (ShopMove.DeathRetryToStore == true){
+				CharacterManager.CharacterInfoList = CharacterManager.Read ("CharacterData");  // 첫 캐릭터 XML정보 값 불러오기 
+				ClickShopButton ();
+				ShopMove.DeathRetryToStore = false;
+			}else {  
+				CharacterManager.CharacterInfoList = CharacterManager.Read ("CharacterData");  // 첫 캐릭터 XML정보 값 불러오기 
+				ClickStageButton ();
 		}
 	}
 

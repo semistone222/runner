@@ -2246,6 +2246,7 @@ MonoBehaviour:
   Character: {fileID: 0}
   Single: {fileID: 0}
   Multi: {fileID: 0}
+  ShowMovePopup: {fileID: 1663205042}
   clickSound2: {fileID: 1884795157}
 --- !u!82 &1884795157
 AudioSource:

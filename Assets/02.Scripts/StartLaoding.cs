@@ -33,11 +33,11 @@ public class StartLaoding : MonoBehaviour {
 		Character = Resources.Load ("Character/"+PlayerInfoManager.SelectCharacter) as GameObject;
 		Instantiate (Character, StartPosition.transform.position, StartPosition.transform.rotation);
 
-
-		StageText.text = "Stage" + SendSence.StageNumber	;
+		StageText.text = "" + SendSence.StageNumber	;
 		InitTimeImage.SetActive (true);
 		StartBackGround.SetActive (true);
 		Sound.SetActive (false);
+		DeathRetry.DeathRetryPopupAgain = false; // 리트라이 값  초기화 
 		StartLoading = StartCoroutine (startLoadingControl());
 	}
 

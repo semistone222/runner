@@ -88,8 +88,8 @@ namespace CnControls
 
         // ---------------------------------------------------------------------------
 
-        private Vector2 _initialStickPosition;
-        private Vector2 _intermediateStickPosition;
+        public Vector2 _initialStickPosition;
+        public Vector2 _intermediateStickPosition;
         private Vector2 _initialBasePosition;
         private RectTransform _baseTransform;
         private RectTransform _stickTransform;
@@ -141,6 +141,7 @@ namespace CnControls
 
         public virtual void OnDrag(PointerEventData eventData)
         {
+		//	Debug.Log (PointerEventData);
             // Unity remote multitouch related thing
             // When we feed fake PointerEventData we can't really provide a camera, 
             // it has a lot of private setters via not created objects, so even the Reflection magic won't help a lot here
@@ -226,30 +227,31 @@ namespace CnControls
         public void OnPointerDown(PointerEventData eventData)
         {
             // When we press, we first want to snap the joystick to the user's finger
-            if (SnapsToFinger)
-            {
-                CurrentEventCamera = eventData.pressEventCamera ?? CurrentEventCamera;
+          	 	 if (SnapsToFinger)
+          	 	 {
+            	    CurrentEventCamera = eventData.pressEventCamera ?? CurrentEventCamera;
+						
+                	Vector3 localStickPosition;
+            	    Vector3 localBasePosition;
+                	RectTransformUtility.ScreenPointToWorldPointInRectangle(_stickTransform, eventData.position,
+                   		CurrentEventCamera, out localStickPosition);
+					RectTransformUtility.ScreenPointToWorldPointInRectangle(_baseTransform, eventData.position,
+                   		CurrentEventCamera, out localBasePosition);
 
-                Vector3 localStickPosition;
-                Vector3 localBasePosition;
-                RectTransformUtility.ScreenPointToWorldPointInRectangle(_stickTransform, eventData.position,
-                    CurrentEventCamera, out localStickPosition);
-				RectTransformUtility.ScreenPointToWorldPointInRectangle(_baseTransform, eventData.position,
-                    CurrentEventCamera, out localBasePosition);
-
-                _baseTransform.position = localBasePosition;
-                _stickTransform.position = localStickPosition;
-                _intermediateStickPosition = _stickTransform.anchoredPosition;
-            }
-            else
-            {
-                OnDrag(eventData);
-            }
+               		 _baseTransform.position = localBasePosition;
+               		 _stickTransform.position = localStickPosition;
+               	 	_intermediateStickPosition = _stickTransform.anchoredPosition;
+            	}
+            	else
+            	{
+               	 	OnDrag(eventData);
+            	}
             // We also want to show it if we specified that behaviour
-            if (HideOnRelease)
-            {
-                Hide(false);
-            }
+            	if (HideOnRelease)
+            	{
+                	Hide(false);
+            	}
+
         }
 
         /// <summary>

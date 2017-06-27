@@ -153,7 +153,7 @@ public class CharacterManager : MonoBehaviour {
 
 
 	public void ClickBuyfuntion(int ClickButtonNunmber){
-		if (CharacterBuyPrice < PlayerInfoManager.Diamond) { // 캐릭터  구매시
+		if (CharacterBuyPrice <= PlayerInfoManager.Diamond) { // 캐릭터  구매시
 			PlayerInfoManager.Diamond -= CharacterBuyPrice; 
 			PlayerInfoManager.PlayerCharacterinfo [1, ClickButtonNunmber] = "1";
 			ClickBuyCancelButton ();
@@ -318,20 +318,20 @@ public class CharacterManager : MonoBehaviour {
 			if (IntConvert < 60) {
 				floatConvert = 45 * CharacterInfoList [((index) * 60) + System.Convert.ToInt32 (PlayerInfoManager.PlayerCharacterinfo [1, index])-1].MaxSpeed;
 				floatConvert2 = 2 * CharacterInfoList [((index) * 60) + System.Convert.ToInt32 (PlayerInfoManager.PlayerCharacterinfo [1, index])-1].Booster;
-				TopLevelDetail.text = "최대속도 : " + floatConvert.ToString () + "           부스터시간 : " + floatConvert2.ToString () + "초";
+				TopLevelDetail.text = "최대속도 : " + floatConvert.ToString () + "\n부스터시간 : " + floatConvert2.ToString () + "초";
 
-				floatConvert = 20 * CharacterInfoList [(index) * 60 + System.Convert.ToInt32 (PlayerInfoManager.PlayerCharacterinfo [1, index])].Jump;
+				floatConvert = 45 * CharacterInfoList [(index) * 60 + System.Convert.ToInt32 (PlayerInfoManager.PlayerCharacterinfo [1, index])].MaxSpeed;
 				floatConvert2 = 2 * CharacterInfoList [((index) * 60) + System.Convert.ToInt32 (PlayerInfoManager.PlayerCharacterinfo [1, index])].Booster;
-				BottomLevelDetail.text = "최대속도 : " + floatConvert.ToString () + "           부스터시간 : " + floatConvert2.ToString () + "초";
+				BottomLevelDetail.text = "최대속도 : " + floatConvert.ToString () + "\n부스터시간 : " + floatConvert2.ToString () + "초";
 
 			} else {
 				floatConvert = 45 * CharacterInfoList [((index) * 60) + System.Convert.ToInt32 (PlayerInfoManager.PlayerCharacterinfo [1, index])-1].MaxSpeed;
 				floatConvert2 = 2 * CharacterInfoList [((index) * 60) + System.Convert.ToInt32 (PlayerInfoManager.PlayerCharacterinfo [1, index])-1].Booster;
-				TopLevelDetail.text = "최대속도 : " + floatConvert.ToString () + "           부스터시간 : " + floatConvert2.ToString () + "초";
+				TopLevelDetail.text = "최대속도 : " + floatConvert.ToString () + "\n부스터시간 : " + floatConvert2.ToString () + "초";
 
-				floatConvert = 45 * CharacterInfoList [(index) * 60 + System.Convert.ToInt32 (PlayerInfoManager.PlayerCharacterinfo [1, index])-1].Jump;
+				floatConvert = 45 * CharacterInfoList [(index) * 60 + System.Convert.ToInt32 (PlayerInfoManager.PlayerCharacterinfo [1, index])-1].MaxSpeed;
 				floatConvert2 = 2 * CharacterInfoList [((index) * 60) + System.Convert.ToInt32 (PlayerInfoManager.PlayerCharacterinfo [1, index])-1].Booster;
-				BottomLevelDetail.text = "최대속도 : " + floatConvert.ToString () + "           부스터시간 : " + floatConvert2.ToString () + "초";
+				BottomLevelDetail.text = "최대속도 : " + floatConvert.ToString () + "\n부스터시간 : " + floatConvert2.ToString () + "초";
 			}
 		}
 
