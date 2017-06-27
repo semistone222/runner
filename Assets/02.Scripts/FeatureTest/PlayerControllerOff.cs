@@ -18,7 +18,7 @@ public class PlayerControllerOff : MonoBehaviour
    	public float moveSpeed;
     public float jumpSpeed;
     public float gravity;
-
+	public float aaa;
     /*추가한 내용*/
     [HideInInspector]
     public float MOVESPD_ORIGIN;    //플레이어의 최초 이동 속도
@@ -37,7 +37,6 @@ public class PlayerControllerOff : MonoBehaviour
     private Vector3 inputVec;
     private Vector3 moveVec;
     private float jumpVal;
-
     private Vector3 currPos = Vector3.zero;
     private Quaternion currRot = Quaternion.identity;
 
@@ -71,9 +70,18 @@ public class PlayerControllerOff : MonoBehaviour
         Camera.main.GetComponent<CameraController>().player = this.gameObject;
         //}
         /*추가한 내용*/
-        MOVESPD_ORIGIN = moveSpeed;
-		moveSpeed = 45;
-        JUMPSPD_ORIGIN = jumpSpeed;
+
+		moveSpeed = 45 *  System.Convert.ToSingle (CharacterManager.CharacterInfoList [ ((CharacterManager.SelectCharacterNumber) * 60) +  System.Convert.ToInt32 (PlayerInfoManager.PlayerCharacterinfo [1, CharacterManager.SelectCharacterNumber])-1].MaxSpeed); 
+		Debug.Log("Speed" +CharacterManager.SelectCharacterNumber.ToString());
+		MOVESPD_ORIGIN = moveSpeed;
+	//	CharacterManager.CharacterInfoList [ ((CharacterManager.SelectCharacterNumber) * 60) + System.Convert.ToInt32 (PlayerInfoManager.PlayerCharacterinfo [1, CharacterManager.SelectCharacterNumber
+       
+		jumpSpeed = 20 * System.Convert.ToSingle (CharacterManager.CharacterInfoList [ ((CharacterManager.SelectCharacterNumber) * 60) +  System.Convert.ToInt32 (PlayerInfoManager.PlayerCharacterinfo [1, CharacterManager.SelectCharacterNumber])-1].Jump);
+		//aaa =  20 *  System.Convert.ToSingle (CharacterManager.CharacterInfoList [ ((CharacterManager.SelectCharacterNumber) * 60) +  System.Convert.ToInt32 (PlayerInfoManager.PlayerCharacterinfo [1, CharacterManager.SelectCharacterNumber])].Jump);
+		Debug.Log(PlayerInfoManager.PlayerCharacterinfo [1, CharacterManager.SelectCharacterNumber]);
+		//Debug.Log ("aaa" + 20 * System.Convert.ToSingle (CharacterManager.CharacterInfoList [ ((CharacterManager.SelectCharacterNumber) * 60) +  System.Convert.ToInt32 (PlayerInfoManager.PlayerCharacterinfo [1, CharacterManager.SelectCharacterNumber])].Jump));
+		//jumpSpeed = 20 *  System.Convert.ToSingle (CharacterManager.CharacterInfoList [ ((CharacterManager.SelectCharacterNumber) * 60) +  System.Convert.ToInt32 (PlayerInfoManager.PlayerCharacterinfo [1, CharacterManager.SelectCharacterNumber])].Jump); 
+		JUMPSPD_ORIGIN = jumpSpeed;    
         ///////////////
         currPos = myTransform.position;
         currRot = myTransform.rotation;
@@ -145,10 +153,6 @@ public class PlayerControllerOff : MonoBehaviour
                 moveVec *= moveSpeed;
             }
         }
-
-
-
-		// Debug.Log ("isGrounded : " + myCharacterController.isGrounded);
 
 		// 내리막길일때 표면따라서 움직이게
 		if(Vector3.Dot(moveVec, tileNormal) > 0) {
@@ -256,8 +260,6 @@ public class PlayerControllerOff : MonoBehaviour
             if (col.GetComponent<Gimmick>() != null && formerColName != col.name && hit.controller.isGrounded == true)
             {
                 formerColName = col.name;
-
-                Debug.Log(col.name);
                 col.GetComponent<Gimmick>().EnterFunc(hit.controller);
             }
         }

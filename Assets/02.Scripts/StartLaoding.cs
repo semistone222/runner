@@ -32,6 +32,8 @@ public class StartLaoding : MonoBehaviour {
 	void Start () {
 		Character = Resources.Load ("Character/"+PlayerInfoManager.SelectCharacter) as GameObject;
 		Instantiate (Character, StartPosition.transform.position, StartPosition.transform.rotation);
+
+
 		StageText.text = "Stage" + SendSence.StageNumber	;
 		InitTimeImage.SetActive (true);
 		StartBackGround.SetActive (true);
@@ -56,7 +58,5 @@ public class StartLaoding : MonoBehaviour {
 		InitTimeImage.SetActive (false);
 		TimeImage.SetActive (true);
 		StopCoroutine (StartLoading);
-		Debug.Log ("StopCoroutine");
-
 	}
 }

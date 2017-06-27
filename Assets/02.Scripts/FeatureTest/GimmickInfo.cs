@@ -1,4 +1,4 @@
-﻿﻿using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -205,7 +205,6 @@ public class GimmickInfo : Gimmick
 			float yFactor = Mathf.Pow((transform.lossyScale.y / 2), 2);
 			float zFactor = Mathf.Pow((transform.lossyScale.z / 2) * xSin, 2);
 
-			Debug.Log(yFactor + " " + zFactor + " " + xSin + " " + transform.rotation.x);
 
 			//밟은 오브젝트의 중앙좌표의 높이와, 밟은 순간 플레이어의 y 위치중에 큰 것 + 3f
 			float xPos = transform.position.x;

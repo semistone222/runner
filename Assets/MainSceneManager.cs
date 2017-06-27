@@ -22,9 +22,15 @@ public class MainSceneManager : MonoBehaviour {
 
 
 	void Start(){
-		ClickStageButton ();
 
-
+		if (ShopMove.StageToStore == true) {
+			CharacterManager.CharacterInfoList = CharacterManager.Read ("CharacterData");  // 첫 캐릭터 XML정보 값 불러오기 
+			ClickShopButton ();
+			ShopMove.StageToStore = false;
+		} else {
+			CharacterManager.CharacterInfoList = CharacterManager.Read ("CharacterData");  // 첫 캐릭터 XML정보 값 불러오기 
+			ClickStageButton ();
+		}
 	}
 
 	public void ClickShopButton(){

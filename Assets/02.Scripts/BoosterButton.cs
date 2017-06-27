@@ -11,6 +11,7 @@ public class BoosterButton : MonoBehaviour {
 	private bool BoosterOn = false;
 	float leftTime = 30.0f;
 	float BoosterTime = 0;
+	float BoosteringTime ;
 	public float BoosterSpeed;
 
 	// Use this for initialization
@@ -26,6 +27,10 @@ public class BoosterButton : MonoBehaviour {
 		}
 		btn.enabled = false;
 		BoosterSpeed = GameObject.FindGameObjectWithTag ("Player").GetComponent <PlayerControllerOff> ().MOVESPD_ORIGIN;
+
+		// 각 캐릭터 부스터 유지 시간
+		BoosteringTime = 2 * System.Convert.ToSingle (CharacterManager.CharacterInfoList [ ((CharacterManager.SelectCharacterNumber) * 60) +  System.Convert.ToInt32 (PlayerInfoManager.PlayerCharacterinfo [1, CharacterManager.SelectCharacterNumber])-1].Booster);
+		Debug.Log (BoosteringTime.ToString());
 	}
 
 	// Update is called once per frame
@@ -36,7 +41,7 @@ public class BoosterButton : MonoBehaviour {
 
 		if(BoosterOn){
 			BoosterTime += Time.deltaTime;
-			if (BoosterTime > 2) {
+			if (BoosterTime > BoosteringTime) {
 				BoosterOn = false;
 				Debug.Log ("BoosteroFF");
 				BoosterTime = 0;
@@ -70,7 +75,7 @@ public class BoosterButton : MonoBehaviour {
 	public void ResetBoostertime(){  // 클릭시
 		Debug.Log("Click Button");
 		StageManager.ItemChecked [2] = false;
-		leftTime = 32; 
+		leftTime = 30 + BoosteringTime; 
 		if (btn)
 			btn.enabled = false;
 		BoosterSpeed = BoosterSpeed + (BoosterSpeed * 0.2f);

@@ -12,7 +12,7 @@ public class StageManager : MonoBehaviour {
 
 	public GameObject PlayerPosition;
 	private GameObject Character;
-
+	public GameObject ShopMovePopup;
 
 	enum Item:int{
 		Heart, Shield, Booster
@@ -39,24 +39,26 @@ public class StageManager : MonoBehaviour {
 		Instantiate (Character, PlayerPosition.transform.position, PlayerPosition.transform.rotation).transform.SetParent (PlayerPosition.transform);
 		GameObject.Find (PlayerInfoManager.SelectCharacter+"StageAni(Clone)").GetComponent<ShopCharacter>().Shopani.SetBool ("IsRun", true);
 
-
 	}
 	public void ShowLoadingScene(){
 		clickSound2.Play();
 		ActiveItems ();
-
-		//Application.LoadLevel ("Loading");
 	}
 	public void ItemToggle(int index)
 	{
-		ItemText.text = ItemString[index];
-		ItemChecked[index] = !ItemChecked[index];
-		if (ItemChecked[index]  == true) {
+		if (PlayerInfoManager.Gold >= 1000 && ItemChecked [index] == false) {
+			ItemChecked[index] = !ItemChecked[index];
+			ItemText.text = ItemString[index];
 			PlayerInfoManager.Gold -= 1000; 
 			ItemChecked [index] = true;
-		} else if(ItemChecked[index]  == false){
+		} else if(ItemChecked [index] == true){
 			PlayerInfoManager.Gold += 1000; 
 			ItemChecked [index] = false;
+			ItemText.text = "";
+		} else if(PlayerInfoManager.Gold < 1000 && ItemChecked [index] == false){
+			ShopMovePopup.SetActive (true);
+			ItemChecked [index] = false;
+			ItemToggles [index].isOn = false;
 		}
 	}
 
