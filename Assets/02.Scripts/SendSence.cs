@@ -14,6 +14,7 @@ public class SendSence : MonoBehaviour {
 
 	private AudioSource clickSound;
     public AudioSource clickSound2;
+    public AudioSource StageSelectSE;
 	public static string SceneName;
 	public static int StageNumber ;
 	public static bool RunPointShop = false; 
@@ -101,51 +102,51 @@ public class SendSence : MonoBehaviour {
 		Application.LoadLevel ("SelectMode");
 	}
 	public void ClickAgainStage(){
-		clickSound.Play();
+		StageSelectSE.Play();
 		SceneName = "Ch.1_Stage"+StageNumber;
 		Application.LoadLevel ("StageLobby");
 	}
 
 
 	public void ClickNextStage(){
-		clickSound.Play();
+		StageSelectSE.Play();
 		StageNumber++;
 		SceneName = "Ch.1_Stage"+StageNumber;
 		Application.LoadLevel ("StageLobby");
 	}
 
 	public void ClickStage1(){
-		clickSound.Play();
+		StageSelectSE.Play();
 		StageNumber = 1;
 		SceneName = "Ch.1_Stage"+StageNumber;
 		Application.LoadLevel ("StageLobby");
 	}
 	public void ClickStage2(){
-		clickSound.Play();
+		StageSelectSE.Play();
 		StageNumber = 2;
 		SceneName = "Ch.1_Stage"+StageNumber;
 		Application.LoadLevel ("StageLobby");
 	}
 	public void ClickStage3(){
-		clickSound.Play();
+		StageSelectSE.Play();
 		StageNumber = 3;
 		SceneName = "Ch.1_Stage"+StageNumber;
 		Application.LoadLevel ("StageLobby");
 	}
 	public void ClickStage4(){
-		clickSound.Play();
+		StageSelectSE.Play();
 		StageNumber = 4;
 		SceneName = "Ch.1_Stage"+StageNumber;
 		Application.LoadLevel ("StageLobby");
 	}
 	public void ClickStage5(){
-		clickSound.Play();
+		StageSelectSE.Play();
 		StageNumber = 5;
 		SceneName = "Ch.1_Stage"+StageNumber;
 		Application.LoadLevel ("StageLobby");
 	}
 	public void ClickStage6(){
-		clickSound.Play();
+		StageSelectSE.Play();
 		StageNumber = 6;
 		SceneName = "Ch.1_Stage"+StageNumber;
 		Application.LoadLevel ("StageLobby");
