@@ -8,6 +8,8 @@ public class StageManager : MonoBehaviour {
 	public Text Stagetext;
 	public Text ItemText;
 	public AudioSource clickSound2;
+    public AudioSource itemSelSE;
+    public AudioSource itemDeselSE;
 	public Toggle[] ItemToggles = new Toggle[MAX_ItemCount];
 
 	public GameObject PlayerPosition;
@@ -42,7 +44,7 @@ public class StageManager : MonoBehaviour {
 	}
 	public void ShowLoadingScene(){
 		clickSound2.Play();
-		ActiveItems ();
+		ActiveItems();
 	}
 	public void ItemToggle(int index)
 	{
@@ -51,10 +53,12 @@ public class StageManager : MonoBehaviour {
 			ItemText.text = ItemString[index];
 			PlayerInfoManager.Gold -= 1000; 
 			ItemChecked [index] = true;
+            itemSelSE.Play();
 		} else if(ItemChecked [index] == true){
 			PlayerInfoManager.Gold += 1000; 
 			ItemChecked [index] = false;
 			ItemText.text = "";
+            itemDeselSE.Play();
 		} else if(PlayerInfoManager.Gold < 1000 && ItemChecked [index] == false){
 			ShopMovePopup.SetActive (true);
 			ItemChecked [index] = false;
