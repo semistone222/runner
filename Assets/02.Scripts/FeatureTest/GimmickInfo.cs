@@ -208,7 +208,7 @@ public class GimmickInfo : Gimmick
 
 			//밟은 오브젝트의 중앙좌표의 높이와, 밟은 순간 플레이어의 y 위치중에 큰 것 + 3f
 			float xPos = transform.position.x;
-			float yPos = Mathf.Max(transform.position.y + Mathf.Sqrt(yFactor + zFactor), other.transform.position.y) + 3f;
+			float yPos = Mathf.Max(transform.position.y + Mathf.Sqrt(yFactor + zFactor), other.transform.position.y) + 0.5f;
 			float zPos = transform.position.z;
 
 			respawnPoint = new Vector3(xPos, yPos, zPos);

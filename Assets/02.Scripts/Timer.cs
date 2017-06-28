@@ -23,7 +23,7 @@ public class Timer : MonoBehaviour {
 		CompareTime += Time.deltaTime;
 
 		if (pastTime >= 60) {
-			minute = (int)pastTime / 60;
+			minute++;
 			pastTime = pastTime % 60;
 		}
 		timesec = string.Format ("{0:F2}", pastTime);	

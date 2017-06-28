@@ -15,6 +15,6 @@ public class Video : MonoBehaviour {
 		audio.Play ();*/
 
 		Handheld.PlayFullScreenMovie ("Bridge_Opening_sample.mp4", Color.black, FullScreenMovieControlMode.Hidden);
-		Application.LoadLevel ("SelectMode");
+		Application.LoadLevel ("Splash");
 	}
 }

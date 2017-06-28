@@ -75,13 +75,11 @@ public class PlayerControllerOff : MonoBehaviour
 		DeathBeforeSpeed = moveSpeed;
 		Debug.Log("Speed" +CharacterManager.SelectCharacterNumber.ToString());
 		MOVESPD_ORIGIN = moveSpeed;
-	//	CharacterManager.CharacterInfoList [ ((CharacterManager.SelectCharacterNumber) * 60) + System.Convert.ToInt32 (PlayerInfoManager.PlayerCharacterinfo [1, CharacterManager.SelectCharacterNumber
+	
        
 		jumpSpeed = 20 * System.Convert.ToSingle (CharacterManager.CharacterInfoList [ ((CharacterManager.SelectCharacterNumber) * 60) +  System.Convert.ToInt32 (PlayerInfoManager.PlayerCharacterinfo [1, CharacterManager.SelectCharacterNumber])-1].Jump);
-		//aaa =  20 *  System.Convert.ToSingle (CharacterManager.CharacterInfoList [ ((CharacterManager.SelectCharacterNumber) * 60) +  System.Convert.ToInt32 (PlayerInfoManager.PlayerCharacterinfo [1, CharacterManager.SelectCharacterNumber])].Jump);
-		Debug.Log(PlayerInfoManager.PlayerCharacterinfo [1, CharacterManager.SelectCharacterNumber]);
-		//Debug.Log ("aaa" + 20 * System.Convert.ToSingle (CharacterManager.CharacterInfoList [ ((CharacterManager.SelectCharacterNumber) * 60) +  System.Convert.ToInt32 (PlayerInfoManager.PlayerCharacterinfo [1, CharacterManager.SelectCharacterNumber])].Jump));
-		//jumpSpeed = 20 *  System.Convert.ToSingle (CharacterManager.CharacterInfoList [ ((CharacterManager.SelectCharacterNumber) * 60) +  System.Convert.ToInt32 (PlayerInfoManager.PlayerCharacterinfo [1, CharacterManager.SelectCharacterNumber])].Jump); 
+
+
 		JUMPSPD_ORIGIN = jumpSpeed;    
         ///////////////
         currPos = myTransform.position;
