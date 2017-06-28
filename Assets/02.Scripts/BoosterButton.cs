@@ -73,6 +73,7 @@ public class BoosterButton : MonoBehaviour {
 	}
 	public void ResetBoostertime(){  // 클릭시
 		Debug.Log("Click Button");
+		GameObject.FindGameObjectWithTag ("Player").GetComponent<TrailRenderer> ().enabled = true;
 		StageManager.ItemChecked [2] = false;
 		leftTime = 30 + BoosteringTime; 
 		if (btn)
@@ -84,8 +85,8 @@ public class BoosterButton : MonoBehaviour {
 	}
 
 	public void ResetBoosterSpeed(){
-		BoosterSpeed = 45;
+		BoosterSpeed = PlayerControllerOff.DeathBeforeSpeed;
 		GameObject.FindGameObjectWithTag ("Player").GetComponent <PlayerControllerOff> ().MOVESPD_ORIGIN= BoosterSpeed;
-	//	Debug.Log ("BoosterOn");
+		GameObject.FindGameObjectWithTag ("Player").GetComponent<TrailRenderer> ().enabled = false;
 	}
 }

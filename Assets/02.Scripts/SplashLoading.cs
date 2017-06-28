@@ -20,7 +20,8 @@ public class SplashLoading : MonoBehaviour {
 	void Update()
 	{
 		fTime += Time.deltaTime;
-		slider.value = fTime;
+		slider.value = fTime * 0.4f;
+		//Debug.Log (fTime);
 		LoadingText.text = 	"Loading ( "+((int)(slider.value * 100)).ToString() +"/ 100 )";
 
 		if (fTime >= 3)
@@ -40,9 +41,11 @@ public class SplashLoading : MonoBehaviour {
 
 			while (async_operation.progress < 0.9f)
 			{
+				Debug.Log (async_operation.progress);
 				slider.value = async_operation.progress;
 
-				yield return true;
+				yield return new WaitForSeconds(1.0f);
+				//yield return true;
 			}
 		}
 	}

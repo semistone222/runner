@@ -58,6 +58,8 @@ public class PlayerControllerOff : MonoBehaviour
 	private Vector3 slidingDirection;
 	private bool isSliding;
 
+	public GameObject moveDustParticle;
+
     void Awake()
     {
         myTransform = GetComponent<Transform>();
@@ -108,6 +110,7 @@ public class PlayerControllerOff : MonoBehaviour
 				Debug.Log ("Jump");
                 JumpingSound();
                 jumpVal = jumpSpeed;
+
             }
         }
         else
@@ -127,11 +130,17 @@ public class PlayerControllerOff : MonoBehaviour
         if (inputVec.x == 0 && inputVec.y == 0)
         {
             ani.SetBool("IsRun", false);
+			moveDustParticle.SetActive (false);
 
         }
         else
         {
             ani.SetBool("IsRun", true);
+			if (myCharacterController.isGrounded) {
+				moveDustParticle.SetActive (true);
+			} else {
+				moveDustParticle.SetActive (false);
+			}
         }
 
 
@@ -162,7 +171,7 @@ public class PlayerControllerOff : MonoBehaviour
 		jumpVal -= gravity * Time.deltaTime;
 		moveVec.y += jumpVal;
 		// 경사면 슬라이딩
-		moveVec += slidingDirection;
+	//	moveVec += slidingDirection;
 		// 적용
         myCharacterController.Move(moveVec * Time.deltaTime);
     }

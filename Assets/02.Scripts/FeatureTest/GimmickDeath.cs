@@ -41,8 +41,9 @@ public class GimmickDeath : Gimmick
 
 		LifeCount--;
 
-		Respawn(other);
 		StartCoroutine ("DeadAnimarter");
+		Respawn(other);
+
 
 		if (LifeCount == 2) {
 			Life3.SetActive (false);
