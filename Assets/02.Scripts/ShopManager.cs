@@ -12,11 +12,16 @@ public class ShopManager : MonoBehaviour {
 	public Text BuyDetailText;
 	public Text NeddDiamondText;
 	public int SelectButtonNumber;
+    
+    public AudioSource SceneManagerSE;
 
-	public void ClickBuyProductButton(int index){
+    public void ClickBuyProductButton(int index){
 		GameObject.Find ("ShopPanel").GetComponent<ScrollRect> ().horizontal = false;
 		NotActiveButton ();
 		SelectButtonNumber = index;
+
+        SceneManagerSE.Play();
+
 		if (index == 5) {
 			ShopBuyPopup.SetActive (true);
 			BuyDetailText.text = "런 포인트 5개를 구매 하시겠습니까?";
@@ -45,6 +50,10 @@ public class ShopManager : MonoBehaviour {
 	}
 
 	public void BuyProduct(){
+
+        int prevGold, nextGold;
+        prevGold = PlayerInfoManager.Gold;
+
 		int index = SelectButtonNumber;
 		if (index == 5) {
 			if (PlayerInfoManager.Diamond >= 50) {
@@ -101,6 +110,13 @@ public class ShopManager : MonoBehaviour {
 				NeedMoreDiamondPopup.SetActive (true);
 			}
 		}
+
+        nextGold = PlayerInfoManager.Gold;
+
+        if(nextGold > prevGold)
+        {
+            GetComponent<AudioSource>().Play(); //play BuyGold.mp3
+        }
 	}
 
 	public void ClickBuyProductCancelButton(){

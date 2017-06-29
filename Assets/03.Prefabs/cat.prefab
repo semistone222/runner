@@ -871,7 +871,7 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
-    m_RotationOrder: 4
+    m_RotationOrder: 0
   reverbZoneMixCustomCurve:
     serializedVersion: 2
     m_Curve:
@@ -917,9 +917,11 @@ MonoBehaviour:
   gravity: 40
   MOVESPD_ORIGIN: 0
   JUMPSPD_ORIGIN: 0
+  inputVec: {x: 0, y: 0, z: 0}
   respawnPoint: {x: 0, y: 0, z: 0}
   isGround: 0
   ani: {fileID: 95627958218448118}
+  moveDustParticle: {fileID: 0}
 --- !u!137 &137362051406578298
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1
