@@ -91,7 +91,7 @@ public class GimmickDeath : Gimmick
 		GameObject.FindGameObjectWithTag ("Player").GetComponent<Animator> ().SetBool ("IsDead", true);
 		GameObject.FindGameObjectWithTag ("Player").GetComponent<PlayerControllerOff> ().MOVESPD_ORIGIN = 0;
 		Death = true;
-		yield return new WaitForSeconds(2);
+		yield return new WaitForSeconds(1.5f);
 		Death = false;
 		GameObject.Find("ButtonJump").GetComponent<SimpleButton>().enabled = true;
 		GameObject.FindGameObjectWithTag ("Player").GetComponent<PlayerControllerOff> ().MOVESPD_ORIGIN = PlayerControllerOff.DeathBeforeSpeed;

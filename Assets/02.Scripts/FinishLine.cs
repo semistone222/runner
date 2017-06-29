@@ -27,6 +27,7 @@ public class FinishLine : MonoBehaviour {
 			RunningTimer.SetActive(false);
 			GameObject.FindGameObjectWithTag ("Player").GetComponent<PlayerControllerOff> ().MOVESPD_ORIGIN = 0;
 			StartCoroutine (FinishGame());
+			StartCoroutine (FinishGame());
 
 		}
 	}
