@@ -69,7 +69,6 @@ public class ResultManager : MonoBehaviour {
 	void Update(){	
 		
 		GameObject.Find (PlayerInfoManager.SelectCharacter+"StageAni(Clone)").GetComponent<ShopCharacter>().Shopani.SetBool ("IsWin", true);
-		GameObject.Find (PlayerInfoManager.SelectCharacter + "Body").GetComponent<ChangeMaterial> ().ChangeVictory ();  // 웃는 표정으로 설정 
 	
 	}
 

@@ -182,7 +182,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!1 &1169375132153934
 GameObject:
   m_ObjectHideFlags: 0
@@ -1800,7 +1800,7 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
-    m_RotationOrder: 0
+    m_RotationOrder: 4
   reverbZoneMixCustomCurve:
     serializedVersion: 2
     m_Curve:
@@ -2939,7 +2939,7 @@ MonoBehaviour:
   img: {fileID: 114705582785704734}
   btn: {fileID: 114654682546873472}
   disableOnStart: 1
-  BoosterSpeed: 0
+  BoosterSpeed: 10
 --- !u!114 &114413998181297224
 MonoBehaviour:
   m_ObjectHideFlags: 1

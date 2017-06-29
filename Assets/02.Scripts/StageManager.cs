@@ -40,7 +40,6 @@ public class StageManager : MonoBehaviour {
 		Character = Resources.Load ("Character/"+PlayerInfoManager.SelectCharacter+"StageAni") as GameObject;
 		Instantiate (Character, PlayerPosition.transform.position, PlayerPosition.transform.rotation).transform.SetParent (PlayerPosition.transform);
 		GameObject.Find (PlayerInfoManager.SelectCharacter+"StageAni(Clone)").GetComponent<ShopCharacter>().Shopani.SetBool ("IsRun", true);
-		GameObject.Find (PlayerInfoManager.SelectCharacter + "StageAni(Clone)").transform.localRotation = Quaternion.Euler (15, 3, 0);	
 
 	}
 	public void ShowLoadingScene(){
