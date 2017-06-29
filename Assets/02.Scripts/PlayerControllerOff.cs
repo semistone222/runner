@@ -260,8 +260,6 @@ public class PlayerControllerOff : MonoBehaviour
 			slidingDirection = Vector3.zero;
 		}
 
-
-
         Collider col = hit.collider;
         if (col.tag == "Tile")
         {

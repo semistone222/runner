@@ -26,7 +26,7 @@ public class BoosterButton : MonoBehaviour {
 		//	ResetBoostertime ();
 		}
 		btn.enabled = false;
-		BoosterSpeed = GameObject.FindGameObjectWithTag ("Player").GetComponent <PlayerControllerOff> ().MOVESPD_ORIGIN;
+		BoosterSpeed = GameObject.FindGameObjectWithTag ("Player").GetComponent<PlayerControllerOff> ().MOVESPD_ORIGIN;
 
 		// 각 캐릭터 부스터 유지 시간
 		BoosteringTime = 2 * System.Convert.ToSingle (CharacterManager.CharacterInfoList [ ((CharacterManager.SelectCharacterNumber) * 60) +  System.Convert.ToInt32 (PlayerInfoManager.PlayerCharacterinfo [1, CharacterManager.SelectCharacterNumber])-1].Booster);

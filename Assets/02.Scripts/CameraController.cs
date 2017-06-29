@@ -11,7 +11,13 @@ public class CameraController : MonoBehaviour {
 	private Vector3 plus = new Vector3 (0, 7, 0);
 	private Vector3 offset = new Vector3(0, -1, -8);
 
-	void LateUpdate () {
+    void Update()
+    {
+        //카메라 감도값 유지.
+        rotationSpeed = UIValue.camValue;
+    }
+
+void LateUpdate () {
 		if (!player)
 			return;
 

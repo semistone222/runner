@@ -118,6 +118,12 @@ namespace CnControls
                 Hide(true);
             }
         }
+                 
+         private void Update()
+         {
+             SnapsToFinger = !UIValue.snapsToFinger;
+         }
+ 
 
         private void OnEnable()
         {
