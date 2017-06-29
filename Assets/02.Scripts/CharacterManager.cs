@@ -36,8 +36,7 @@ public class CharacterManager : MonoBehaviour {
 	public Text BuyPriceText;
 	public Text BuyCharacterText;
 
-    public AudioSource SceneManagerSE;
-    public AudioSource UseGemSE;
+	private GameObject SoundManager;
 
 	private Text PriceText;
 
@@ -66,7 +65,9 @@ public class CharacterManager : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		CharacterInfoList = Read("CharacterData"); 
+		
+		SoundManager = GameObject.Find ("SoundManager");
+		CharacterInfoList = Read("CharacterData"); // XML 데이터 가져옴
 		for (int i = 0; i < CharacterMax_Count; i++) {   	// 이름 표기 
 			if(CharacterInfoList [i * 60].Name == "rabbit"){
 				CharacterNameText [i].text = "토순이";
@@ -161,8 +162,10 @@ public class CharacterManager : MonoBehaviour {
 		if (CharacterBuyPrice <= PlayerInfoManager.Diamond) { // 캐릭터  구매시
 			PlayerInfoManager.Diamond -= CharacterBuyPrice; 
 			PlayerInfoManager.PlayerCharacterinfo [1, ClickButtonNunmber] = "1";
-            UseGemSE.Play();   //play UseGem.mp3
-            ClickBuyCancelButton ();
+			SoundManager.GetComponent<SoundManager>().PlayUseGemSE();  //play UseGem.mp3
+			DoTouchButton ();
+			Scrollrect.GetComponent<ScrollRect> ().horizontal = true; // 구매 버튼 누를시 캐릭터 ScrollRect 고정해제 
+			BuyPopup.SetActive (false);
 		} else {   // 캐릭터 구매시 보석이 부족하면 상점이동 팝업창 
 			ShopMovePopupNumber = 1;
 			BuyPopup.SetActive (false);
@@ -172,6 +175,7 @@ public class CharacterManager : MonoBehaviour {
 	}
 		
 	public void ClickBuyCancelButton(){
+		SoundManager.GetComponent<SoundManager> ().PlayClickSound3();  //play CharChoi.mp3
 		DoTouchButton ();
 		Scrollrect.GetComponent<ScrollRect> ().horizontal = true; // 구매 버튼 누를시 캐릭터 ScrollRect 고정해제 
 		BuyPopup.SetActive (false);
@@ -192,9 +196,10 @@ public class CharacterManager : MonoBehaviour {
 			PlayerInfoManager.SelectCharacter = CharacterInfoList [60 * index].Name;
 			SelectCharacterNumber = index;
 
-            GetComponent<AudioSource>().Play(); //play CharChoi.mp3
+			SoundManager.GetComponent<SoundManager> ().PlayCharChoiSE ();  //play CharChoi.mp3
         }
         else {  // 버튼이 구매버튼일 경우 
+			SoundManager.GetComponent<SoundManager> ().PlayClickSound2 ();  //play CharChoi.mp3
 			NotTouchButton ();
 			BuyPopup.SetActive (true);
 			BuyCharacterText.text = CharacterNameText [index].text;
@@ -221,7 +226,7 @@ public class CharacterManager : MonoBehaviour {
 
 	public void ClickPopupUpgradeButton(int index){  // 업그레이드 팝업창 종료시
 		index--; // 주소 값 일치 
-
+		SoundManager.GetComponent<SoundManager> ().PlayClickSound2 ();  //play CharChoi.mp3
 		NotTouchButton ();
 		Scrollrect.GetComponent<ScrollRect> ().horizontal = false; // 업그레이드버튼 누를시 캐릭터 ScrollRect 고정 
 		UpgradePopup.SetActive(true);
@@ -241,6 +246,7 @@ public class CharacterManager : MonoBehaviour {
 	}
 
 	public void ClickUpgradeCancelButton(){
+		SoundManager.GetComponent<SoundManager> ().PlayClickSound3 ();  //play CharChoi.mp3
 		DoTouchButton ();
 		Scrollrect.GetComponent<ScrollRect> ().horizontal = true; // 업그레이드팝업 취소버튼 누를시 캐릭터 ScrollRect 고정해제 
 		UpgradePopup.SetActive (false);
@@ -253,6 +259,7 @@ public class CharacterManager : MonoBehaviour {
 			PlayerInfoManager.Gold -= CharacterInfoList [System.Convert.ToInt32 (PlayerInfoManager.PlayerCharacterinfo [1, UpgradeNumber])].UpgradeCost;
 			PlayerInfoManager.PlayerCharacterinfo [1, UpgradeNumber] = (System.Convert.ToInt32 (PlayerInfoManager.PlayerCharacterinfo [1, UpgradeNumber])+1).ToString();
 			ResetUpgradeDetail (UpgradeNumber); // 캐릭터 업그레이드 표기 
+			SoundManager.GetComponent<SoundManager> ().PlayBuyCoinSE ();  //play CharChoi.mp3
 		}else{	// 캐릭터 업그레이드시 골드가 부족하면 상점이동 팝업창 
 			ShopMovePopupNumber = 2;
 			UpgradePopup.SetActive (false);

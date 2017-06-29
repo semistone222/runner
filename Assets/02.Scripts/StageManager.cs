@@ -7,14 +7,13 @@ public class StageManager : MonoBehaviour {
 
 	public Text Stagetext;
 	public Text ItemText;
-	public AudioSource clickSound2;
-    public AudioSource itemSelSE;
-    public AudioSource itemDeselSE;
 	public Toggle[] ItemToggles = new Toggle[MAX_ItemCount];
 
 	public GameObject PlayerPosition;
 	private GameObject Character;
 	public GameObject ShopMovePopup;
+
+	private GameObject SoundManager;
 
 	enum Item:int{
 		Heart, Shield, Booster
@@ -42,9 +41,11 @@ public class StageManager : MonoBehaviour {
 		GameObject.Find (PlayerInfoManager.SelectCharacter+"StageAni(Clone)").GetComponent<ShopCharacter>().Shopani.SetBool ("IsRun", true);
 		GameObject.Find (PlayerInfoManager.SelectCharacter + "StageAni(Clone)").transform.localRotation = Quaternion.Euler (15, 3, 0);	
 
+		SoundManager = GameObject.Find ("SoundManager");
+
 	}
 	public void ShowLoadingScene(){
-		clickSound2.Play();
+		SoundManager.GetComponent<SoundManager> ().PlayClickSound2 ();
 		ActiveItems();
 	}
 	public void ItemToggle(int index)
@@ -54,14 +55,15 @@ public class StageManager : MonoBehaviour {
 			ItemText.text = ItemString[index];
 			PlayerInfoManager.Gold -= 1000; 
 			ItemChecked [index] = true;
-            itemSelSE.Play();
+			SoundManager.GetComponent<SoundManager> ().PlayItemSelectSE ();
 		} else if(ItemChecked [index] == true){
 			PlayerInfoManager.Gold += 1000; 
 			ItemChecked [index] = false;
 			ItemText.text = "";
-            itemDeselSE.Play();
+			SoundManager.GetComponent<SoundManager> ().PlayItemDelectSE ();
 		} else if(PlayerInfoManager.Gold < 1000 && ItemChecked [index] == false){
 			ShopMovePopup.SetActive (true);
+			GameObject.Find ("ShowDetailText").GetComponent<Text> ().text = "골드가 부족합니다";
 			ItemChecked [index] = false;
 			ItemToggles [index].isOn = false;
 		}

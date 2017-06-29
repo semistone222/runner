@@ -12,47 +12,29 @@ public class SendSence : MonoBehaviour {
 	public GameObject Multi;
 	public GameObject ShowMovePopup;
 
-	private AudioSource clickSound;
-    public AudioSource clickSound2;
-    public AudioSource StageSelectSE;
+	private GameObject SoundManager;
+
 	public static string SceneName;
 	public static int StageNumber ;
 	public static bool RunPointShop = false; 
 
 	private void Awake()
 	{
-
-		clickSound = GetComponent<AudioSource>();
-		clickSound.playOnAwake = false;
+		SoundManager = GameObject.Find ("SoundManager");
 	}
 
-	private void ClickSound()
-	{
-		if (clickSound.isPlaying == false)
-		{
-			clickSound.Play();
-		}
-	}
-
-    private void ClickSound2()
-    {
-        if (clickSound2.isPlaying == false)
-        {
-            clickSound2.Play();
-        }
-    }
 
 	public void ClickSingleButton(){
 		StagePopup.SetActive (true);
 	}
 		
     public void ClickExitButton(){	
-		clickSound.Play();
+		SoundManager.GetComponent<SoundManager> ().PlayClickSound3 ();
 		ExitPopup.SetActive (true);
 	}
 
 	public void ClickNoExitButton(){	
-		clickSound2.Play();
+		SoundManager.GetComponent<SoundManager> ().PlayClickSound2 ();
 		ExitPopup.SetActive (false);
 	}
 		
@@ -60,31 +42,31 @@ public class SendSence : MonoBehaviour {
 		for (int i = 0; i < 3; i++) {
 			StageManager.ItemChecked [i] = false;
 		}
-		clickSound2.Play();
+		SoundManager.GetComponent<SoundManager> ().PlayClickSound2 ();
 		StagePopup.SetActive (false);
 	}
 
 	public void ShowSelectMode(){
-		clickSound.Play();
+		SoundManager.GetComponent<SoundManager> ().PlayClickSound3 ();
 		Application.LoadLevel ("SelectMode");
 	}
 		
 	public void ShowSingleMode(){
-		clickSound.Play();
+		SoundManager.GetComponent<SoundManager> ().PlayClickSound3 ();
 		StagePopup.SetActive (true);
 	}
 
 	public void ShowMultiMode(){
-		clickSound.Play();
+		SoundManager.GetComponent<SoundManager> ().PlayClickSound3 ();
 		Application.LoadLevel ("Lobby");
 	}
 
 	public void ShowLoadingScene(){
-		clickSound.Play();
+		SoundManager.GetComponent<SoundManager> ().PlayStageSelectSE ();
 		if (PlayerInfoManager.RunPoint > 0) {
 			PlayerInfoManager.RunPoint--; // Player 게임 횟수 1감소
 			GameObject.Find ("StageManager").GetComponent<StageManager> ().ActiveItems ();
-			Application.LoadLevel ("Loading");
+			StartCoroutine ("MoveLoadingScene");
 		} else {  // 런 포인트 부족시 상점이동 팝업창 활성
 			ShowMovePopup.SetActive(true);
 			RunPointShop = true;
@@ -93,6 +75,7 @@ public class SendSence : MonoBehaviour {
 	}
 
 	public void ClickBackButton(){
+		SoundManager.GetComponent<SoundManager> ().PlayClickSound3 ();
 		for(int i = 0 ; i < 3 ; i++){
 			if(StageManager.ItemChecked[i]  == true){
 				PlayerInfoManager.Gold += 1000; 
@@ -102,69 +85,34 @@ public class SendSence : MonoBehaviour {
 		Application.LoadLevel ("SelectMode");
 	}
 	public void ClickAgainStage(){
-		StageSelectSE.Play();
+		SoundManager.GetComponent<SoundManager> ().PlayStageSelectSE ();
 		SceneName = "Ch.1_Stage"+StageNumber;
+	//	StartCoroutine ("MoveStageScene");
 		Application.LoadLevel ("StageLobby");
 	}
 
 
 	public void ClickNextStage(){
-		StageSelectSE.Play();
+		SoundManager.GetComponent<SoundManager> ().PlayStageSelectSE ();
 		StageNumber++;
 		SceneName = "Ch.1_Stage"+StageNumber;
 		Application.LoadLevel ("StageLobby");
 	}
 
-	public void ClickStage1(){
-		StageSelectSE.Play();
-		StageNumber = 1;
+	public void ClickStage(int index){
+		SoundManager.GetComponent<SoundManager> ().PlayStageSelectSE ();
+		StageNumber = index;
 		SceneName = "Ch.1_Stage"+StageNumber;
-		Application.LoadLevel ("StageLobby");
+		StartCoroutine ("MoveStageScene");
 	}
-	public void ClickStage2(){
-		StageSelectSE.Play();
-		StageNumber = 2;
-		SceneName = "Ch.1_Stage"+StageNumber;
-		Application.LoadLevel ("StageLobby");
-	}
-	public void ClickStage3(){
-		StageSelectSE.Play();
-		StageNumber = 3;
-		SceneName = "Ch.1_Stage"+StageNumber;
-		Application.LoadLevel ("StageLobby");
-	}
-	public void ClickStage4(){
-		StageSelectSE.Play();
-		StageNumber = 4;
-		SceneName = "Ch.1_Stage"+StageNumber;
-		Application.LoadLevel ("StageLobby");
-	}
-	public void ClickStage5(){
-		StageSelectSE.Play();
-		StageNumber = 5;
-		SceneName = "Ch.1_Stage"+StageNumber;
-		Application.LoadLevel ("StageLobby");
-	}
-	public void ClickStage6(){
-		StageSelectSE.Play();
-		StageNumber = 6;
-		SceneName = "Ch.1_Stage"+StageNumber;
+
+	IEnumerator MoveStageScene(){
+		yield return new WaitForSeconds (0.5f);
 		Application.LoadLevel ("StageLobby");
 	}
 
-    public void ClickStage7()
-    {
-        StageSelectSE.Play();
-        StageNumber = 7;
-        SceneName = "Ch.1_Stage" + StageNumber;
-        Application.LoadLevel("StageLobby");
-    }
-
-    public void ClickStage8()
-    {
-        StageSelectSE.Play();
-        StageNumber = 8;
-        SceneName = "Ch.1_Stage" + StageNumber;
-        Application.LoadLevel("StageLobby");
-    }
+	IEnumerator MoveLoadingScene(){
+		yield return new WaitForSeconds (0.5f);
+		Application.LoadLevel ("Loading");
+	}
 }

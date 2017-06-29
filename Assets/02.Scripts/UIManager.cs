@@ -23,15 +23,12 @@ public class UIManager : MonoBehaviour
     public float[] CameraValues;
     private int spriteIndex = 0;
 
-    private AudioSource clickSound;
-    public AudioSource clickSound2;
+	private GameObject SoundManager;
+
 
     private void Awake()
     {
-        clickSound = GetComponent<AudioSource>();
-        clickSound.playOnAwake = false;
-        clickSound2.playOnAwake = false;
-
+		SoundManager = GameObject.Find ("SoundManager");
         //spriteIndex = 현재 카메라 감도 값에 비례해서 대입한 후
         CameraObject = Camera.main.gameObject;
         CameraObject.GetComponent<CameraController>().rotationSpeed = CameraValues[spriteIndex % CameraValues.Length];
@@ -56,32 +53,16 @@ public class UIManager : MonoBehaviour
         audioMixer.SetFloat("BGMVol", 0f);
         audioMixer.SetFloat("SEVol", 0f);
     }
-
-	private void ClickSound()
-    {
-        if (clickSound.isPlaying == false)
-        {
-            clickSound.Play();
-        }
-    }
-
-    private void ClickSound2()
-    {
-        if (clickSound2.isPlaying == false)
-        {
-            clickSound2.Play();
-        }
-    }
-
+		
     public void UISettingToggle()
     {
         if(isUISettingOn)
         {
-            ClickSound();
+			SoundManager.GetComponent<SoundManager> ().PlayClickSound3 ();
         }
         else
         {
-            ClickSound2();
+			SoundManager.GetComponent<SoundManager> ().PlayClickSound2 ();
         }
         isUISettingOn = !isUISettingOn;
         UISetting.SetActive(isUISettingOn);
@@ -89,7 +70,7 @@ public class UIManager : MonoBehaviour
 
     public void UIPadToggle( )
     {
-        ClickSound();
+		SoundManager.GetComponent<SoundManager> ().PlayClickSound2 ();
         UIJoystick.GetComponent<SimpleJoystick>().SnapsToFinger = !PadToggle.GetComponent<Toggle>().isOn;
     }
 
@@ -100,7 +81,7 @@ public class UIManager : MonoBehaviour
 
         if(length == CameraValues.Length)
         {
-            ClickSound();
+			SoundManager.GetComponent<SoundManager> ().PlayClickSound2 ();
             spriteIndex++;
 
             spriteIndex = spriteIndex % length;
@@ -112,9 +93,11 @@ public class UIManager : MonoBehaviour
 
     public void UISoundToggle(string s)
     {
+		
         float vol;
         audioMixer.GetFloat(s, out vol);
 
+		SoundManager.GetComponent<SoundManager> ().PlayClickSound2 ();
         Debug.Log(vol +" "+ s);
 
         if (vol > -80f)
@@ -126,7 +109,5 @@ public class UIManager : MonoBehaviour
             audioMixer.SetFloat(s, 0f);
         }
 
-
-        ClickSound();
     }
 }

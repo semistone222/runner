@@ -13,7 +13,6 @@ public class ChangeMaterial : MonoBehaviour {
 	}
 	public void ChangeIdle(){
 		rend.sharedMaterial = material [0];
-
 	}
 
 	public void ChangeVictory(){

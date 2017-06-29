@@ -8,27 +8,37 @@ public class ShopMove : MonoBehaviour {
 	public static bool StageToStore = false;
 	public static bool DeathRetryToStore = false;
 
+	private GameObject SoundManager;
+
+	private void Awake()
+	{
+		SoundManager = GameObject.Find ("SoundManager");
+	}
+
 	public void ClickShopMoveCancelStage(){
+		SoundManager.GetComponent<SoundManager> ().PlayClickSound3 ();
 		SendSence.RunPointShop = false;
 		ShowMovePopup.SetActive (false);	
 	}
 	public void ClickShopMoveCancel(){
+		SoundManager.GetComponent<SoundManager> ().PlayClickSound3 ();
 		GameObject.Find ("CharacterManager").GetComponent<CharacterManager> ().DoTouchButton ();
 		ShowMovePopup.SetActive (false);
 	}
 
 	public void ClickShopMoveInStage(){
+		SoundManager.GetComponent<SoundManager> ().PlayClickSound2 ();
 		for(int i = 0 ; i < 3 ; i++){
 			if(StageManager.ItemChecked [i] ==true){
 				PlayerInfoManager.Gold += 1000;
 				StageManager.ItemChecked [i] = false;
 			}
-		StageToStore = true;  // 씬을 넘겨야 되서 static 변수로 구분 
+			StageToStore = true;  // 씬을 넘겨야 되서 static 변수로 구분 
 			Application.LoadLevel ("SelectMode");}
 	}
 
 	public void ClickShopMoveInUpgradeButton(){
-		Debug.Log (CharacterManager.ShopMovePopupNumber);
+		SoundManager.GetComponent<SoundManager> ().PlayClickSound2 ();
 		if (CharacterManager.ShopMovePopupNumber == 1) { // 캐릭터 창에서 보석이 부족할 경우 
 			GameObject.Find ("CharacterManager").GetComponent<CharacterManager> ().DoTouchButton ();
 			GameObject.Find ("MainSceneManager").GetComponent<MainSceneManager> ().ClickShopButton ();
@@ -41,6 +51,7 @@ public class ShopMove : MonoBehaviour {
 		}
 	}
 	public void ClickShopMoveInDeathRetry(){
+		SoundManager.GetComponent<SoundManager> ().PlayClickSound2 ();
 		ResultManager.InitItems();
 		Time.timeScale = 1;
 		DeathRetryToStore = true; // 씬을 넘겨야 되서 static 변수로 구분 

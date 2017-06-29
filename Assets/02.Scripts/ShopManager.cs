@@ -13,14 +13,17 @@ public class ShopManager : MonoBehaviour {
 	public Text NeddDiamondText;
 	public int SelectButtonNumber;
     
-    public AudioSource SceneManagerSE;
+	private GameObject SoundManager;
+
+	void Start(){
+		SoundManager = GameObject.Find ("SoundManager");
+	}
 
     public void ClickBuyProductButton(int index){
 		GameObject.Find ("ShopPanel").GetComponent<ScrollRect> ().horizontal = false;
 		NotActiveButton ();
 		SelectButtonNumber = index;
-
-        SceneManagerSE.Play();
+		SoundManager.GetComponent<SoundManager> ().PlayClickSound2 ();
 
 		if (index == 5) {
 			ShopBuyPopup.SetActive (true);
@@ -50,8 +53,10 @@ public class ShopManager : MonoBehaviour {
 	}
 
 	public void BuyProduct(){
-
+		int prevRunpoint, nextRunpoint;
         int prevGold, nextGold;
+
+		prevRunpoint = PlayerInfoManager.RunPoint;
         prevGold = PlayerInfoManager.Gold;
 
 		int index = SelectButtonNumber;
@@ -59,7 +64,7 @@ public class ShopManager : MonoBehaviour {
 			if (PlayerInfoManager.Diamond >= 50) {
 				PlayerInfoManager.Diamond -= 50;
 				PlayerInfoManager.RunPoint += 5; 
-				ClickBuyProductCancelButton ();
+				DelectBuyProductPopup ();
 			} else {
 				ShopBuyPopup.SetActive (false);
 				NeedMoreDiamondPopup.SetActive (true);
@@ -68,7 +73,7 @@ public class ShopManager : MonoBehaviour {
 			if (PlayerInfoManager.Diamond >= 100) {
 				PlayerInfoManager.Diamond -= 100;
 				PlayerInfoManager.RunPoint += 10;
-				ClickBuyProductCancelButton ();
+				DelectBuyProductPopup ();
 			} else {
 				ShopBuyPopup.SetActive (false);
 				NeedMoreDiamondPopup.SetActive (true);
@@ -77,7 +82,7 @@ public class ShopManager : MonoBehaviour {
 			if (PlayerInfoManager.Diamond >= 200) {
 				PlayerInfoManager.Diamond -= 200;
 				PlayerInfoManager.RunPoint += 20; 
-				ClickBuyProductCancelButton ();
+				DelectBuyProductPopup ();
 			} else {
 				ShopBuyPopup.SetActive (false);
 				NeedMoreDiamondPopup.SetActive (true);
@@ -86,7 +91,7 @@ public class ShopManager : MonoBehaviour {
 			if (PlayerInfoManager.Diamond >= 60) {
 				PlayerInfoManager.Diamond -= 60;
 				PlayerInfoManager.Gold += 1000; 
-				ClickBuyProductCancelButton ();
+				DelectBuyProductPopup ();
 			} else {
 				ShopBuyPopup.SetActive (false);
 				NeedMoreDiamondPopup.SetActive (true);
@@ -95,7 +100,7 @@ public class ShopManager : MonoBehaviour {
 			if (PlayerInfoManager.Diamond >= 500) {
 				PlayerInfoManager.Diamond -= 500;
 				PlayerInfoManager.Gold += 10000; 
-				ClickBuyProductCancelButton ();
+				DelectBuyProductPopup ();
 			} else {
 				ShopBuyPopup.SetActive (false);
 				NeedMoreDiamondPopup.SetActive (true);
@@ -104,28 +109,42 @@ public class ShopManager : MonoBehaviour {
 			if (PlayerInfoManager.Diamond >= 4500) {
 				PlayerInfoManager.Diamond -= 500;
 				PlayerInfoManager.Gold += 100000; 
-				ClickBuyProductCancelButton ();
+				DelectBuyProductPopup ();
 			} else {
 				ShopBuyPopup.SetActive (false);
 				NeedMoreDiamondPopup.SetActive (true);
 			}
 		}
 
-        nextGold = PlayerInfoManager.Gold;
+		nextRunpoint = PlayerInfoManager.RunPoint;
+		nextGold = PlayerInfoManager.Gold;
 
+		if(nextRunpoint > prevRunpoint)
+		{
+			SoundManager.GetComponent<SoundManager> ().PlayCharChoiSE ();
+		}
+			
         if(nextGold > prevGold)
         {
-            GetComponent<AudioSource>().Play(); //play BuyGold.mp3
+			SoundManager.GetComponent<SoundManager> ().PlayBuyCoinSE ();
         }
 	}
 
 	public void ClickBuyProductCancelButton(){
+		SoundManager.GetComponent<SoundManager> ().PlayClickSound3 ();
+		ShopBuyPopup.SetActive (false);
+		ActiveButton ();
+		GameObject.Find ("ShopPanel").GetComponent<ScrollRect> ().horizontal = true;
+	}
+
+	public void DelectBuyProductPopup(){
 		ShopBuyPopup.SetActive (false);
 		ActiveButton ();
 		GameObject.Find ("ShopPanel").GetComponent<ScrollRect> ().horizontal = true;
 	}
 
 	public void ClickNeedMoreDiamondPopupCancelButton(){
+		SoundManager.GetComponent<SoundManager> ().PlayClickSound3 ();
 		NeedMoreDiamondPopup.SetActive (false);
 		ActiveButton ();
 		GameObject.Find ("ShopPanel").GetComponent<ScrollRect> ().horizontal = true;
