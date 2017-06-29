@@ -14,7 +14,6 @@ public class SendSence : MonoBehaviour {
 
 	private AudioSource clickSound;
     public AudioSource clickSound2;
-    public AudioSource StageSelectSE;
 	public static string SceneName;
 	public static int StageNumber ;
 	public static bool RunPointShop = false; 
@@ -102,69 +101,54 @@ public class SendSence : MonoBehaviour {
 		Application.LoadLevel ("SelectMode");
 	}
 	public void ClickAgainStage(){
-		StageSelectSE.Play();
+		clickSound.Play();
 		SceneName = "Ch.1_Stage"+StageNumber;
 		Application.LoadLevel ("StageLobby");
 	}
 
 
 	public void ClickNextStage(){
-		StageSelectSE.Play();
+		clickSound.Play();
 		StageNumber++;
 		SceneName = "Ch.1_Stage"+StageNumber;
 		Application.LoadLevel ("StageLobby");
 	}
 
 	public void ClickStage1(){
-		StageSelectSE.Play();
+		clickSound.Play();
 		StageNumber = 1;
 		SceneName = "Ch.1_Stage"+StageNumber;
 		Application.LoadLevel ("StageLobby");
 	}
 	public void ClickStage2(){
-		StageSelectSE.Play();
+		clickSound.Play();
 		StageNumber = 2;
 		SceneName = "Ch.1_Stage"+StageNumber;
 		Application.LoadLevel ("StageLobby");
 	}
 	public void ClickStage3(){
-		StageSelectSE.Play();
+		clickSound.Play();
 		StageNumber = 3;
 		SceneName = "Ch.1_Stage"+StageNumber;
 		Application.LoadLevel ("StageLobby");
 	}
 	public void ClickStage4(){
-		StageSelectSE.Play();
+		clickSound.Play();
 		StageNumber = 4;
 		SceneName = "Ch.1_Stage"+StageNumber;
 		Application.LoadLevel ("StageLobby");
 	}
 	public void ClickStage5(){
-		StageSelectSE.Play();
+		clickSound.Play();
 		StageNumber = 5;
 		SceneName = "Ch.1_Stage"+StageNumber;
 		Application.LoadLevel ("StageLobby");
 	}
 	public void ClickStage6(){
-		StageSelectSE.Play();
+		clickSound.Play();
 		StageNumber = 6;
 		SceneName = "Ch.1_Stage"+StageNumber;
 		Application.LoadLevel ("StageLobby");
 	}
 
-    public void ClickStage7()
-    {
-        StageSelectSE.Play();
-        StageNumber = 7;
-        SceneName = "Ch.1_Stage" + StageNumber;
-        Application.LoadLevel("StageLobby");
-    }
-
-    public void ClickStage8()
-    {
-        StageSelectSE.Play();
-        StageNumber = 8;
-        SceneName = "Ch.1_Stage" + StageNumber;
-        Application.LoadLevel("StageLobby");
-    }
 }

@@ -29,15 +29,13 @@ public class CharacterManager : MonoBehaviour {
 	public int ClickButtonNunmber;
 	public int CharacterBuyPrice;
 
+
 	public GameObject Scrollrect;
 	public GameObject BuyPopup;
 	public GameObject UpgradePopup;
 
 	public Text BuyPriceText;
 	public Text BuyCharacterText;
-
-    public AudioSource SceneManagerSE;
-    public AudioSource UseGemSE;
 
 	private Text PriceText;
 
@@ -161,8 +159,7 @@ public class CharacterManager : MonoBehaviour {
 		if (CharacterBuyPrice <= PlayerInfoManager.Diamond) { // 캐릭터  구매시
 			PlayerInfoManager.Diamond -= CharacterBuyPrice; 
 			PlayerInfoManager.PlayerCharacterinfo [1, ClickButtonNunmber] = "1";
-            UseGemSE.Play();   //play UseGem.mp3
-            ClickBuyCancelButton ();
+			ClickBuyCancelButton ();
 		} else {   // 캐릭터 구매시 보석이 부족하면 상점이동 팝업창 
 			ShopMovePopupNumber = 1;
 			BuyPopup.SetActive (false);
@@ -177,9 +174,8 @@ public class CharacterManager : MonoBehaviour {
 		BuyPopup.SetActive (false);
 	}
 		
-	public void ClickBuyButton()
-    {
-        ClickBuyfuntion (ClickButtonNunmber);
+	public void ClickBuyButton(){
+		ClickBuyfuntion (ClickButtonNunmber);
 	}
 
 
@@ -188,13 +184,10 @@ public class CharacterManager : MonoBehaviour {
 		ClickButtonNunmber = index; //구매 버튼의 번호 값을 저장 
 		if (SelectButton [index].GetComponent<Image>().sprite == RunningImage) {
 			
-		} else if (SelectButton [index].GetComponent<Image>().sprite == SelectImage) {  // 버튼이  선택버튼일 경우
+		} else if (SelectButton [index].GetComponent<Image>().sprite == SelectImage) {  // 버튼이  선택버튼일 경우 
 			PlayerInfoManager.SelectCharacter = CharacterInfoList [60 * index].Name;
 			SelectCharacterNumber = index;
-
-            GetComponent<AudioSource>().Play(); //play CharChoi.mp3
-        }
-        else {  // 버튼이 구매버튼일 경우 
+		} else {  // 버튼이 구매버튼일 경우 
 			NotTouchButton ();
 			BuyPopup.SetActive (true);
 			BuyCharacterText.text = CharacterNameText [index].text;
