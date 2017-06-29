@@ -55,6 +55,7 @@ public class CharacterManager : MonoBehaviour {
 	private int UpgradeNumber ;
 
 
+	private Texture WinImage;
 
 	public GameObject ShopMovePopup;
 	public static int ShopMovePopupNumber;
@@ -82,9 +83,9 @@ public class CharacterManager : MonoBehaviour {
 			CharacterPosition = GameObject.Find ("Character"+(i+1));
 			Instantiate (Character, CharacterPosition.transform.position, CharacterPosition.transform.rotation).transform.SetParent (CharacterPosition.transform);
 			CharacterComponent = GameObject.Find (CharacterInfoList [i * 60].Name + "Ani(Clone)");
-			CharacterComponent.transform.localScale = new Vector3 (150, 150, 150);
+			CharacterComponent.transform.localScale = new Vector3 (50, 50, 50);
 			CharacterComponent.transform.localPosition = new Vector3 (0f, -49.7f, -45.4f);
-			CharacterComponent.transform.localRotation = Quaternion.Euler (0, -180, 0);
+			CharacterComponent.transform.localRotation = Quaternion.Euler (20, -180, 0);
 		}
 	}
 
@@ -119,9 +120,11 @@ public class CharacterManager : MonoBehaviour {
 
 
 			if (SelectButton [i].GetComponent<Image> ().sprite == RunningImage) {
-				GameObject.Find (CharacterInfoList [60 * i].Name + "Ani(Clone)").GetComponent<ShopCharacter> ().Shopani.SetBool ("IsSelect", true);
+				GameObject.Find (CharacterInfoList [60 * i].Name + "Ani(Clone)").GetComponent<ShopCharacter> ().Shopani.SetBool ("IsWin", true);
+				GameObject.Find (CharacterInfoList [60 * i].Name +"Body").GetComponent<ChangeMaterial> ().ChangeVictory();  // 웃는 표정으로 설정 
 			} else {
-				GameObject.Find (CharacterInfoList [60 * i].Name + "Ani(Clone)").GetComponent<ShopCharacter> ().Shopani.SetBool ("IsSelect", false);
+				GameObject.Find (CharacterInfoList [60 * i].Name + "Ani(Clone)").GetComponent<ShopCharacter> ().Shopani.SetBool ("IsWin", false);
+				GameObject.Find (CharacterInfoList [60 * i].Name + "Body").GetComponent<ChangeMaterial> ().ChangeIdle ();  // 웃는 표정으로 해제
 			}
 		}	
 	}
@@ -228,9 +231,9 @@ public class CharacterManager : MonoBehaviour {
 		CharacterPosition = GameObject.Find ("UpgradePosition");
 		Instantiate (Character, CharacterPosition.transform.position, CharacterPosition.transform.rotation).transform.SetParent (CharacterPosition.transform);
 		CharacterComponent = GameObject.Find(CharacterInfoList [index * 60].Name + "StageAni(Clone)");
-		CharacterComponent.transform.localScale = new Vector3 (150, 150, 150);
+		CharacterComponent.transform.localScale = new Vector3 (50, 50, 50);
 		CharacterComponent.transform.localPosition = new Vector3 (18.5f, -66.6f, -45.4f);
-		CharacterComponent.transform.localRotation = Quaternion.Euler (0, -180, 0);	
+		CharacterComponent.transform.localRotation = Quaternion.Euler (10, -180, 0);	
 
 		ResetUpgradeDetail (index);  // 캐릭터 업그레이드 표기 
 		UpgradeNumber = index;
