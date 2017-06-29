@@ -26,14 +26,16 @@ public class FinishLine : MonoBehaviour {
 			Timetext.text = Timer.timesec;
 			RunningTimer.SetActive(false);
 			GameObject.FindGameObjectWithTag ("Player").GetComponent<PlayerControllerOff> ().MOVESPD_ORIGIN = 0;
+			GameObject.Find ("ButtonBooster").GetComponent<Button> ().interactable = false;  // 부스터 버튼 클릭 불가
 			StartCoroutine (FinishGame());
-			StartCoroutine (FinishGame());
+
 
 		}
 	}
 
 	IEnumerator FinishGame(){
 		yield return new WaitForSeconds (3.5f);
+		GameObject.Find ("ButtonBooster").GetComponent<Button> ().interactable = true;  // 부스터 버튼 클릭 활성
 		Application.LoadLevel("Result");
 	}
 }

@@ -119,8 +119,10 @@ public class CharacterManager : MonoBehaviour {
 
 			if (SelectButton [i].GetComponent<Image> ().sprite == RunningImage) {
 				GameObject.Find (CharacterInfoList [60 * i].Name + "Ani(Clone)").GetComponent<ShopCharacter> ().Shopani.SetBool ("IsWin", true);
+				GameObject.Find (CharacterInfoList [60 * i].Name +"Body").GetComponent<ChangeMaterial> ().ChangeVictory();  // 웃는 표정으로 설정 
 			} else {
 				GameObject.Find (CharacterInfoList [60 * i].Name + "Ani(Clone)").GetComponent<ShopCharacter> ().Shopani.SetBool ("IsWin", false);
+				GameObject.Find (CharacterInfoList [60 * i].Name + "Body").GetComponent<ChangeMaterial> ().ChangeIdle ();  // 웃는 표정으로 해제
 			}
 		}	
 	}

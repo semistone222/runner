@@ -89,6 +89,7 @@ public class GimmickDeath : Gimmick
 	public IEnumerator DeadAnimarter(){
 		GameObject.Find("ButtonJump").GetComponent<SimpleButton>().enabled = false;
 		GameObject.FindGameObjectWithTag ("Player").GetComponent<Animator> ().SetBool ("IsDead", true);
+		GameObject.Find (PlayerInfoManager.SelectCharacter + "Body").GetComponent<ChangeMaterial> ().ChangeLose ();  // 우는 표정으로 바꿈
 		GameObject.FindGameObjectWithTag ("Player").GetComponent<PlayerControllerOff> ().MOVESPD_ORIGIN = 0;
 		Death = true;
 		yield return new WaitForSeconds(1.5f);
@@ -96,6 +97,7 @@ public class GimmickDeath : Gimmick
 		GameObject.Find("ButtonJump").GetComponent<SimpleButton>().enabled = true;
 		GameObject.FindGameObjectWithTag ("Player").GetComponent<PlayerControllerOff> ().MOVESPD_ORIGIN = PlayerControllerOff.DeathBeforeSpeed;
 		GameObject.FindGameObjectWithTag ("Player").GetComponent<Animator> ().SetBool ("IsDead", false);
+		GameObject.Find (PlayerInfoManager.SelectCharacter + "Body").GetComponent<ChangeMaterial> ().ChangeIdle ();  // 우는 표정으로 해제
 
 	}
 }
