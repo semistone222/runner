@@ -10,7 +10,7 @@ EditorBuildSettings:
     guid: 99b7a4795f9a87b49a08d0f8510e0e84
   - enabled: 1
     path: Assets/01.Scenes/Splash.unity
-    guid: 9bba387d3b36f2446bb29c0ded31e599
+    guid: 00000000000000000000000000000000
   - enabled: 1
     path: Assets/01.Scenes/SelectMode.unity
     guid: 7a64970afb4d6364fa1a9314545d34eb
@@ -47,9 +47,3 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/01.Scenes/Ch.1Stage1-6/Ch.1_Stage6.unity
     guid: 12944cb7c831bf948af05d4ee2ee86c1
-  - enabled: 1
-    path: Assets/01.Scenes/Ch.1Stage1-6/Ch.1_Stage7.unity
-    guid: c298e38c2f8f83843bbc314302d5ad1b
-  - enabled: 1
-    path: Assets/01.Scenes/Ch.1Stage1-6/Ch.1_Stage8.unity
-    guid: 00000000000000000000000000000000

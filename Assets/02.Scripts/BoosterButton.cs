@@ -81,8 +81,7 @@ public class BoosterButton : MonoBehaviour {
 		BoosterSpeed = BoosterSpeed + (BoosterSpeed * 0.2f);
 		Debug.Log ("BoosterSpeed: "+BoosterSpeed);
 		GameObject.FindGameObjectWithTag ("Player").GetComponent <PlayerControllerOff> ().MOVESPD_ORIGIN= BoosterSpeed;
-        GetComponent<AudioSource>().Play();
-        BoosterOn = true;
+		BoosterOn = true;
 	}
 
 	public void ResetBoosterSpeed(){
