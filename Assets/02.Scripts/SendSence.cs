@@ -152,4 +152,19 @@ public class SendSence : MonoBehaviour {
 		Application.LoadLevel ("StageLobby");
 	}
 
+    public void ClickStage7()
+    {
+        StageSelectSE.Play();
+        StageNumber = 7;
+        SceneName = "Ch.1_Stage" + StageNumber;
+        Application.LoadLevel("StageLobby");
+    }
+
+    public void ClickStage8()
+    {
+        StageSelectSE.Play();
+        StageNumber = 8;
+        SceneName = "Ch.1_Stage" + StageNumber;
+        Application.LoadLevel("StageLobby");
+    }
 }
