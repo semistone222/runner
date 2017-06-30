@@ -29,7 +29,6 @@ public class StartLaoding : MonoBehaviour {
 
     public SoundManager soundManager;
     private GameObject Sound;
-    
 
     // Use this for initialization
     void Start () {
@@ -62,7 +61,7 @@ public class StartLaoding : MonoBehaviour {
 		Boundary.SetActive(false);
 		number.SetActive (false);
 		Booster.SetActive (true);
-		InitTimeImage.SetActive (false);
+        InitTimeImage.SetActive (false);
 		TimeImage.SetActive (true);
 		StopCoroutine (StartLoading);
 	}
