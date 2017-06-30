@@ -22,7 +22,8 @@ public class DeathRetry : MonoBehaviour {
 		SoundManager.GetComponent<SoundManager> ().PlayClickSound3 ();
 		ResultManager.InitItems();
 		Time.timeScale = 1;
-		Application.LoadLevel ("SelectMode");
+        SoundManager.GetComponent<SoundManager>().SetBGM1();
+        Application.LoadLevel ("SelectMode");
 	} 
 	public void RetryButton(){
 

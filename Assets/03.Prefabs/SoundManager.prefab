@@ -132,6 +132,7 @@ GameObject:
   m_Component:
   - component: {fileID: 224004490288499068}
   - component: {fileID: 114459881010863448}
+  - component: {fileID: 114991513508085484}
   m_Layer: 5
   m_Name: SoundManager
   m_TagString: Untagged
@@ -406,7 +407,8 @@ AudioSource:
   m_GameObject: {fileID: 1708460287009144}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 243808632965566564, guid: 59fc4ec652d5aa74190fc1e9dc20dc35,
+    type: 2}
   m_audioClip: {fileID: 8300000, guid: 9c0f079c04a1ad4418533a1e17805772, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
@@ -813,6 +815,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a016dfbee6655344a8f61d39372d9a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  BGM1: {fileID: 8300000, guid: fb665db8f9dfc4d41bedc6b340a8ae79, type: 3}
+  BGM2: {fileID: 8300000, guid: 9f82bad744b302b4198dc937d658dca1, type: 3}
   CharChoiSE: {fileID: 82177437468786154}
   ClickSound2: {fileID: 82420052913024806}
   ClickSound3: {fileID: 82005476049350914}
@@ -821,6 +825,18 @@ MonoBehaviour:
   StageSelectSE: {fileID: 82126031932343402}
   ItemSelectSE: {fileID: 82214549504925094}
   ItemDelectSE: {fileID: 82907765323420058}
+--- !u!114 &114991513508085484
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1774600585454182}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a0425e794f6a00a4492f4b021e429794, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioMixer: {fileID: 24100000, guid: 59fc4ec652d5aa74190fc1e9dc20dc35, type: 2}
 --- !u!224 &224004490288499068
 RectTransform:
   m_ObjectHideFlags: 1

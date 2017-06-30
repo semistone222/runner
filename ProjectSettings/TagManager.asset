@@ -12,6 +12,7 @@ TagManager:
   - EndZone
   - StartText
   - StartBoundary
+  - BGM
   layers:
   - Default
   - TransparentFX

@@ -7,9 +7,11 @@ public class FinishLine : MonoBehaviour {
 	public GameObject text;
 	public GameObject FinishTimer;
 	public GameObject RunningTimer;
-	// Use this for initialization
-	void Start () {
-		text.SetActive (false);
+
+    
+    // Use this for initialization
+    void Start () {
+        text.SetActive (false);
 	}
 	
 	// Update is called once per frame
@@ -33,8 +35,11 @@ public class FinishLine : MonoBehaviour {
 	}
 
 	IEnumerator FinishGame(){
-		yield return new WaitForSeconds (3.5f);
+        SoundManager sm = GameObject.Find("SoundManager").GetComponent<SoundManager>();
+        yield return new WaitForSeconds (3.5f);
 		GameObject.Find ("ButtonBooster").GetComponent<Button> ().interactable = true;  // 부스터 버튼 클릭 활성
+        sm.SetBGMNull();
+        sm.SetBGM1();
 		Application.LoadLevel("Result");
 	}
 }

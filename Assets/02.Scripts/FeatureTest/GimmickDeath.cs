@@ -54,9 +54,16 @@ public class GimmickDeath : Gimmick
 				DeathRetryPopup.SetActive (true);
 				Time.timeScale = 0;
 			} else { // 리트라이 이후 죽을 경우 바로 스테이지 이동 
-				ResultManager.InitItems ();  // 아이템 목숨 초기화 
+
+                SoundManager sm = GameObject.Find("SoundManager").GetComponent<SoundManager>();
+
+                ResultManager.InitItems ();  // 아이템 목숨 초기화 
 				DeathRetry.DeathRetryPopupAgain = false;
-				Application.LoadLevel ("SelectMode");
+
+                sm.SetBGMNull();
+                sm.SetBGM1();
+
+                Application.LoadLevel ("SelectMode");
 			}
 		}
 

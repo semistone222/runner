@@ -11,7 +11,6 @@ public class StartLaoding : MonoBehaviour {
 	public GameObject StartBackGround;
 	public GameObject Boundary;
 	public GameObject Booster;
-	public GameObject Sound;
 	public GameObject number;
 	public GameObject StartPosition;
 
@@ -28,8 +27,16 @@ public class StartLaoding : MonoBehaviour {
 
 	Coroutine StartLoading;
 
-	// Use this for initialization
-	void Start () {
+    public SoundManager soundManager;
+    private GameObject Sound;
+    
+
+    // Use this for initialization
+    void Start () {
+
+        soundManager.SetBGM2();    
+        Sound = GameObject.FindGameObjectWithTag("BGM");
+
 		Character = Resources.Load ("Character/"+PlayerInfoManager.SelectCharacter) as GameObject;
 		Instantiate (Character, StartPosition.transform.position, StartPosition.transform.rotation);
 

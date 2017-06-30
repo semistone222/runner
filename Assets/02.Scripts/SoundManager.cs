@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class SoundManager : MonoBehaviour {
 
+    public AudioClip BGM1;    //Lobby BGM
+    public AudioClip BGM2;    //Play BGM
 
 	public AudioSource CharChoiSE;
 	public AudioSource ClickSound2;
@@ -49,4 +51,29 @@ public class SoundManager : MonoBehaviour {
 	public void PlayItemDelectSE(){
 		ItemDelectSE.Play ();
 	}
+
+
+    public void SetBGMNull()
+    {
+        AudioSource bgmSource = GameObject.FindGameObjectWithTag("BGM").GetComponent<AudioSource>();
+
+        bgmSource.clip = null;
+    }
+
+    public void SetBGM1()
+    {
+        AudioSource bgmSource = GameObject.FindGameObjectWithTag("BGM").GetComponent<AudioSource>();
+
+        bgmSource.clip = BGM1;
+
+        bgmSource.Play();
+    }
+
+    public void SetBGM2()
+    {
+        AudioSource bgmSource = GameObject.FindGameObjectWithTag("BGM").GetComponent<AudioSource>();
+
+        bgmSource.clip = BGM2;
+    }
+
 }

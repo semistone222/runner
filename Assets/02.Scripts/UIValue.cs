@@ -16,7 +16,7 @@ public class UIValue : MonoBehaviour
     public const float camValueLow = 0.05f;
     public const float camValueMid = 0.25f;
     public const float camValueHigh = 0.5f;
-    public const float bgmVolMAX = -20f;
+    public const float bgmVolMAX = -10f;
     public const float seVolMAX = 0f;
     public const float volMIN = -80f;
 
