@@ -7,7 +7,6 @@ public class FinishLine : MonoBehaviour {
 	public GameObject text;
 	public GameObject FinishTimer;
 	public GameObject RunningTimer;
-	public Text Timetext;
 	// Use this for initialization
 	void Start () {
 		text.SetActive (false);
@@ -23,7 +22,7 @@ public class FinishLine : MonoBehaviour {
 		if (other.transform.tag == "Player") {
 			text.SetActive (true);
 			FinishTimer.SetActive (true);
-			Timetext.text = Timer.timesec;
+			FinishTimer.GetComponent<Text>().text= Timer.timesec;
 			RunningTimer.SetActive(false);
 			GameObject.FindGameObjectWithTag ("Player").GetComponent<PlayerControllerOff> ().MOVESPD_ORIGIN = 0;
 			GameObject.Find ("ButtonBooster").GetComponent<Button> ().interactable = false;  // 부스터 버튼 클릭 불가

@@ -24,13 +24,11 @@ public class SettingManager : MonoBehaviour
     public GameObject SECheckMark;
     public GameObject PadCheckMark;
 
-    private AudioSource clickSound;
+	private GameObject SoundManager;
 
     private void Awake()
     {
-        clickSound = GetComponent<AudioSource>();
-        clickSound.playOnAwake = false;
-
+		SoundManager = GameObject.Find ("SoundManager");
         CameraValues = new float[3];
         CameraValues[0] = UIValue.camValueLow;
         CameraValues[1] = UIValue.camValueMid;
@@ -43,28 +41,16 @@ public class SettingManager : MonoBehaviour
         UISetting.SetActive(false);
     }
 
-    private void ClickSound()
-    {
-        if (clickSound.isPlaying == false)
-        {
-            clickSound.Play();
-        }
-    }
-
-    private void ClickSound2()
-    {
-        GameObject.Find("SoundManager").GetComponent<SoundManager>().PlayClickSound3();
-    }
 
     public void UISettingToggle()
     {
         if (isUISettingOn)
         {
-            ClickSound();
+			GameObject.Find("SoundManager").GetComponent<SoundManager>().PlayClickSound2();
         }
         else
         {
-            ClickSound2();
+			GameObject.Find("SoundManager").GetComponent<SoundManager>().PlayClickSound3();
         }
         isUISettingOn = !isUISettingOn;
         UISetting.SetActive(isUISettingOn);
@@ -105,7 +91,7 @@ public class SettingManager : MonoBehaviour
 
         if (length == CameraValues.Length)
         {
-            ClickSound();
+			GameObject.Find("SoundManager").GetComponent<SoundManager>().PlayClickSound2();
             spriteIndex++;
 
             spriteIndex = spriteIndex % length;
@@ -117,19 +103,19 @@ public class SettingManager : MonoBehaviour
 
     public void UIBGMToggle()
     {
-        ClickSound();
+		GameObject.Find("SoundManager").GetComponent<SoundManager>().PlayClickSound2();
         UIValue.bgmOn = BGMToggle.GetComponent<Toggle>().isOn;
         Debug.Log(UIValue.bgmOn);
     }
 
     public void UISEToggle()
     {
-        ClickSound();
+		GameObject.Find("SoundManager").GetComponent<SoundManager>().PlayClickSound2();
         UIValue.seOn = SEToggle.GetComponent<Toggle>().isOn;
     }
     public void UIPadToggle()
     {
-        ClickSound();
+		GameObject.Find("SoundManager").GetComponent<SoundManager>().PlayClickSound2();
         UIValue.snapsToFinger = PadToggle.GetComponent<Toggle>().isOn;
     }
 

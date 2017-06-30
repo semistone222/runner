@@ -48,6 +48,7 @@ public class SendSence : MonoBehaviour {
 
 	public void ShowSelectMode(){
 		SoundManager.GetComponent<SoundManager> ().PlayClickSound3 ();
+		ShopMove.StageToStore = false;
 		Application.LoadLevel ("SelectMode");
 	}
 		

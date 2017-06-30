@@ -17,7 +17,6 @@ using CnControls;
 public class GimmickDeath : Gimmick
 {
 	public GameObject DeathRetryPopup;
-	public GameObject JoyStick;
 	public static int LifeCount = 2;
 	private  GameObject Life1;
 	private  GameObject Life2;
