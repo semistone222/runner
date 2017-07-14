@@ -84,7 +84,7 @@ public class CharacterManager : MonoBehaviour {
 			CharacterPosition = GameObject.Find ("Character"+(i+1));
 			Instantiate (Character, CharacterPosition.transform.position, CharacterPosition.transform.rotation).transform.SetParent (CharacterPosition.transform);
 			CharacterComponent = GameObject.Find (CharacterInfoList [i * 60].Name + "Ani(Clone)");
-			CharacterComponent.transform.localScale = new Vector3 (50, 50, 50);
+			CharacterComponent.transform.localScale = new Vector3 (80, 80, 80);
 			CharacterComponent.transform.localPosition = new Vector3 (0f, -49.7f, -45.4f);
 			CharacterComponent.transform.localRotation = Quaternion.Euler (20, -180, 0);
 		}
@@ -236,8 +236,9 @@ public class CharacterManager : MonoBehaviour {
 		CharacterPosition = GameObject.Find ("UpgradePosition");
 		Instantiate (Character, CharacterPosition.transform.position, CharacterPosition.transform.rotation).transform.SetParent (CharacterPosition.transform);
 		CharacterComponent = GameObject.Find(CharacterInfoList [index * 60].Name + "StageAni(Clone)");
-		CharacterComponent.transform.localScale = new Vector3 (50, 50, 50);
-		CharacterComponent.transform.localPosition = new Vector3 (18.5f, -66.6f, -45.4f);
+		CharacterComponent.transform.localScale = new Vector3 (70, 70, 70);
+        CharacterComponent.transform.Translate(0f, -0.25f, 0f, Space.Self);
+		//CharacterComponent.transform.localPosition = new Vector3 (18.5f, -66.6f, -45.4f);
 		CharacterComponent.transform.localRotation = Quaternion.Euler (10, -180, 0);	
 
 		ResetUpgradeDetail (index);  // 캐릭터 업그레이드 표기 
