@@ -29,15 +29,12 @@ public class MultiGimmickDeath : Gimmick
 		StartCoroutine ("DeadAnimarter");
 		Respawn(other);
 
+	 	SoundManager sm = GameObject.Find("SoundManager").GetComponent<SoundManager>();
 
+		DeathRetry.DeathRetryPopupAgain = false;
 
-
-                SoundManager sm = GameObject.Find("SoundManager").GetComponent<SoundManager>();
-
-				DeathRetry.DeathRetryPopupAgain = false;
-
-                sm.SetBGMNull();
-                sm.SetBGM1();
+        sm.SetBGMNull();
+        sm.SetBGM1();
 
 
 	}

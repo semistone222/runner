@@ -6,14 +6,18 @@ using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour {
 
-	public float moveSpeed, jumpSpeed, gravity, jumpVal, receivedSpeed;
+	public float moveSpeed, jumpSpeed, gravity, jumpVal, receivedSpeed, NowSpeed;
 	public GameObject moveDustParticle;
 	public TrailRenderer Booster;
+
+	private GameObject ButtonBooster;
+	private float BoosterCheckSped = 0;
+	private float receivedBoosterSpeed;
 
 	private Transform myTransform;
 	private CharacterController myCharacterController;
 	private PhotonView myPhotonView;
-	private Camera mainCamera;
+	private Camera mainCamera;	
 	private Vector3 inputVec, moveVec, precurrPos = Vector3.zero,
 	currPos = Vector3.zero, tileNormal, slidingDirection;
 
@@ -32,7 +36,7 @@ public class PlayerController : MonoBehaviour {
     private const float runAniSpeed = 3.0f;   //달리기시 애니메이션 재생 속도.
     private const float walkAniSpeed = 1.0f;  //걷기시 애니메이션 재생 속도.
     private const float sustainStandardTime = 1.5f; //초기 가속 시간
-    private const float sustainStandard = 0.25f; //초기 가속시, 초기 가속 계수.
+    private const float sustainStandard = 0.3f; //초기 가속시, 초기 가속 계수.
     private const float scaleStandard = 0.5f;  //걷기와 달리기의 구분 상수
     private const string runAniSpeedStr = "RunAniSpeed";
     private bool doingSustain = false; //초기 가속도 bool
@@ -59,6 +63,8 @@ public class PlayerController : MonoBehaviour {
 		currRot = myTransform.rotation;
 
 
+		ButtonBooster = GameObject.Find ("ButtonBooster");
+
 //		StartText = GetComponent<Text> ();
 	}
 
@@ -66,40 +72,7 @@ public class PlayerController : MonoBehaviour {
 
 		if (!myPhotonView.isMine)
 			return;
-
-	/*	inputVec = new Vector3 (CnInputManager.GetAxis ("JoyStickX"), CnInputManager.GetAxis ("JoyStickY"));
-		moveVec = Vector3.zero;
-
-		if (inputVec.sqrMagnitude > 0.001f) {
-			moveVec = mainCamera.transform.TransformDirection (inputVec);
-			moveVec.y = 0f;
-			moveVec.Normalize ();
-			myTransform.forward = moveVec;
-			moveVec *= moveSpeed;
-		}
-
-		// Animation 동작 부분
-		if (inputVec.x == 0 && inputVec.y == 0) {
-			ani.SetBool ("IsRun", false);
-
-		} else {
-			ani.SetBool ("IsRun", true);
-		}
-
-
-		 
-		if (myCharacterController.isGrounded) {
-			if (CnInputManager.GetButtonDown ("Jump")) {
-				jumpVal = jumpSpeed;
-			} else {
-				jumpVal = 0;
-			}
-		}
-
-		JumpCheck ();
-		jumpVal -= gravity * Time.deltaTime;
-		moveVec.y = jumpVal;
-		myCharacterController.Move (moveVec * Time.deltaTime);*/
+		
 	}
 
 	void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info) {
@@ -110,10 +83,12 @@ public class PlayerController : MonoBehaviour {
 			stream.SendNext (myTransform.position);
 			stream.SendNext (myTransform.rotation);
 			stream.SendNext (moveSpeed);
+			stream.SendNext (BoosterCheckSped);
 		} else {
 			currPos = (Vector3) stream.ReceiveNext ();
 			currRot = (Quaternion) stream.ReceiveNext ();
 			receivedSpeed = (float)stream.ReceiveNext ();
+			receivedBoosterSpeed = (float)stream.ReceiveNext ();
 
 			if (precurrPos.x == currPos.x && precurrPos.z == currPos.z && moveSpeed == 0) {
 				ani.SetBool ("IsRun", false);
@@ -123,9 +98,9 @@ public class PlayerController : MonoBehaviour {
 				moveDustParticle.SetActive (true);
 			}
 			precurrPos = currPos;
-			if (receivedSpeed <= 45) {
+			if (receivedBoosterSpeed == 0) {
 				Booster.enabled = false;
-			}else if(receivedSpeed == 54){
+			}else if(receivedBoosterSpeed == 10.8){
 				Booster.enabled = true;
 			}
 
@@ -145,6 +120,8 @@ public class PlayerController : MonoBehaviour {
 
 
 	void Update() {
+		
+		BoosterCheckSped = ButtonBooster.GetComponent<MultiBoosterButton> ().AddBoosterSpeed;  // 부스터 효과체크를 위한 변수 
 
 		if (myPhotonView.isMine) {
 			
@@ -181,7 +158,7 @@ public class PlayerController : MonoBehaviour {
 			}
 			else
 			{
-				moveSpeed = 45;
+				moveSpeed = NowSpeed;
 				ani.SetBool("IsRun", true);
 				if (myCharacterController.isGrounded) {
 					moveDustParticle.SetActive (true);
@@ -217,8 +194,8 @@ public class PlayerController : MonoBehaviour {
 
                     ani.SetFloat(runAniSpeedStr, walkAniSpeed);
                 }
-
-                moveVec *= moveSpeed * scaleFactor;
+				NowSpeed =  45 * scaleFactor;
+				moveVec *= NowSpeed;
             }
             else if (inputVec.sqrMagnitude == 0f && doingSustain)
             {
@@ -254,10 +231,10 @@ public class PlayerController : MonoBehaviour {
         float sustainFactor = (1f - sustainStandard) / (sustainStandardTime * 10);
         sustainTime = sustainStandard;
         
-        for(;;)
+		while(true)
         {
             sustainTime += sustainFactor;
-            yield return new WaitForSeconds(.1f);
+            yield return new WaitForSeconds(0.1f);
 
             if(sustainTime > 1f)
             {
@@ -354,7 +331,7 @@ public class PlayerController : MonoBehaviour {
 	{
 		Debug.Log("PhotonNetwork.room.PlayerCount : " + PhotonNetwork.room.PlayerCount);
 
-		if (PhotonNetwork.room.PlayerCount == 2)
+		if (PhotonNetwork.room.PlayerCount == 1)
 		{
 			myPhotonView.RPC("OnGameStart", PhotonTargets.AllViaServer, null);
 
@@ -371,6 +348,7 @@ public class PlayerController : MonoBehaviour {
 	[PunRPC]
 	void OnGameStart()
 	{
+		GameObject.Find ("StartLoadingManager").GetComponent<StartLaoding> ().enabled = true;
 		Debug.Log("OnGameStart");
 		//Starttimer = StartCoroutine (StartGame());
 	}
