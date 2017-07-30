@@ -27,7 +27,7 @@ public class GameManager : MonoBehaviour {
 
 	IEnumerator CreatePlayer() {
 		float pos = Random.Range (-3f, 3f);
-		PhotonNetwork.Instantiate ("dragon", new Vector3 (pos, 5.0f, pos), Quaternion.identity, 0);
+		PhotonNetwork.Instantiate ("rabbit", new Vector3 (pos, 60.0f, pos), Quaternion.identity, 0);
 		yield return null;
 	}
 

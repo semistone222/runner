@@ -1468,8 +1468,8 @@ GameObject:
   - component: {fileID: 95290355529922906}
   - component: {fileID: 65423112666384576}
   - component: {fileID: 143362178670676930}
-  - component: {fileID: 114362792407878182}
   - component: {fileID: 114599561125909874}
+  - component: {fileID: 114850579806106056}
   m_Layer: 0
   m_Name: dragon
   m_TagString: Player
@@ -3734,24 +3734,6 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
---- !u!114 &114362792407878182
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1719784238255146}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1d776b3f3a60bf244a39739fdde29a5c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  moveSpeed: 20
-  jumpSpeed: 15
-  gravity: 40
-  ani: {fileID: 95290355529922906}
-  StartText: {fileID: 114903264590452310, guid: 9f9866a4b443bec4b842a70e5eeba95b,
-    type: 2}
-  StartBoundary: {fileID: 0}
 --- !u!114 &114599561125909874
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3772,12 +3754,27 @@ MonoBehaviour:
   onSerializeRigidBodyOption: 2
   ownershipTransfer: 0
   ObservedComponents:
-  - {fileID: 114362792407878182}
+  - {fileID: 114850579806106056}
   ObservedComponentsFoldoutOpen: 1
   viewIdField: 0
   instantiationId: -1
   currentMasterID: -1
   isRuntimeInstantiated: 0
+--- !u!114 &114850579806106056
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1719784238255146}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1d776b3f3a60bf244a39739fdde29a5c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveSpeed: 20
+  jumpSpeed: 15
+  gravity: 40
+  ani: {fileID: 95290355529922906}
 --- !u!137 &137057497571533372
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1

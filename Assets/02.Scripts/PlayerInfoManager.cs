@@ -7,7 +7,7 @@ using Debug = UnityEngine.Debug;
 public class PlayerInfoManager : MonoBehaviour {
 	const int StageMaxCount = 10;
 
-	public static int RunPoint = 0;
+	public static int RunPoint = 10;
 	public static int Diamond = 500;
 	public static int Gold = 8000;
 	public static string SelectCharacter = "rabbit";

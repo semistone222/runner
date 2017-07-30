@@ -74,6 +74,8 @@ public class SoundManager : MonoBehaviour {
         AudioSource bgmSource = GameObject.FindGameObjectWithTag("BGM").GetComponent<AudioSource>();
 
         bgmSource.clip = BGM2;
+
+		bgmSource.Play();
     }
 
 }

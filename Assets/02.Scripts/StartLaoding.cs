@@ -32,7 +32,7 @@ public class StartLaoding : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-
+	//	Booster.GetComponent<Button> ().interactable = false;
         soundManager.SetBGM2();    
         Sound = GameObject.FindGameObjectWithTag("BGM");
 
@@ -63,6 +63,12 @@ public class StartLaoding : MonoBehaviour {
 		Booster.SetActive (true);
         InitTimeImage.SetActive (false);
 		TimeImage.SetActive (true);
+		Booster.GetComponent<Button> ().enabled = true;
+		if(StageManager.ItemChecked [2] == true){
+			yield return new WaitForSeconds (5.0f);
+			StageManager.ItemChecked [2] = false;
+		}
 		StopCoroutine (StartLoading);
+
 	}
 }

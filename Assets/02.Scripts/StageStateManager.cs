@@ -23,7 +23,7 @@ public class StageStateManager : MonoBehaviour {
 			if (i <= PlayingStage) {
 				StageMedal [i].SetActive (true);
 			} else if (i > PlayingStage) {
-				StageButton [i].GetComponent<Button> ().interactable = false;
+				//StageButton [i].GetComponent<Button> ().interactable = false;
 			}
 			if (StageRank [i] == null) {
 				StageMedal [i].GetComponent<Image> ().sprite = PlayingStageImage;

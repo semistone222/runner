@@ -25,6 +25,10 @@ public class ServerInit : MonoBehaviour {
 		roomName.text = GetRoomName ();
 	}
 
+	void Start(){
+		DontDestroyOnLoad (this.gameObject);
+	}
+
 	void OnJoinedLobby() {
 		Debug.Log ("OnJoinedLobby !");
 	}
@@ -72,7 +76,7 @@ public class ServerInit : MonoBehaviour {
 
 	void OnJoinedRoom() {
 		Debug.Log ("Enter Room");
-		StartCoroutine (this.LoadProtoMap ());
+		StartCoroutine (this.LoadtoMap ());
 	}
 
 /*	IEnumerator LoadGround() {
@@ -82,10 +86,10 @@ public class ServerInit : MonoBehaviour {
 		yield return null;
 	}*/
 
-	IEnumerator LoadProtoMap() {
+	IEnumerator LoadtoMap() {
 		PhotonNetwork.isMessageQueueRunning = false; // stop networking until loading scene
 
-		SceneManager.LoadScene ("ProtoMap");
+		SceneManager.LoadScene ("Ch.1_Stage1Multi");
 		yield return null;
 	}
 
@@ -170,3 +174,6 @@ public class ServerInit : MonoBehaviour {
 		PhotonNetwork.JoinRoom (roomName);
 	}
 }
+
+
+

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using CnControls;
 using UnityEngine;
-
+using UnityEngine.UI;
 /*
  *  PlayerControllerOff , by Jin-seok, Yu
  * 
@@ -98,10 +98,50 @@ public class PlayerControllerOff : MonoBehaviour
 
     void Update()
     {
+
         /*
             if (!myPhotonView.isMine)
                 return;
                 */
+		/*
+		if (Input.GetKey (KeyCode.A) == true) {
+		
+			transform.Translate (Vector3.left * moveSpeed * Time.deltaTime);
+			inputVec.x = 1;
+		}
+
+		if (Input.GetKey (KeyCode.D) == true) {
+
+			transform.Translate (-Vector3.left * moveSpeed * Time.deltaTime);
+
+		}
+
+		if (Input.GetKey (KeyCode.W) == true) {
+
+			transform.Translate (Vector3.forward * moveSpeed * Time.deltaTime);
+		}
+
+		if (Input.GetKey (KeyCode.S) == true) {
+
+			transform.Translate (-Vector3.forward * moveSpeed * Time.deltaTime);
+		}
+		*/
+		/*
+			if (Input.GetKey (KeyCode.LeftControl) == true) {
+				if (GameObject.Find ("ButtonBooster").GetComponent<BoosterButton> ().ChargeTime <= 0) {		
+					GameObject.Find ("ButtonBooster").GetComponent<BoosterButton> ().check = false;
+				} else if(GameObject.Find ("ButtonBooster").GetComponent<BoosterButton> ().ChargeTime > 0){
+					GameObject.Find ("ButtonBooster").GetComponent<BoosterButton> ().check = true;		
+				}
+			}
+		
+			if (Input.GetKey (KeyCode.LeftControl) == false) {		
+				GameObject.Find ("ButtonBooster").GetComponent<BoosterButton> ().check = false;	
+			}
+
+		*/
+
+
 
         if (CnInputManager.GetButtonDown("Jump"))
         {
@@ -161,6 +201,9 @@ public class PlayerControllerOff : MonoBehaviour
                 moveVec *= moveSpeed;
             }
         }
+
+
+
 
 		// 내리막길일때 표면따라서 움직이게
 		if(Vector3.Dot(moveVec, tileNormal) > 0) {
