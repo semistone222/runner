@@ -29,12 +29,7 @@ public class MultiGimmickDeath : Gimmick
 		StartCoroutine ("DeadAnimarter");
 		Respawn(other);
 
-
-
-
                 SoundManager sm = GameObject.Find("SoundManager").GetComponent<SoundManager>();
-
-				DeathRetry.DeathRetryPopupAgain = false;
 
                 sm.SetBGMNull();
                 sm.SetBGM1();
@@ -57,12 +52,7 @@ public class MultiGimmickDeath : Gimmick
 		/*온라인일때*/
 		if (other.GetComponent<PlayerController>() != null)
 		{
-			//other.transform.position = other.GetComponent<PlayerController>().respawnPoint;
-		}
-		/*오프라인일때*/
-		else if (other.GetComponent<PlayerControllerOff>() != null)
-		{
-			other.transform.position = other.GetComponent<PlayerControllerOff>().respawnPoint;
+			other.transform.position = other.GetComponent<PlayerController>().respawnPoint;
 		}
 	}
 

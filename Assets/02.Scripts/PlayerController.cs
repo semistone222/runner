@@ -27,6 +27,9 @@ public class PlayerController : MonoBehaviour {
 	private CrowdControl[] ccArray; //플레이어에게 부착된 상태이상을 체크할 배열
 	private bool isSliding, isMoveAccel = false, isJumpAccel = false, isGround = false;
 
+	public Vector3 respawnPoint;
+
+
 	//public Vector3 respawnPoint; /*플레이어가 죽었을때 리스폰 할 위치입니다. 디버깅 용으로 HideInInspector 해제해놨습니다.*/
 
 
@@ -49,7 +52,7 @@ public class PlayerController : MonoBehaviour {
 
 		currPos = myTransform.position;
 		currRot = myTransform.rotation;
-
+		respawnPoint = currPos;
 
 //		StartText = GetComponent<Text> ();
 	}
