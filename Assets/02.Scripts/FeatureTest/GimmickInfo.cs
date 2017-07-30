@@ -216,12 +216,12 @@ public class GimmickInfo : Gimmick
 			/*온라인일때*/
 			if (other.GetComponent<PlayerController>() != null)
 			{
-				//Vector3 formerRespawnPoint = other.GetComponent<PlayerController>().respawnPoint;
+				Vector3 formerRespawnPoint = other.GetComponent<PlayerController>().respawnPoint;
 
 				//  if (xPos != formerRespawnPoint.x
 				//      && zPos != formerRespawnPoint.z)
 				// {
-				//other.GetComponent<PlayerController>().respawnPoint = respawnPoint;
+				other.GetComponent<PlayerController>().respawnPoint = respawnPoint;
 				//  }
 			}
 			/*오프라인일때*/
