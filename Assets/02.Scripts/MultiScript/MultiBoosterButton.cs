@@ -103,6 +103,8 @@ public class MultiBoosterButton : MonoBehaviour, IPointerDownHandler, IPointerUp
 		}
 	}
 
+
+
 	public void ResetBoosterSpeed(){
 		//GameObject.FindGameObjectWithTag ("Player").GetComponent <PlayerController> ().moveSpeed= 45;
 		BoosterEffect.GetComponent<TrailRenderer> ().enabled = false;
