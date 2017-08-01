@@ -11,6 +11,7 @@ public class ServerInit : MonoBehaviour {
 	public InputField roomName;
 	public GameObject scrollContents;
 	public GameObject roomItem;
+    public string sceneName;
 
 	private string USER_ID = "USER_ID";
 	private string USER_PREFIX = "USER_";
@@ -89,8 +90,9 @@ public class ServerInit : MonoBehaviour {
 	IEnumerator LoadtoMap() {
 		PhotonNetwork.isMessageQueueRunning = false; // stop networking until loading scene
 
-		SceneManager.LoadScene ("Ch.1_Stage1Multi");
-		yield return null;
+        //SceneManager.LoadScene ("Ch.1_Stage1Multi");
+        SceneManager.LoadScene(sceneName);
+        yield return null;
 	}
 
 
@@ -106,7 +108,8 @@ public class ServerInit : MonoBehaviour {
 		PhotonNetwork.JoinRandomRoom ();
 	}
 
-	public void OnClickCreateRoom() {
+	public void OnClickCreateRoom(string sceneName) {
+        this.sceneName = sceneName;
 		string _userId = userId.text;
 		string _roomName = roomName.text;
 

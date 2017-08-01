@@ -1348,11 +1348,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d776b3f3a60bf244a39739fdde29a5c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 0
-  jumpSpeed: 20
-  gravity: 40
+  moveSpeed: 100
+  jumpSpeed: 50
+  gravity: 180
   jumpVal: 0
   receivedSpeed: 0
+  NowSpeed: 0
   moveDustParticle: {fileID: 1625781326268768}
   Booster: {fileID: 96785003459787258}
   ani: {fileID: 95564869040261870}

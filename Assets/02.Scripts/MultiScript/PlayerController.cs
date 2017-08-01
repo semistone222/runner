@@ -194,7 +194,7 @@ public class PlayerController : MonoBehaviour {
 
                     ani.SetFloat(runAniSpeedStr, walkAniSpeed);
                 }
-				NowSpeed =  45 * scaleFactor;
+				NowSpeed =  100 * scaleFactor; //constant is MaxMovSpeed
 				moveVec *= NowSpeed;
             }
             else if (inputVec.sqrMagnitude == 0f && doingSustain)
