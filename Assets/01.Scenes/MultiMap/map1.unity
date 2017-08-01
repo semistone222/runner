@@ -445,9 +445,10 @@ GameObject:
   - component: {fileID: 60884987}
   - component: {fileID: 60884986}
   - component: {fileID: 60884985}
+  - component: {fileID: 60884989}
   m_Layer: 0
   m_Name: Cube (40)
-  m_TagString: Untagged
+  m_TagString: Tile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -516,6 +517,29 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 53
   m_LocalEulerAnglesHint: {x: 0, y: 30, z: 0}
+--- !u!114 &60884989
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 60884984}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: afa60bf608fe1f043b172d7920cc83cf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isCheckRespawnPoint: 1
+  isVanish: 0
+  isJumper: 0
+  jumperMultiplier: 1
+  timeVanishing: 3
+  timeRespawning: 2
+  isMoveWithPlayers: 0
+  Tag: 
+  movespeedMultiplier: 0
+  jumpspeedMultiplier: 0
+  durationTime: 0
+  isDestroyable: 0
 --- !u!1001 &62004689
 Prefab:
   m_ObjectHideFlags: 0
@@ -929,9 +953,10 @@ GameObject:
   - component: {fileID: 81498427}
   - component: {fileID: 81498426}
   - component: {fileID: 81498425}
+  - component: {fileID: 81498429}
   m_Layer: 0
   m_Name: Cube (35)
-  m_TagString: Untagged
+  m_TagString: Tile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1000,6 +1025,29 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 48
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &81498429
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 81498424}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: afa60bf608fe1f043b172d7920cc83cf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isCheckRespawnPoint: 1
+  isVanish: 0
+  isJumper: 0
+  jumperMultiplier: 1
+  timeVanishing: 3
+  timeRespawning: 2
+  isMoveWithPlayers: 0
+  Tag: 
+  movespeedMultiplier: 0
+  jumpspeedMultiplier: 0
+  durationTime: 0
+  isDestroyable: 0
 --- !u!1 &90381399
 GameObject:
   m_ObjectHideFlags: 0
@@ -1254,9 +1302,10 @@ GameObject:
   - component: {fileID: 111941013}
   - component: {fileID: 111941012}
   - component: {fileID: 111941011}
+  - component: {fileID: 111941015}
   m_Layer: 0
   m_Name: Cube (19)
-  m_TagString: Untagged
+  m_TagString: Tile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1325,6 +1374,29 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 31
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &111941015
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 111941010}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: afa60bf608fe1f043b172d7920cc83cf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isCheckRespawnPoint: 1
+  isVanish: 0
+  isJumper: 0
+  jumperMultiplier: 1
+  timeVanishing: 3
+  timeRespawning: 2
+  isMoveWithPlayers: 0
+  Tag: 
+  movespeedMultiplier: 0
+  jumpspeedMultiplier: 0
+  durationTime: 0
+  isDestroyable: 0
 --- !u!1 &121680657
 GameObject:
   m_ObjectHideFlags: 0
@@ -1771,9 +1843,10 @@ GameObject:
   - component: {fileID: 207556523}
   - component: {fileID: 207556522}
   - component: {fileID: 207556521}
+  - component: {fileID: 207556525}
   m_Layer: 0
   m_Name: Cube (22)
-  m_TagString: Untagged
+  m_TagString: Tile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1842,6 +1915,29 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 35
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &207556525
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 207556520}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: afa60bf608fe1f043b172d7920cc83cf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isCheckRespawnPoint: 1
+  isVanish: 0
+  isJumper: 0
+  jumperMultiplier: 1
+  timeVanishing: 3
+  timeRespawning: 2
+  isMoveWithPlayers: 0
+  Tag: 
+  movespeedMultiplier: 0
+  jumpspeedMultiplier: 0
+  durationTime: 0
+  isDestroyable: 0
 --- !u!1 &213240108
 GameObject:
   m_ObjectHideFlags: 0
@@ -2120,9 +2216,10 @@ GameObject:
   - component: {fileID: 246730943}
   - component: {fileID: 246730942}
   - component: {fileID: 246730941}
+  - component: {fileID: 246730945}
   m_Layer: 0
   m_Name: Cube (27)
-  m_TagString: Untagged
+  m_TagString: Tile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2191,6 +2288,29 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 40
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &246730945
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 246730940}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: afa60bf608fe1f043b172d7920cc83cf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isCheckRespawnPoint: 1
+  isVanish: 0
+  isJumper: 0
+  jumperMultiplier: 1
+  timeVanishing: 3
+  timeRespawning: 2
+  isMoveWithPlayers: 0
+  Tag: 
+  movespeedMultiplier: 0
+  jumpspeedMultiplier: 0
+  durationTime: 0
+  isDestroyable: 0
 --- !u!1001 &259555091
 Prefab:
   m_ObjectHideFlags: 0
@@ -2248,9 +2368,10 @@ GameObject:
   - component: {fileID: 263570264}
   - component: {fileID: 263570263}
   - component: {fileID: 263570262}
+  - component: {fileID: 263570266}
   m_Layer: 0
   m_Name: Cube (47)
-  m_TagString: Untagged
+  m_TagString: Tile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2319,6 +2440,29 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 61
   m_LocalEulerAnglesHint: {x: 0, y: -30, z: 0}
+--- !u!114 &263570266
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 263570261}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: afa60bf608fe1f043b172d7920cc83cf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isCheckRespawnPoint: 1
+  isVanish: 0
+  isJumper: 0
+  jumperMultiplier: 1
+  timeVanishing: 3
+  timeRespawning: 2
+  isMoveWithPlayers: 0
+  Tag: 
+  movespeedMultiplier: 0
+  jumpspeedMultiplier: 0
+  durationTime: 0
+  isDestroyable: 0
 --- !u!1001 &264572850
 Prefab:
   m_ObjectHideFlags: 0
@@ -2563,9 +2707,10 @@ GameObject:
   - component: {fileID: 276549447}
   - component: {fileID: 276549446}
   - component: {fileID: 276549445}
+  - component: {fileID: 276549449}
   m_Layer: 0
   m_Name: Cube (49)
-  m_TagString: Untagged
+  m_TagString: Tile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2634,6 +2779,29 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 63
   m_LocalEulerAnglesHint: {x: 0, y: 30, z: 0}
+--- !u!114 &276549449
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 276549444}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: afa60bf608fe1f043b172d7920cc83cf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isCheckRespawnPoint: 1
+  isVanish: 0
+  isJumper: 0
+  jumperMultiplier: 1
+  timeVanishing: 3
+  timeRespawning: 2
+  isMoveWithPlayers: 0
+  Tag: 
+  movespeedMultiplier: 0
+  jumpspeedMultiplier: 0
+  durationTime: 0
+  isDestroyable: 0
 --- !u!1 &278300429
 GameObject:
   m_ObjectHideFlags: 0
@@ -2645,9 +2813,10 @@ GameObject:
   - component: {fileID: 278300432}
   - component: {fileID: 278300431}
   - component: {fileID: 278300430}
+  - component: {fileID: 278300434}
   m_Layer: 0
   m_Name: Cube (51)
-  m_TagString: Untagged
+  m_TagString: Tile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2716,6 +2885,29 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 65
   m_LocalEulerAnglesHint: {x: 0, y: -30, z: 0}
+--- !u!114 &278300434
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 278300429}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: afa60bf608fe1f043b172d7920cc83cf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isCheckRespawnPoint: 1
+  isVanish: 0
+  isJumper: 0
+  jumperMultiplier: 1
+  timeVanishing: 3
+  timeRespawning: 2
+  isMoveWithPlayers: 0
+  Tag: 
+  movespeedMultiplier: 0
+  jumpspeedMultiplier: 0
+  durationTime: 0
+  isDestroyable: 0
 --- !u!4 &298601162 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4000013725179088, guid: a1c2bd6c24611e84e93732819229ac3a,
@@ -3034,9 +3226,10 @@ GameObject:
   - component: {fileID: 314290605}
   - component: {fileID: 314290604}
   - component: {fileID: 314290603}
+  - component: {fileID: 314290607}
   m_Layer: 0
   m_Name: Cube (4)
-  m_TagString: Untagged
+  m_TagString: Tile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3105,6 +3298,29 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 30, z: 0}
+--- !u!114 &314290607
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 314290602}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: afa60bf608fe1f043b172d7920cc83cf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isCheckRespawnPoint: 1
+  isVanish: 0
+  isJumper: 0
+  jumperMultiplier: 1
+  timeVanishing: 3
+  timeRespawning: 2
+  isMoveWithPlayers: 0
+  Tag: 
+  movespeedMultiplier: 0
+  jumpspeedMultiplier: 0
+  durationTime: 0
+  isDestroyable: 0
 --- !u!1001 &315505996
 Prefab:
   m_ObjectHideFlags: 0
@@ -3672,9 +3888,10 @@ GameObject:
   - component: {fileID: 402421506}
   - component: {fileID: 402421505}
   - component: {fileID: 402421504}
+  - component: {fileID: 402421508}
   m_Layer: 0
   m_Name: Cube (29)
-  m_TagString: Untagged
+  m_TagString: Tile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3743,6 +3960,29 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 42
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &402421508
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 402421503}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: afa60bf608fe1f043b172d7920cc83cf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isCheckRespawnPoint: 1
+  isVanish: 0
+  isJumper: 0
+  jumperMultiplier: 1
+  timeVanishing: 3
+  timeRespawning: 2
+  isMoveWithPlayers: 0
+  Tag: 
+  movespeedMultiplier: 0
+  jumpspeedMultiplier: 0
+  durationTime: 0
+  isDestroyable: 0
 --- !u!1001 &402640485
 Prefab:
   m_ObjectHideFlags: 0
@@ -4197,9 +4437,10 @@ GameObject:
   - component: {fileID: 438367102}
   - component: {fileID: 438367101}
   - component: {fileID: 438367100}
+  - component: {fileID: 438367104}
   m_Layer: 0
   m_Name: Cube (38)
-  m_TagString: Untagged
+  m_TagString: Tile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4268,6 +4509,29 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 51
   m_LocalEulerAnglesHint: {x: 0, y: -20, z: 0}
+--- !u!114 &438367104
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 438367099}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: afa60bf608fe1f043b172d7920cc83cf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isCheckRespawnPoint: 1
+  isVanish: 0
+  isJumper: 0
+  jumperMultiplier: 1
+  timeVanishing: 3
+  timeRespawning: 2
+  isMoveWithPlayers: 0
+  Tag: 
+  movespeedMultiplier: 0
+  jumpspeedMultiplier: 0
+  durationTime: 0
+  isDestroyable: 0
 --- !u!1001 &438912048
 Prefab:
   m_ObjectHideFlags: 0
@@ -5031,9 +5295,10 @@ GameObject:
   - component: {fileID: 546481636}
   - component: {fileID: 546481635}
   - component: {fileID: 546481634}
+  - component: {fileID: 546481638}
   m_Layer: 0
   m_Name: Cube (57)
-  m_TagString: Untagged
+  m_TagString: Tile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5102,6 +5367,29 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 73
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &546481638
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 546481633}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: afa60bf608fe1f043b172d7920cc83cf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isCheckRespawnPoint: 1
+  isVanish: 0
+  isJumper: 0
+  jumperMultiplier: 1
+  timeVanishing: 3
+  timeRespawning: 2
+  isMoveWithPlayers: 0
+  Tag: 
+  movespeedMultiplier: 0
+  jumpspeedMultiplier: 0
+  durationTime: 0
+  isDestroyable: 0
 --- !u!1001 &548417964
 Prefab:
   m_ObjectHideFlags: 0
@@ -5159,9 +5447,10 @@ GameObject:
   - component: {fileID: 551577844}
   - component: {fileID: 551577843}
   - component: {fileID: 551577842}
+  - component: {fileID: 551577846}
   m_Layer: 0
   m_Name: Cube (55)
-  m_TagString: Untagged
+  m_TagString: Tile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5230,6 +5519,29 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 69
   m_LocalEulerAnglesHint: {x: 0, y: 45, z: 0}
+--- !u!114 &551577846
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 551577841}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: afa60bf608fe1f043b172d7920cc83cf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isCheckRespawnPoint: 1
+  isVanish: 0
+  isJumper: 0
+  jumperMultiplier: 1
+  timeVanishing: 3
+  timeRespawning: 2
+  isMoveWithPlayers: 0
+  Tag: 
+  movespeedMultiplier: 0
+  jumpspeedMultiplier: 0
+  durationTime: 0
+  isDestroyable: 0
 --- !u!1001 &571734206
 Prefab:
   m_ObjectHideFlags: 0
@@ -5379,9 +5691,10 @@ GameObject:
   - component: {fileID: 584451600}
   - component: {fileID: 584451599}
   - component: {fileID: 584451598}
+  - component: {fileID: 584451602}
   m_Layer: 0
   m_Name: Cube (7)
-  m_TagString: Untagged
+  m_TagString: Tile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5450,6 +5763,29 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 18
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &584451602
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 584451597}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: afa60bf608fe1f043b172d7920cc83cf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isCheckRespawnPoint: 1
+  isVanish: 0
+  isJumper: 0
+  jumperMultiplier: 1
+  timeVanishing: 3
+  timeRespawning: 2
+  isMoveWithPlayers: 0
+  Tag: 
+  movespeedMultiplier: 0
+  jumpspeedMultiplier: 0
+  durationTime: 0
+  isDestroyable: 0
 --- !u!1001 &592248374
 Prefab:
   m_ObjectHideFlags: 0
@@ -5951,9 +6287,10 @@ GameObject:
   - component: {fileID: 684119431}
   - component: {fileID: 684119430}
   - component: {fileID: 684119429}
+  - component: {fileID: 684119433}
   m_Layer: 0
   m_Name: Plane
-  m_TagString: Untagged
+  m_TagString: DeathTile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5971,7 +6308,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 10304, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -6024,6 +6361,17 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 84
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &684119433
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 684119428}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cda79dba2eb5ace43b0a5e00c931d35f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &691175812 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4000013472632014, guid: 6228c19456995de4c86164256d34acae,
@@ -6045,9 +6393,10 @@ GameObject:
   - component: {fileID: 701650353}
   - component: {fileID: 701650352}
   - component: {fileID: 701650351}
+  - component: {fileID: 701650355}
   m_Layer: 0
   m_Name: Cube (52)
-  m_TagString: Untagged
+  m_TagString: Tile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6116,6 +6465,29 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 66
   m_LocalEulerAnglesHint: {x: 0, y: -30, z: 0}
+--- !u!114 &701650355
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 701650350}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: afa60bf608fe1f043b172d7920cc83cf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isCheckRespawnPoint: 1
+  isVanish: 0
+  isJumper: 0
+  jumperMultiplier: 1
+  timeVanishing: 3
+  timeRespawning: 2
+  isMoveWithPlayers: 0
+  Tag: 
+  movespeedMultiplier: 0
+  jumpspeedMultiplier: 0
+  durationTime: 0
+  isDestroyable: 0
 --- !u!1001 &705130104
 Prefab:
   m_ObjectHideFlags: 0
@@ -6173,9 +6545,10 @@ GameObject:
   - component: {fileID: 708515819}
   - component: {fileID: 708515818}
   - component: {fileID: 708515817}
+  - component: {fileID: 708515821}
   m_Layer: 0
   m_Name: Cube (3)
-  m_TagString: Untagged
+  m_TagString: Tile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6244,6 +6617,29 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 45, z: 0}
+--- !u!114 &708515821
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 708515816}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: afa60bf608fe1f043b172d7920cc83cf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isCheckRespawnPoint: 1
+  isVanish: 0
+  isJumper: 0
+  jumperMultiplier: 1
+  timeVanishing: 3
+  timeRespawning: 2
+  isMoveWithPlayers: 0
+  Tag: 
+  movespeedMultiplier: 0
+  jumpspeedMultiplier: 0
+  durationTime: 0
+  isDestroyable: 0
 --- !u!4 &718071729 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4000013996849980, guid: df13ffd8e39b1314582b06ad1b4e40d7,
@@ -6384,9 +6780,10 @@ GameObject:
   - component: {fileID: 723168853}
   - component: {fileID: 723168852}
   - component: {fileID: 723168851}
+  - component: {fileID: 723168855}
   m_Layer: 0
   m_Name: Cube (8)
-  m_TagString: Untagged
+  m_TagString: Tile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6455,6 +6852,29 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 20
   m_LocalEulerAnglesHint: {x: 0, y: 45, z: 0}
+--- !u!114 &723168855
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 723168850}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: afa60bf608fe1f043b172d7920cc83cf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isCheckRespawnPoint: 1
+  isVanish: 0
+  isJumper: 0
+  jumperMultiplier: 1
+  timeVanishing: 3
+  timeRespawning: 2
+  isMoveWithPlayers: 0
+  Tag: 
+  movespeedMultiplier: 0
+  jumpspeedMultiplier: 0
+  durationTime: 0
+  isDestroyable: 0
 --- !u!1001 &724808589
 Prefab:
   m_ObjectHideFlags: 0
@@ -6559,9 +6979,10 @@ GameObject:
   - component: {fileID: 728626461}
   - component: {fileID: 728626460}
   - component: {fileID: 728626459}
+  - component: {fileID: 728626463}
   m_Layer: 0
   m_Name: Cube (15)
-  m_TagString: Untagged
+  m_TagString: Tile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6630,6 +7051,29 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 27
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &728626463
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 728626458}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: afa60bf608fe1f043b172d7920cc83cf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isCheckRespawnPoint: 1
+  isVanish: 0
+  isJumper: 0
+  jumperMultiplier: 1
+  timeVanishing: 3
+  timeRespawning: 2
+  isMoveWithPlayers: 0
+  Tag: 
+  movespeedMultiplier: 0
+  jumpspeedMultiplier: 0
+  durationTime: 0
+  isDestroyable: 0
 --- !u!1 &729603923
 GameObject:
   m_ObjectHideFlags: 0
@@ -6641,9 +7085,10 @@ GameObject:
   - component: {fileID: 729603926}
   - component: {fileID: 729603925}
   - component: {fileID: 729603924}
+  - component: {fileID: 729603928}
   m_Layer: 0
   m_Name: Cube (43)
-  m_TagString: Untagged
+  m_TagString: Tile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6712,6 +7157,29 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 56
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &729603928
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 729603923}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: afa60bf608fe1f043b172d7920cc83cf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isCheckRespawnPoint: 1
+  isVanish: 0
+  isJumper: 0
+  jumperMultiplier: 1
+  timeVanishing: 3
+  timeRespawning: 2
+  isMoveWithPlayers: 0
+  Tag: 
+  movespeedMultiplier: 0
+  jumpspeedMultiplier: 0
+  durationTime: 0
+  isDestroyable: 0
 --- !u!1 &733976512
 GameObject:
   m_ObjectHideFlags: 0
@@ -6723,9 +7191,10 @@ GameObject:
   - component: {fileID: 733976515}
   - component: {fileID: 733976514}
   - component: {fileID: 733976513}
+  - component: {fileID: 733976517}
   m_Layer: 0
   m_Name: Cube (48)
-  m_TagString: Untagged
+  m_TagString: Tile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6794,6 +7263,29 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 62
   m_LocalEulerAnglesHint: {x: 0, y: 30, z: 0}
+--- !u!114 &733976517
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 733976512}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: afa60bf608fe1f043b172d7920cc83cf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isCheckRespawnPoint: 1
+  isVanish: 0
+  isJumper: 0
+  jumperMultiplier: 1
+  timeVanishing: 3
+  timeRespawning: 2
+  isMoveWithPlayers: 0
+  Tag: 
+  movespeedMultiplier: 0
+  jumpspeedMultiplier: 0
+  durationTime: 0
+  isDestroyable: 0
 --- !u!1001 &741432074
 Prefab:
   m_ObjectHideFlags: 0
@@ -6897,9 +7389,10 @@ GameObject:
   - component: {fileID: 751048146}
   - component: {fileID: 751048145}
   - component: {fileID: 751048144}
+  - component: {fileID: 751048148}
   m_Layer: 0
   m_Name: Cube (12)
-  m_TagString: Untagged
+  m_TagString: Tile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6968,6 +7461,29 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 24
   m_LocalEulerAnglesHint: {x: 0, y: 45, z: 0}
+--- !u!114 &751048148
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 751048143}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: afa60bf608fe1f043b172d7920cc83cf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isCheckRespawnPoint: 1
+  isVanish: 0
+  isJumper: 0
+  jumperMultiplier: 1
+  timeVanishing: 3
+  timeRespawning: 2
+  isMoveWithPlayers: 0
+  Tag: 
+  movespeedMultiplier: 0
+  jumpspeedMultiplier: 0
+  durationTime: 0
+  isDestroyable: 0
 --- !u!1001 &759909298
 Prefab:
   m_ObjectHideFlags: 0
@@ -7026,9 +7542,10 @@ GameObject:
   - component: {fileID: 767232168}
   - component: {fileID: 767232167}
   - component: {fileID: 767232166}
+  - component: {fileID: 767232170}
   m_Layer: 0
   m_Name: Cube (44)
-  m_TagString: Untagged
+  m_TagString: Tile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7097,6 +7614,29 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 58
   m_LocalEulerAnglesHint: {x: 0, y: 30, z: 0}
+--- !u!114 &767232170
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 767232165}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: afa60bf608fe1f043b172d7920cc83cf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isCheckRespawnPoint: 1
+  isVanish: 0
+  isJumper: 0
+  jumperMultiplier: 1
+  timeVanishing: 3
+  timeRespawning: 2
+  isMoveWithPlayers: 0
+  Tag: 
+  movespeedMultiplier: 0
+  jumpspeedMultiplier: 0
+  durationTime: 0
+  isDestroyable: 0
 --- !u!1001 &767311644
 Prefab:
   m_ObjectHideFlags: 0
@@ -7205,9 +7745,10 @@ GameObject:
   - component: {fileID: 769418084}
   - component: {fileID: 769418083}
   - component: {fileID: 769418082}
+  - component: {fileID: 769418086}
   m_Layer: 0
   m_Name: Cube (62)
-  m_TagString: Untagged
+  m_TagString: Tile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7276,6 +7817,29 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 78
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &769418086
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 769418081}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: afa60bf608fe1f043b172d7920cc83cf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isCheckRespawnPoint: 1
+  isVanish: 0
+  isJumper: 0
+  jumperMultiplier: 1
+  timeVanishing: 3
+  timeRespawning: 2
+  isMoveWithPlayers: 0
+  Tag: 
+  movespeedMultiplier: 0
+  jumpspeedMultiplier: 0
+  durationTime: 0
+  isDestroyable: 0
 --- !u!1 &774673066
 GameObject:
   m_ObjectHideFlags: 0
@@ -7287,9 +7851,10 @@ GameObject:
   - component: {fileID: 774673069}
   - component: {fileID: 774673068}
   - component: {fileID: 774673067}
+  - component: {fileID: 774673071}
   m_Layer: 0
   m_Name: Cube (2)
-  m_TagString: Untagged
+  m_TagString: Tile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7358,6 +7923,29 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 45, z: 0}
+--- !u!114 &774673071
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 774673066}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: afa60bf608fe1f043b172d7920cc83cf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isCheckRespawnPoint: 1
+  isVanish: 0
+  isJumper: 0
+  jumperMultiplier: 1
+  timeVanishing: 3
+  timeRespawning: 2
+  isMoveWithPlayers: 0
+  Tag: 
+  movespeedMultiplier: 0
+  jumpspeedMultiplier: 0
+  durationTime: 0
+  isDestroyable: 0
 --- !u!1 &785654790
 GameObject:
   m_ObjectHideFlags: 0
@@ -7369,9 +7957,10 @@ GameObject:
   - component: {fileID: 785654793}
   - component: {fileID: 785654792}
   - component: {fileID: 785654791}
+  - component: {fileID: 785654795}
   m_Layer: 0
   m_Name: Cube (31)
-  m_TagString: Untagged
+  m_TagString: Tile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7440,6 +8029,29 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 44
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &785654795
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 785654790}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: afa60bf608fe1f043b172d7920cc83cf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isCheckRespawnPoint: 1
+  isVanish: 0
+  isJumper: 0
+  jumperMultiplier: 1
+  timeVanishing: 3
+  timeRespawning: 2
+  isMoveWithPlayers: 0
+  Tag: 
+  movespeedMultiplier: 0
+  jumpspeedMultiplier: 0
+  durationTime: 0
+  isDestroyable: 0
 --- !u!1001 &791716480
 Prefab:
   m_ObjectHideFlags: 0
@@ -8182,9 +8794,10 @@ GameObject:
   - component: {fileID: 864262365}
   - component: {fileID: 864262364}
   - component: {fileID: 864262363}
+  - component: {fileID: 864262367}
   m_Layer: 0
   m_Name: Cube (20)
-  m_TagString: Untagged
+  m_TagString: Tile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8253,6 +8866,29 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 32
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &864262367
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 864262362}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: afa60bf608fe1f043b172d7920cc83cf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isCheckRespawnPoint: 1
+  isVanish: 0
+  isJumper: 0
+  jumperMultiplier: 1
+  timeVanishing: 3
+  timeRespawning: 2
+  isMoveWithPlayers: 0
+  Tag: 
+  movespeedMultiplier: 0
+  jumpspeedMultiplier: 0
+  durationTime: 0
+  isDestroyable: 0
 --- !u!1001 &869124653
 Prefab:
   m_ObjectHideFlags: 0
@@ -8311,9 +8947,10 @@ GameObject:
   - component: {fileID: 870370084}
   - component: {fileID: 870370083}
   - component: {fileID: 870370082}
+  - component: {fileID: 870370086}
   m_Layer: 0
   m_Name: Cube (25)
-  m_TagString: Untagged
+  m_TagString: Tile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8382,6 +9019,29 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 38
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &870370086
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 870370081}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: afa60bf608fe1f043b172d7920cc83cf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isCheckRespawnPoint: 1
+  isVanish: 0
+  isJumper: 0
+  jumperMultiplier: 1
+  timeVanishing: 3
+  timeRespawning: 2
+  isMoveWithPlayers: 0
+  Tag: 
+  movespeedMultiplier: 0
+  jumpspeedMultiplier: 0
+  durationTime: 0
+  isDestroyable: 0
 --- !u!1 &874670464
 GameObject:
   m_ObjectHideFlags: 0
@@ -8393,9 +9053,10 @@ GameObject:
   - component: {fileID: 874670467}
   - component: {fileID: 874670466}
   - component: {fileID: 874670465}
+  - component: {fileID: 874670469}
   m_Layer: 0
   m_Name: Cube (46)
-  m_TagString: Untagged
+  m_TagString: Tile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8464,6 +9125,29 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 60
   m_LocalEulerAnglesHint: {x: 0, y: -30, z: 0}
+--- !u!114 &874670469
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 874670464}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: afa60bf608fe1f043b172d7920cc83cf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isCheckRespawnPoint: 1
+  isVanish: 0
+  isJumper: 0
+  jumperMultiplier: 1
+  timeVanishing: 3
+  timeRespawning: 2
+  isMoveWithPlayers: 0
+  Tag: 
+  movespeedMultiplier: 0
+  jumpspeedMultiplier: 0
+  durationTime: 0
+  isDestroyable: 0
 --- !u!1001 &893471277
 Prefab:
   m_ObjectHideFlags: 0
@@ -8655,9 +9339,10 @@ GameObject:
   - component: {fileID: 899541098}
   - component: {fileID: 899541097}
   - component: {fileID: 899541096}
+  - component: {fileID: 899541100}
   m_Layer: 0
   m_Name: Cube (5)
-  m_TagString: Untagged
+  m_TagString: Tile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8726,6 +9411,29 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 16
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &899541100
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 899541095}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: afa60bf608fe1f043b172d7920cc83cf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isCheckRespawnPoint: 1
+  isVanish: 0
+  isJumper: 0
+  jumperMultiplier: 1
+  timeVanishing: 3
+  timeRespawning: 2
+  isMoveWithPlayers: 0
+  Tag: 
+  movespeedMultiplier: 0
+  jumpspeedMultiplier: 0
+  durationTime: 0
+  isDestroyable: 0
 --- !u!1 &907126692
 GameObject:
   m_ObjectHideFlags: 0
@@ -8737,9 +9445,10 @@ GameObject:
   - component: {fileID: 907126695}
   - component: {fileID: 907126694}
   - component: {fileID: 907126693}
+  - component: {fileID: 907126697}
   m_Layer: 0
   m_Name: Cube (50)
-  m_TagString: Untagged
+  m_TagString: Tile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8808,6 +9517,29 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 64
   m_LocalEulerAnglesHint: {x: 0, y: 30, z: 0}
+--- !u!114 &907126697
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 907126692}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: afa60bf608fe1f043b172d7920cc83cf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isCheckRespawnPoint: 1
+  isVanish: 0
+  isJumper: 0
+  jumperMultiplier: 1
+  timeVanishing: 3
+  timeRespawning: 2
+  isMoveWithPlayers: 0
+  Tag: 
+  movespeedMultiplier: 0
+  jumpspeedMultiplier: 0
+  durationTime: 0
+  isDestroyable: 0
 --- !u!1 &913921464
 GameObject:
   m_ObjectHideFlags: 0
@@ -8819,9 +9551,10 @@ GameObject:
   - component: {fileID: 913921467}
   - component: {fileID: 913921466}
   - component: {fileID: 913921465}
+  - component: {fileID: 913921469}
   m_Layer: 0
   m_Name: Cube (36)
-  m_TagString: Untagged
+  m_TagString: Tile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8890,6 +9623,29 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 49
   m_LocalEulerAnglesHint: {x: 0, y: 20, z: 0}
+--- !u!114 &913921469
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 913921464}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: afa60bf608fe1f043b172d7920cc83cf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isCheckRespawnPoint: 1
+  isVanish: 0
+  isJumper: 0
+  jumperMultiplier: 1
+  timeVanishing: 3
+  timeRespawning: 2
+  isMoveWithPlayers: 0
+  Tag: 
+  movespeedMultiplier: 0
+  jumpspeedMultiplier: 0
+  durationTime: 0
+  isDestroyable: 0
 --- !u!1 &922167269
 GameObject:
   m_ObjectHideFlags: 0
@@ -9488,9 +10244,10 @@ GameObject:
   - component: {fileID: 1030495021}
   - component: {fileID: 1030495020}
   - component: {fileID: 1030495019}
+  - component: {fileID: 1030495023}
   m_Layer: 0
   m_Name: Cube (37)
-  m_TagString: Untagged
+  m_TagString: Tile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9559,6 +10316,29 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 50
   m_LocalEulerAnglesHint: {x: 0, y: 20, z: 0}
+--- !u!114 &1030495023
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1030495018}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: afa60bf608fe1f043b172d7920cc83cf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isCheckRespawnPoint: 1
+  isVanish: 0
+  isJumper: 0
+  jumperMultiplier: 1
+  timeVanishing: 3
+  timeRespawning: 2
+  isMoveWithPlayers: 0
+  Tag: 
+  movespeedMultiplier: 0
+  jumpspeedMultiplier: 0
+  durationTime: 0
+  isDestroyable: 0
 --- !u!1 &1035508762
 GameObject:
   m_ObjectHideFlags: 0
@@ -9766,9 +10546,10 @@ GameObject:
   - component: {fileID: 1041356175}
   - component: {fileID: 1041356174}
   - component: {fileID: 1041356173}
+  - component: {fileID: 1041356177}
   m_Layer: 0
   m_Name: Cube (11)
-  m_TagString: Untagged
+  m_TagString: Tile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9837,6 +10618,29 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 23
   m_LocalEulerAnglesHint: {x: 0, y: 45, z: 0}
+--- !u!114 &1041356177
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1041356172}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: afa60bf608fe1f043b172d7920cc83cf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isCheckRespawnPoint: 1
+  isVanish: 0
+  isJumper: 0
+  jumperMultiplier: 1
+  timeVanishing: 3
+  timeRespawning: 2
+  isMoveWithPlayers: 0
+  Tag: 
+  movespeedMultiplier: 0
+  jumpspeedMultiplier: 0
+  durationTime: 0
+  isDestroyable: 0
 --- !u!1 &1057770994
 GameObject:
   m_ObjectHideFlags: 0
@@ -9848,9 +10652,10 @@ GameObject:
   - component: {fileID: 1057770997}
   - component: {fileID: 1057770996}
   - component: {fileID: 1057770995}
+  - component: {fileID: 1057770999}
   m_Layer: 0
   m_Name: Cube (65)
-  m_TagString: Untagged
+  m_TagString: Tile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9919,6 +10724,29 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 82
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1057770999
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1057770994}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: afa60bf608fe1f043b172d7920cc83cf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isCheckRespawnPoint: 1
+  isVanish: 0
+  isJumper: 0
+  jumperMultiplier: 1
+  timeVanishing: 3
+  timeRespawning: 2
+  isMoveWithPlayers: 0
+  Tag: 
+  movespeedMultiplier: 0
+  jumpspeedMultiplier: 0
+  durationTime: 0
+  isDestroyable: 0
 --- !u!1001 &1059719805
 Prefab:
   m_ObjectHideFlags: 0
@@ -11187,9 +12015,10 @@ GameObject:
   - component: {fileID: 1108783981}
   - component: {fileID: 1108783980}
   - component: {fileID: 1108783979}
+  - component: {fileID: 1108783983}
   m_Layer: 0
   m_Name: Cube (16)
-  m_TagString: Untagged
+  m_TagString: Tile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -11258,6 +12087,29 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 28
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1108783983
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1108783978}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: afa60bf608fe1f043b172d7920cc83cf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isCheckRespawnPoint: 1
+  isVanish: 0
+  isJumper: 0
+  jumperMultiplier: 1
+  timeVanishing: 3
+  timeRespawning: 2
+  isMoveWithPlayers: 0
+  Tag: 
+  movespeedMultiplier: 0
+  jumpspeedMultiplier: 0
+  durationTime: 0
+  isDestroyable: 0
 --- !u!1001 &1110889970
 Prefab:
   m_ObjectHideFlags: 0
@@ -11644,9 +12496,10 @@ GameObject:
   - component: {fileID: 1180627467}
   - component: {fileID: 1180627466}
   - component: {fileID: 1180627465}
+  - component: {fileID: 1180627469}
   m_Layer: 0
   m_Name: Cube (30)
-  m_TagString: Untagged
+  m_TagString: Tile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -11715,6 +12568,29 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 43
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1180627469
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1180627464}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: afa60bf608fe1f043b172d7920cc83cf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isCheckRespawnPoint: 1
+  isVanish: 0
+  isJumper: 0
+  jumperMultiplier: 1
+  timeVanishing: 3
+  timeRespawning: 2
+  isMoveWithPlayers: 0
+  Tag: 
+  movespeedMultiplier: 0
+  jumpspeedMultiplier: 0
+  durationTime: 0
+  isDestroyable: 0
 --- !u!1001 &1185073138
 Prefab:
   m_ObjectHideFlags: 0
@@ -11772,9 +12648,10 @@ GameObject:
   - component: {fileID: 1195427114}
   - component: {fileID: 1195427113}
   - component: {fileID: 1195427112}
+  - component: {fileID: 1195427116}
   m_Layer: 0
   m_Name: Cube (59)
-  m_TagString: Untagged
+  m_TagString: Tile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -11843,6 +12720,29 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 75
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1195427116
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1195427111}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: afa60bf608fe1f043b172d7920cc83cf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isCheckRespawnPoint: 1
+  isVanish: 0
+  isJumper: 0
+  jumperMultiplier: 1
+  timeVanishing: 3
+  timeRespawning: 2
+  isMoveWithPlayers: 0
+  Tag: 
+  movespeedMultiplier: 0
+  jumpspeedMultiplier: 0
+  durationTime: 0
+  isDestroyable: 0
 --- !u!1 &1197220352
 GameObject:
   m_ObjectHideFlags: 0
@@ -11854,9 +12754,10 @@ GameObject:
   - component: {fileID: 1197220355}
   - component: {fileID: 1197220354}
   - component: {fileID: 1197220353}
+  - component: {fileID: 1197220357}
   m_Layer: 0
   m_Name: Cube (53)
-  m_TagString: Untagged
+  m_TagString: Tile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -11925,6 +12826,29 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 67
   m_LocalEulerAnglesHint: {x: 0, y: 30, z: 0}
+--- !u!114 &1197220357
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1197220352}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: afa60bf608fe1f043b172d7920cc83cf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isCheckRespawnPoint: 1
+  isVanish: 0
+  isJumper: 0
+  jumperMultiplier: 1
+  timeVanishing: 3
+  timeRespawning: 2
+  isMoveWithPlayers: 0
+  Tag: 
+  movespeedMultiplier: 0
+  jumpspeedMultiplier: 0
+  durationTime: 0
+  isDestroyable: 0
 --- !u!1001 &1201829392
 Prefab:
   m_ObjectHideFlags: 0
@@ -12270,9 +13194,10 @@ GameObject:
   - component: {fileID: 1266741282}
   - component: {fileID: 1266741281}
   - component: {fileID: 1266741280}
+  - component: {fileID: 1266741284}
   m_Layer: 0
   m_Name: Cube (14)
-  m_TagString: Untagged
+  m_TagString: Tile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -12341,6 +13266,29 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 26
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1266741284
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1266741279}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: afa60bf608fe1f043b172d7920cc83cf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isCheckRespawnPoint: 1
+  isVanish: 0
+  isJumper: 0
+  jumperMultiplier: 1
+  timeVanishing: 3
+  timeRespawning: 2
+  isMoveWithPlayers: 0
+  Tag: 
+  movespeedMultiplier: 0
+  jumpspeedMultiplier: 0
+  durationTime: 0
+  isDestroyable: 0
 --- !u!1 &1275647674
 GameObject:
   m_ObjectHideFlags: 0
@@ -12352,9 +13300,11 @@ GameObject:
   - component: {fileID: 1275647677}
   - component: {fileID: 1275647676}
   - component: {fileID: 1275647675}
+  - component: {fileID: 1275647679}
+  - component: {fileID: 1275647680}
   m_Layer: 0
   m_Name: Cube
-  m_TagString: Untagged
+  m_TagString: Tile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -12423,6 +13373,52 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1275647679
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1275647674}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: afa60bf608fe1f043b172d7920cc83cf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isCheckRespawnPoint: 1
+  isVanish: 0
+  isJumper: 0
+  jumperMultiplier: 1
+  timeVanishing: 3
+  timeRespawning: 2
+  isMoveWithPlayers: 0
+  Tag: 
+  movespeedMultiplier: 0
+  jumpspeedMultiplier: 0
+  durationTime: 0
+  isDestroyable: 0
+--- !u!114 &1275647680
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1275647674}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: afa60bf608fe1f043b172d7920cc83cf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isCheckRespawnPoint: 1
+  isVanish: 0
+  isJumper: 0
+  jumperMultiplier: 1
+  timeVanishing: 3
+  timeRespawning: 2
+  isMoveWithPlayers: 0
+  Tag: 
+  movespeedMultiplier: 0
+  jumpspeedMultiplier: 0
+  durationTime: 0
+  isDestroyable: 0
 --- !u!1001 &1275916326
 Prefab:
   m_ObjectHideFlags: 0
@@ -12665,9 +13661,10 @@ GameObject:
   - component: {fileID: 1302140633}
   - component: {fileID: 1302140632}
   - component: {fileID: 1302140631}
+  - component: {fileID: 1302140635}
   m_Layer: 0
   m_Name: Cube (34)
-  m_TagString: Untagged
+  m_TagString: Tile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -12736,6 +13733,29 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 47
   m_LocalEulerAnglesHint: {x: 0, y: 45, z: 0}
+--- !u!114 &1302140635
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1302140630}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: afa60bf608fe1f043b172d7920cc83cf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isCheckRespawnPoint: 1
+  isVanish: 0
+  isJumper: 0
+  jumperMultiplier: 1
+  timeVanishing: 3
+  timeRespawning: 2
+  isMoveWithPlayers: 0
+  Tag: 
+  movespeedMultiplier: 0
+  jumpspeedMultiplier: 0
+  durationTime: 0
+  isDestroyable: 0
 --- !u!1001 &1315683382
 Prefab:
   m_ObjectHideFlags: 0
@@ -12793,9 +13813,10 @@ GameObject:
   - component: {fileID: 1316568515}
   - component: {fileID: 1316568514}
   - component: {fileID: 1316568513}
+  - component: {fileID: 1316568517}
   m_Layer: 0
   m_Name: Cube (26)
-  m_TagString: Untagged
+  m_TagString: Tile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -12864,6 +13885,29 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 39
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1316568517
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1316568512}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: afa60bf608fe1f043b172d7920cc83cf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isCheckRespawnPoint: 1
+  isVanish: 0
+  isJumper: 0
+  jumperMultiplier: 1
+  timeVanishing: 3
+  timeRespawning: 2
+  isMoveWithPlayers: 0
+  Tag: 
+  movespeedMultiplier: 0
+  jumpspeedMultiplier: 0
+  durationTime: 0
+  isDestroyable: 0
 --- !u!1001 &1331461040
 Prefab:
   m_ObjectHideFlags: 0
@@ -13509,9 +14553,10 @@ GameObject:
   - component: {fileID: 1442325388}
   - component: {fileID: 1442325387}
   - component: {fileID: 1442325386}
+  - component: {fileID: 1442325390}
   m_Layer: 0
   m_Name: Cube (56)
-  m_TagString: Untagged
+  m_TagString: Tile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -13580,6 +14625,29 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 70
   m_LocalEulerAnglesHint: {x: 0, y: 45, z: 0}
+--- !u!114 &1442325390
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1442325385}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: afa60bf608fe1f043b172d7920cc83cf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isCheckRespawnPoint: 1
+  isVanish: 0
+  isJumper: 0
+  jumperMultiplier: 1
+  timeVanishing: 3
+  timeRespawning: 2
+  isMoveWithPlayers: 0
+  Tag: 
+  movespeedMultiplier: 0
+  jumpspeedMultiplier: 0
+  durationTime: 0
+  isDestroyable: 0
 --- !u!1 &1443832826
 GameObject:
   m_ObjectHideFlags: 0
@@ -13795,7 +14863,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4056970565136658, guid: 435976ab1de04984ab4a8aacfad27b3f, type: 2}
       propertyPath: m_RootOrder
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 108166607861037256, guid: 435976ab1de04984ab4a8aacfad27b3f,
         type: 2}
@@ -13897,9 +14965,10 @@ GameObject:
   - component: {fileID: 1464300746}
   - component: {fileID: 1464300745}
   - component: {fileID: 1464300744}
+  - component: {fileID: 1464300748}
   m_Layer: 0
   m_Name: Cube (66)
-  m_TagString: Untagged
+  m_TagString: Tile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -13968,6 +15037,29 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 83
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1464300748
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1464300743}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: afa60bf608fe1f043b172d7920cc83cf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isCheckRespawnPoint: 1
+  isVanish: 0
+  isJumper: 0
+  jumperMultiplier: 1
+  timeVanishing: 3
+  timeRespawning: 2
+  isMoveWithPlayers: 0
+  Tag: 
+  movespeedMultiplier: 0
+  jumpspeedMultiplier: 0
+  durationTime: 0
+  isDestroyable: 0
 --- !u!1001 &1465836400
 Prefab:
   m_ObjectHideFlags: 0
@@ -14029,9 +15121,10 @@ GameObject:
   - component: {fileID: 1469923238}
   - component: {fileID: 1469923237}
   - component: {fileID: 1469923236}
+  - component: {fileID: 1469923240}
   m_Layer: 0
   m_Name: Cube (32)
-  m_TagString: Untagged
+  m_TagString: Tile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -14100,6 +15193,29 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 45
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1469923240
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1469923235}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: afa60bf608fe1f043b172d7920cc83cf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isCheckRespawnPoint: 1
+  isVanish: 0
+  isJumper: 0
+  jumperMultiplier: 1
+  timeVanishing: 3
+  timeRespawning: 2
+  isMoveWithPlayers: 0
+  Tag: 
+  movespeedMultiplier: 0
+  jumpspeedMultiplier: 0
+  durationTime: 0
+  isDestroyable: 0
 --- !u!1 &1481964358
 GameObject:
   m_ObjectHideFlags: 0
@@ -14157,9 +15273,10 @@ GameObject:
   - component: {fileID: 1485584282}
   - component: {fileID: 1485584281}
   - component: {fileID: 1485584280}
+  - component: {fileID: 1485584284}
   m_Layer: 0
   m_Name: Cube (9)
-  m_TagString: Untagged
+  m_TagString: Tile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -14228,6 +15345,29 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 21
   m_LocalEulerAnglesHint: {x: 0, y: 45, z: 0}
+--- !u!114 &1485584284
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1485584279}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: afa60bf608fe1f043b172d7920cc83cf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isCheckRespawnPoint: 1
+  isVanish: 0
+  isJumper: 0
+  jumperMultiplier: 1
+  timeVanishing: 3
+  timeRespawning: 2
+  isMoveWithPlayers: 0
+  Tag: 
+  movespeedMultiplier: 0
+  jumpspeedMultiplier: 0
+  durationTime: 0
+  isDestroyable: 0
 --- !u!1001 &1488248526
 Prefab:
   m_ObjectHideFlags: 0
@@ -14591,9 +15731,10 @@ GameObject:
   - component: {fileID: 1523667317}
   - component: {fileID: 1523667316}
   - component: {fileID: 1523667315}
+  - component: {fileID: 1523667319}
   m_Layer: 0
   m_Name: Cube (6)
-  m_TagString: Untagged
+  m_TagString: Tile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -14662,6 +15803,29 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 17
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1523667319
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1523667314}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: afa60bf608fe1f043b172d7920cc83cf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isCheckRespawnPoint: 1
+  isVanish: 0
+  isJumper: 0
+  jumperMultiplier: 1
+  timeVanishing: 3
+  timeRespawning: 2
+  isMoveWithPlayers: 0
+  Tag: 
+  movespeedMultiplier: 0
+  jumpspeedMultiplier: 0
+  durationTime: 0
+  isDestroyable: 0
 --- !u!1 &1527814474
 GameObject:
   m_ObjectHideFlags: 0
@@ -14673,9 +15837,10 @@ GameObject:
   - component: {fileID: 1527814477}
   - component: {fileID: 1527814476}
   - component: {fileID: 1527814475}
+  - component: {fileID: 1527814479}
   m_Layer: 0
   m_Name: Cube (64)
-  m_TagString: Untagged
+  m_TagString: Tile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -14744,6 +15909,29 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 81
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1527814479
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1527814474}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: afa60bf608fe1f043b172d7920cc83cf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isCheckRespawnPoint: 1
+  isVanish: 0
+  isJumper: 0
+  jumperMultiplier: 1
+  timeVanishing: 3
+  timeRespawning: 2
+  isMoveWithPlayers: 0
+  Tag: 
+  movespeedMultiplier: 0
+  jumpspeedMultiplier: 0
+  durationTime: 0
+  isDestroyable: 0
 --- !u!1001 &1534018809
 Prefab:
   m_ObjectHideFlags: 0
@@ -14989,9 +16177,10 @@ GameObject:
   - component: {fileID: 1558309570}
   - component: {fileID: 1558309569}
   - component: {fileID: 1558309568}
+  - component: {fileID: 1558309572}
   m_Layer: 0
   m_Name: Cube (58)
-  m_TagString: Untagged
+  m_TagString: Tile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -15060,6 +16249,29 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 74
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1558309572
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1558309567}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: afa60bf608fe1f043b172d7920cc83cf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isCheckRespawnPoint: 1
+  isVanish: 0
+  isJumper: 0
+  jumperMultiplier: 1
+  timeVanishing: 3
+  timeRespawning: 2
+  isMoveWithPlayers: 0
+  Tag: 
+  movespeedMultiplier: 0
+  jumpspeedMultiplier: 0
+  durationTime: 0
+  isDestroyable: 0
 --- !u!1001 &1566423566
 Prefab:
   m_ObjectHideFlags: 0
@@ -15572,9 +16784,10 @@ GameObject:
   - component: {fileID: 1604283633}
   - component: {fileID: 1604283632}
   - component: {fileID: 1604283631}
+  - component: {fileID: 1604283635}
   m_Layer: 0
   m_Name: Cube (28)
-  m_TagString: Untagged
+  m_TagString: Tile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -15643,6 +16856,29 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 41
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1604283635
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1604283630}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: afa60bf608fe1f043b172d7920cc83cf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isCheckRespawnPoint: 1
+  isVanish: 0
+  isJumper: 0
+  jumperMultiplier: 1
+  timeVanishing: 3
+  timeRespawning: 2
+  isMoveWithPlayers: 0
+  Tag: 
+  movespeedMultiplier: 0
+  jumpspeedMultiplier: 0
+  durationTime: 0
+  isDestroyable: 0
 --- !u!1 &1604801728
 GameObject:
   m_ObjectHideFlags: 0
@@ -15692,9 +16928,10 @@ GameObject:
   - component: {fileID: 1610340900}
   - component: {fileID: 1610340899}
   - component: {fileID: 1610340898}
+  - component: {fileID: 1610340902}
   m_Layer: 0
   m_Name: Cube (1)
-  m_TagString: Untagged
+  m_TagString: Tile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -15763,6 +17000,29 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1610340902
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1610340897}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: afa60bf608fe1f043b172d7920cc83cf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isCheckRespawnPoint: 1
+  isVanish: 0
+  isJumper: 0
+  jumperMultiplier: 1
+  timeVanishing: 3
+  timeRespawning: 2
+  isMoveWithPlayers: 0
+  Tag: 
+  movespeedMultiplier: 0
+  jumpspeedMultiplier: 0
+  durationTime: 0
+  isDestroyable: 0
 --- !u!1001 &1616817426
 Prefab:
   m_ObjectHideFlags: 0
@@ -16265,9 +17525,10 @@ GameObject:
   - component: {fileID: 1689797435}
   - component: {fileID: 1689797434}
   - component: {fileID: 1689797433}
+  - component: {fileID: 1689797437}
   m_Layer: 0
   m_Name: Cube (54)
-  m_TagString: Untagged
+  m_TagString: Tile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -16336,6 +17597,29 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 68
   m_LocalEulerAnglesHint: {x: 0, y: 45, z: 0}
+--- !u!114 &1689797437
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1689797432}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: afa60bf608fe1f043b172d7920cc83cf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isCheckRespawnPoint: 1
+  isVanish: 0
+  isJumper: 0
+  jumperMultiplier: 1
+  timeVanishing: 3
+  timeRespawning: 2
+  isMoveWithPlayers: 0
+  Tag: 
+  movespeedMultiplier: 0
+  jumpspeedMultiplier: 0
+  durationTime: 0
+  isDestroyable: 0
 --- !u!1001 &1690179423
 Prefab:
   m_ObjectHideFlags: 0
@@ -16599,9 +17883,10 @@ GameObject:
   - component: {fileID: 1707638983}
   - component: {fileID: 1707638982}
   - component: {fileID: 1707638981}
+  - component: {fileID: 1707638985}
   m_Layer: 0
   m_Name: Cube (24)
-  m_TagString: Untagged
+  m_TagString: Tile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -16670,6 +17955,29 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 37
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1707638985
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1707638980}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: afa60bf608fe1f043b172d7920cc83cf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isCheckRespawnPoint: 1
+  isVanish: 0
+  isJumper: 0
+  jumperMultiplier: 1
+  timeVanishing: 3
+  timeRespawning: 2
+  isMoveWithPlayers: 0
+  Tag: 
+  movespeedMultiplier: 0
+  jumpspeedMultiplier: 0
+  durationTime: 0
+  isDestroyable: 0
 --- !u!1 &1713373441
 GameObject:
   m_ObjectHideFlags: 0
@@ -16681,9 +17989,10 @@ GameObject:
   - component: {fileID: 1713373444}
   - component: {fileID: 1713373443}
   - component: {fileID: 1713373442}
+  - component: {fileID: 1713373446}
   m_Layer: 0
   m_Name: Cube (42)
-  m_TagString: Untagged
+  m_TagString: Tile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -16752,6 +18061,29 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 55
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1713373446
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1713373441}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: afa60bf608fe1f043b172d7920cc83cf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isCheckRespawnPoint: 1
+  isVanish: 0
+  isJumper: 0
+  jumperMultiplier: 1
+  timeVanishing: 3
+  timeRespawning: 2
+  isMoveWithPlayers: 0
+  Tag: 
+  movespeedMultiplier: 0
+  jumpspeedMultiplier: 0
+  durationTime: 0
+  isDestroyable: 0
 --- !u!1001 &1722671345
 Prefab:
   m_ObjectHideFlags: 0
@@ -17027,9 +18359,10 @@ GameObject:
   - component: {fileID: 1748624909}
   - component: {fileID: 1748624908}
   - component: {fileID: 1748624907}
+  - component: {fileID: 1748624911}
   m_Layer: 0
   m_Name: Cube (13)
-  m_TagString: Untagged
+  m_TagString: Tile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -17098,6 +18431,29 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 25
   m_LocalEulerAnglesHint: {x: 0, y: 45, z: 0}
+--- !u!114 &1748624911
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1748624906}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: afa60bf608fe1f043b172d7920cc83cf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isCheckRespawnPoint: 1
+  isVanish: 0
+  isJumper: 0
+  jumperMultiplier: 1
+  timeVanishing: 3
+  timeRespawning: 2
+  isMoveWithPlayers: 0
+  Tag: 
+  movespeedMultiplier: 0
+  jumpspeedMultiplier: 0
+  durationTime: 0
+  isDestroyable: 0
 --- !u!1 &1750476902
 GameObject:
   m_ObjectHideFlags: 0
@@ -17762,9 +19118,10 @@ GameObject:
   - component: {fileID: 1803815462}
   - component: {fileID: 1803815461}
   - component: {fileID: 1803815460}
+  - component: {fileID: 1803815464}
   m_Layer: 0
   m_Name: Cube (60)
-  m_TagString: Untagged
+  m_TagString: Tile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -17833,6 +19190,29 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 76
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1803815464
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1803815459}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: afa60bf608fe1f043b172d7920cc83cf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isCheckRespawnPoint: 1
+  isVanish: 0
+  isJumper: 0
+  jumperMultiplier: 1
+  timeVanishing: 3
+  timeRespawning: 2
+  isMoveWithPlayers: 0
+  Tag: 
+  movespeedMultiplier: 0
+  jumpspeedMultiplier: 0
+  durationTime: 0
+  isDestroyable: 0
 --- !u!1001 &1808048307
 Prefab:
   m_ObjectHideFlags: 0
@@ -17932,9 +19312,10 @@ GameObject:
   - component: {fileID: 1824816631}
   - component: {fileID: 1824816630}
   - component: {fileID: 1824816629}
+  - component: {fileID: 1824816633}
   m_Layer: 0
   m_Name: Cube (17)
-  m_TagString: Untagged
+  m_TagString: Tile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -18003,6 +19384,29 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 29
   m_LocalEulerAnglesHint: {x: 0, y: 25, z: 0}
+--- !u!114 &1824816633
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1824816628}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: afa60bf608fe1f043b172d7920cc83cf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isCheckRespawnPoint: 1
+  isVanish: 0
+  isJumper: 0
+  jumperMultiplier: 1
+  timeVanishing: 3
+  timeRespawning: 2
+  isMoveWithPlayers: 0
+  Tag: 
+  movespeedMultiplier: 0
+  jumpspeedMultiplier: 0
+  durationTime: 0
+  isDestroyable: 0
 --- !u!1 &1842118456
 GameObject:
   m_ObjectHideFlags: 0
@@ -18537,9 +19941,10 @@ GameObject:
   - component: {fileID: 1885520709}
   - component: {fileID: 1885520708}
   - component: {fileID: 1885520707}
+  - component: {fileID: 1885520711}
   m_Layer: 0
   m_Name: Cube (63)
-  m_TagString: Untagged
+  m_TagString: Tile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -18608,6 +20013,29 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 79
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1885520711
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1885520706}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: afa60bf608fe1f043b172d7920cc83cf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isCheckRespawnPoint: 1
+  isVanish: 0
+  isJumper: 0
+  jumperMultiplier: 1
+  timeVanishing: 3
+  timeRespawning: 2
+  isMoveWithPlayers: 0
+  Tag: 
+  movespeedMultiplier: 0
+  jumpspeedMultiplier: 0
+  durationTime: 0
+  isDestroyable: 0
 --- !u!1 &1892497596
 GameObject:
   m_ObjectHideFlags: 0
@@ -18619,9 +20047,10 @@ GameObject:
   - component: {fileID: 1892497599}
   - component: {fileID: 1892497598}
   - component: {fileID: 1892497597}
+  - component: {fileID: 1892497601}
   m_Layer: 0
   m_Name: Cube (10)
-  m_TagString: Untagged
+  m_TagString: Tile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -18690,6 +20119,29 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 22
   m_LocalEulerAnglesHint: {x: 0, y: 45, z: 0}
+--- !u!114 &1892497601
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1892497596}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: afa60bf608fe1f043b172d7920cc83cf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isCheckRespawnPoint: 1
+  isVanish: 0
+  isJumper: 0
+  jumperMultiplier: 1
+  timeVanishing: 3
+  timeRespawning: 2
+  isMoveWithPlayers: 0
+  Tag: 
+  movespeedMultiplier: 0
+  jumpspeedMultiplier: 0
+  durationTime: 0
+  isDestroyable: 0
 --- !u!1001 &1910167313
 Prefab:
   m_ObjectHideFlags: 0
@@ -18840,9 +20292,10 @@ GameObject:
   - component: {fileID: 1926853980}
   - component: {fileID: 1926853979}
   - component: {fileID: 1926853978}
+  - component: {fileID: 1926853982}
   m_Layer: 0
   m_Name: Cube (61)
-  m_TagString: Untagged
+  m_TagString: Tile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -18911,6 +20364,29 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 77
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1926853982
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1926853977}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: afa60bf608fe1f043b172d7920cc83cf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isCheckRespawnPoint: 1
+  isVanish: 0
+  isJumper: 0
+  jumperMultiplier: 1
+  timeVanishing: 3
+  timeRespawning: 2
+  isMoveWithPlayers: 0
+  Tag: 
+  movespeedMultiplier: 0
+  jumpspeedMultiplier: 0
+  durationTime: 0
+  isDestroyable: 0
 --- !u!1001 &1930793651
 Prefab:
   m_ObjectHideFlags: 0
@@ -19833,9 +21309,10 @@ GameObject:
   - component: {fileID: 2007449747}
   - component: {fileID: 2007449746}
   - component: {fileID: 2007449745}
+  - component: {fileID: 2007449749}
   m_Layer: 0
   m_Name: Cube (21)
-  m_TagString: Untagged
+  m_TagString: Tile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -19904,6 +21381,29 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 33
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2007449749
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2007449744}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: afa60bf608fe1f043b172d7920cc83cf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isCheckRespawnPoint: 1
+  isVanish: 0
+  isJumper: 0
+  jumperMultiplier: 1
+  timeVanishing: 3
+  timeRespawning: 2
+  isMoveWithPlayers: 0
+  Tag: 
+  movespeedMultiplier: 0
+  jumpspeedMultiplier: 0
+  durationTime: 0
+  isDestroyable: 0
 --- !u!1 &2007786687
 GameObject:
   m_ObjectHideFlags: 0
@@ -19915,9 +21415,10 @@ GameObject:
   - component: {fileID: 2007786690}
   - component: {fileID: 2007786689}
   - component: {fileID: 2007786688}
+  - component: {fileID: 2007786692}
   m_Layer: 0
   m_Name: Cube (23)
-  m_TagString: Untagged
+  m_TagString: Tile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -19986,6 +21487,29 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 36
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2007786692
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2007786687}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: afa60bf608fe1f043b172d7920cc83cf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isCheckRespawnPoint: 1
+  isVanish: 0
+  isJumper: 0
+  jumperMultiplier: 1
+  timeVanishing: 3
+  timeRespawning: 2
+  isMoveWithPlayers: 0
+  Tag: 
+  movespeedMultiplier: 0
+  jumpspeedMultiplier: 0
+  durationTime: 0
+  isDestroyable: 0
 --- !u!1001 &2019281769
 Prefab:
   m_ObjectHideFlags: 0
@@ -20193,9 +21717,10 @@ GameObject:
   - component: {fileID: 2058070040}
   - component: {fileID: 2058070039}
   - component: {fileID: 2058070038}
+  - component: {fileID: 2058070042}
   m_Layer: 0
   m_Name: Cube (41)
-  m_TagString: Untagged
+  m_TagString: Tile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -20264,6 +21789,29 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 54
   m_LocalEulerAnglesHint: {x: 0, y: 30, z: 0}
+--- !u!114 &2058070042
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2058070037}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: afa60bf608fe1f043b172d7920cc83cf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isCheckRespawnPoint: 1
+  isVanish: 0
+  isJumper: 0
+  jumperMultiplier: 1
+  timeVanishing: 3
+  timeRespawning: 2
+  isMoveWithPlayers: 0
+  Tag: 
+  movespeedMultiplier: 0
+  jumpspeedMultiplier: 0
+  durationTime: 0
+  isDestroyable: 0
 --- !u!1 &2062389679
 GameObject:
   m_ObjectHideFlags: 0
@@ -20275,9 +21823,10 @@ GameObject:
   - component: {fileID: 2062389682}
   - component: {fileID: 2062389681}
   - component: {fileID: 2062389680}
+  - component: {fileID: 2062389684}
   m_Layer: 0
   m_Name: Cube (45)
-  m_TagString: Untagged
+  m_TagString: Tile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -20346,6 +21895,29 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 59
   m_LocalEulerAnglesHint: {x: 0, y: 30, z: 0}
+--- !u!114 &2062389684
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2062389679}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: afa60bf608fe1f043b172d7920cc83cf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isCheckRespawnPoint: 1
+  isVanish: 0
+  isJumper: 0
+  jumperMultiplier: 1
+  timeVanishing: 3
+  timeRespawning: 2
+  isMoveWithPlayers: 0
+  Tag: 
+  movespeedMultiplier: 0
+  jumpspeedMultiplier: 0
+  durationTime: 0
+  isDestroyable: 0
 --- !u!1001 &2089089760
 Prefab:
   m_ObjectHideFlags: 0
@@ -20449,9 +22021,10 @@ GameObject:
   - component: {fileID: 2095442444}
   - component: {fileID: 2095442443}
   - component: {fileID: 2095442442}
+  - component: {fileID: 2095442446}
   m_Layer: 0
   m_Name: Cube (18)
-  m_TagString: Untagged
+  m_TagString: Tile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -20520,6 +22093,29 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 30
   m_LocalEulerAnglesHint: {x: 0, y: -25, z: 0}
+--- !u!114 &2095442446
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2095442441}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: afa60bf608fe1f043b172d7920cc83cf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isCheckRespawnPoint: 1
+  isVanish: 0
+  isJumper: 0
+  jumperMultiplier: 1
+  timeVanishing: 3
+  timeRespawning: 2
+  isMoveWithPlayers: 0
+  Tag: 
+  movespeedMultiplier: 0
+  jumpspeedMultiplier: 0
+  durationTime: 0
+  isDestroyable: 0
 --- !u!1 &2096025070
 GameObject:
   m_ObjectHideFlags: 0
@@ -20531,9 +22127,10 @@ GameObject:
   - component: {fileID: 2096025073}
   - component: {fileID: 2096025072}
   - component: {fileID: 2096025071}
+  - component: {fileID: 2096025075}
   m_Layer: 0
   m_Name: Cube (39)
-  m_TagString: Untagged
+  m_TagString: Tile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -20602,6 +22199,29 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 52
   m_LocalEulerAnglesHint: {x: 0, y: -20, z: 0}
+--- !u!114 &2096025075
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2096025070}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: afa60bf608fe1f043b172d7920cc83cf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isCheckRespawnPoint: 1
+  isVanish: 0
+  isJumper: 0
+  jumperMultiplier: 1
+  timeVanishing: 3
+  timeRespawning: 2
+  isMoveWithPlayers: 0
+  Tag: 
+  movespeedMultiplier: 0
+  jumpspeedMultiplier: 0
+  durationTime: 0
+  isDestroyable: 0
 --- !u!1001 &2102551391
 Prefab:
   m_ObjectHideFlags: 0
@@ -20903,9 +22523,10 @@ GameObject:
   - component: {fileID: 2144351562}
   - component: {fileID: 2144351561}
   - component: {fileID: 2144351560}
+  - component: {fileID: 2144351564}
   m_Layer: 0
   m_Name: Cube (33)
-  m_TagString: Untagged
+  m_TagString: Tile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -20974,3 +22595,26 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 46
   m_LocalEulerAnglesHint: {x: 0, y: 30, z: 0}
+--- !u!114 &2144351564
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2144351559}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: afa60bf608fe1f043b172d7920cc83cf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isCheckRespawnPoint: 1
+  isVanish: 0
+  isJumper: 0
+  jumperMultiplier: 1
+  timeVanishing: 3
+  timeRespawning: 2
+  isMoveWithPlayers: 0
+  Tag: 
+  movespeedMultiplier: 0
+  jumpspeedMultiplier: 0
+  durationTime: 0
+  isDestroyable: 0

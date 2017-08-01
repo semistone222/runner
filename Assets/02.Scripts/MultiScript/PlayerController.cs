@@ -169,7 +169,7 @@ public class PlayerController : MonoBehaviour {
 
 
 
-			if (inputVec.sqrMagnitude > 0.001f && GimmickDeath.Death == false)
+			if (inputVec.sqrMagnitude > 0.001f && MultiGimmickDeath.Death == false)
             {
                 float scaleFactor = 1.0f;   //moveVec 보정치
                 moveVec = mainCamera.transform.TransformDirection(inputVec);
@@ -257,12 +257,12 @@ public class PlayerController : MonoBehaviour {
 				movespdFactor *= cc.movespdMultiplier;
 				jumpspdFactor *= cc.jumpspdMultiplier;
 			}
-			moveSpeed = moveSpeed * movespdFactor;
+			NowSpeed = NowSpeed * movespdFactor;
 			jumpSpeed = jumpSpeed * jumpspdFactor;
 		}
 		else
 		{
-			moveSpeed = moveSpeed;
+			NowSpeed = NowSpeed;
 			jumpSpeed = jumpSpeed;
 		}
 	}

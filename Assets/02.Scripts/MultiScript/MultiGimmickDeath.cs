@@ -74,7 +74,7 @@ public class MultiGimmickDeath : Gimmick
 		yield return new WaitForSeconds(1.5f);
 		Death = false;
 		GameObject.Find("ButtonJump").GetComponent<SimpleButton>().enabled = true;
-        GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>().moveSpeed = 45f;//!
+        //GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>().moveSpeed = 45f;//!
 		GameObject.FindGameObjectWithTag ("Player").GetComponent<Animator> ().SetBool ("IsDead", false);
 		GameObject.Find (PlayerInfoManager.SelectCharacter + "Body").GetComponent<ChangeMaterial> ().ChangeIdle ();  // 우는 표정으로 해제
 

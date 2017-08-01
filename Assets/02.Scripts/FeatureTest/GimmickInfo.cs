@@ -88,6 +88,7 @@ public class GimmickInfo : Gimmick
 		{/*현재 사용자에게 걸려있는 상태이상을 불러옴*/
 			if (string.Equals(c.Tag, Tag))
 			{
+                cc = c;
 				hasTag = true;
 				break;
 			}
