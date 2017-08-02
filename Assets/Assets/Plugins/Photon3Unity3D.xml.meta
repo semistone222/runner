@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 8d4f08d435c4b6343969d8af249460ff
+guid: 543ff0b89f7796a448511b462197b302
 labels:
 - ExitGames
 - PUN
@@ -7,3 +7,5 @@ labels:
 - Networking
 TextScriptImporter:
   userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 0d8aad389a2fd2847a8c8c2b470a77de
+guid: d3f19dad22ea52a47abbd9bcb24f0bfc
 timeCreated: 1494592613
 licenseType: Free
 TrueTypeFontImporter:
@@ -12,7 +12,8 @@ TrueTypeFontImporter:
   fontName: KoPubDotum Light
   fontNames:
   - KoPubDotum Light
-  fallbackFontReferences: []
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 0d8aad389a2fd2847a8c8c2b470a77de, type: 3}
   customCharacters: 
   fontRenderingMode: 0
   ascentCalculationMode: 1

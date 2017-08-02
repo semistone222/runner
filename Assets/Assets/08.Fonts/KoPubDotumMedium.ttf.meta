@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: bd837f7a45537484dbd3f5b9b31dcbab
+guid: cc99073e6f9b3734d8372c8823267fd8
 timeCreated: 1494593516
 licenseType: Free
 TrueTypeFontImporter:
@@ -9,9 +9,11 @@ TrueTypeFontImporter:
   characterSpacing: 0
   characterPadding: 1
   includeFontData: 1
-  fontName: 
-  fontNames: []
-  fallbackFontReferences: []
+  fontName: KoPubDotum Medium
+  fontNames:
+  - KoPubDotum Medium
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: bd837f7a45537484dbd3f5b9b31dcbab, type: 3}
   customCharacters: 
   fontRenderingMode: 0
   ascentCalculationMode: 1

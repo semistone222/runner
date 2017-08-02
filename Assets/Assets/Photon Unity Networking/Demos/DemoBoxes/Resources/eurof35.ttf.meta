@@ -1,13 +1,20 @@
 fileFormatVersion: 2
-guid: 954746d370bc8934299c8c8267543f4f
+guid: 0f17c4bb8b4b1e94389d98186d7893d7
 TrueTypeFontImporter:
-  serializedVersion: 2
+  serializedVersion: 4
   fontSize: 16
-  fontColor: {r: 1, g: 1, b: 1, a: 1}
   forceTextureCase: -2
-  renderMode: 0
-  style: 0
+  characterSpacing: 0
+  characterPadding: 1
   includeFontData: 1
-  use2xBehaviour: 0
-  fontNames: []
+  fontName: eurofurence light
+  fontNames:
+  - eurofurence light
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 954746d370bc8934299c8c8267543f4f, type: 3}
   customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

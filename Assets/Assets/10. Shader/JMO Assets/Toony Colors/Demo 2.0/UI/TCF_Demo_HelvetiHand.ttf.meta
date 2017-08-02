@@ -1,14 +1,20 @@
 fileFormatVersion: 2
-guid: a270890d89d469c4eac24162df7177be
+guid: 9de055e771c352d408723c1f66f70e19
 TrueTypeFontImporter:
-  serializedVersion: 2
+  serializedVersion: 4
   fontSize: 16
   forceTextureCase: -2
-  characterSpacing: 1
-  characterPadding: 0
+  characterSpacing: 0
+  characterPadding: 1
   includeFontData: 1
-  use2xBehaviour: 0
-  fontNames: []
+  fontName: HelvetiHand
+  fontNames:
+  - HelvetiHand
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: a270890d89d469c4eac24162df7177be, type: 3}
   customCharacters: 
   fontRenderingMode: 0
+  ascentCalculationMode: 1
   userData: 
+  assetBundleName: 
+  assetBundleVariant: 

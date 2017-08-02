@@ -1,11 +1,16 @@
 fileFormatVersion: 2
-guid: 99267cd9ef908d8469ef526e479775a6
+guid: 5999f9c83a796ae449bdfd802abfc1d3
 SubstanceImporter:
-  serializedVersion: 3
+  serializedVersion: 5
   materialInstances:
-  - name: Pavement_01
+  - serializedVersion: 16
+    name: Pavement_01
     prototypeName: Pavement_01
-    shaderName: Bumped Specular
+    shaderName: 
+    shader: {fileID: 4, guid: 0000000000000000f000000000000000, type: 0}
+    shaderKeywords: 
+    renderQueue: -1
+    lightmapFlags: 5
     inputs:
     - name: $normalformat
       value:
@@ -37,7 +42,7 @@ SubstanceImporter:
         texture: {instanceID: 0}
     - name: Colour_Variation
       value:
-        scalar[0]: .5
+        scalar[0]: 0.5
         scalar[1]: 0
         scalar[2]: 0
         scalar[3]: 0
@@ -72,7 +77,7 @@ SubstanceImporter:
         texture: {instanceID: 0}
     - name: Normal
       value:
-        scalar[0]: .5
+        scalar[0]: 0.5
         scalar[1]: 0
         scalar[2]: 0
         scalar[3]: 0
@@ -86,7 +91,7 @@ SubstanceImporter:
         texture: {instanceID: 0}
     - name: Angle
       value:
-        scalar[0]: .125
+        scalar[0]: 0.125
         scalar[1]: 0
         scalar[2]: 0
         scalar[3]: 0
@@ -100,14 +105,14 @@ SubstanceImporter:
         texture: {instanceID: 0}
     - name: Saturation
       value:
-        scalar[0]: .5
+        scalar[0]: 0.5
         scalar[1]: 0
         scalar[2]: 0
         scalar[3]: 0
         texture: {instanceID: 0}
     - name: Luminosity
       value:
-        scalar[0]: .5
+        scalar[0]: 0.5
         scalar[1]: 0
         scalar[2]: 0
         scalar[3]: 0
@@ -120,16 +125,28 @@ SubstanceImporter:
         scalar[3]: 0
         texture: {instanceID: 0}
     materialInformation:
+      serializedVersion: 5
       offset: {x: 0, y: 0}
       scale: {x: 10, y: 10}
-      generatedAtLoading: 1
+      generateMipmaps: 1
       generateAllOutputs: 1
       animationUpdateRate: 42
     materialProperties:
-      serializedVersion: 2
-      texEnvs: {}
-      floats: {}
-      colors: {}
+      serializedVersion: 3
+      texEnvs:
+      - _BumpMap:
+          texture: {instanceID: 0}
+          scale: {x: 1, y: 1}
+          offset: {x: 0, y: 0}
+      - _MainTex:
+          texture: {instanceID: 0}
+          scale: {x: 1, y: 1}
+          offset: {x: 0, y: 0}
+      floats:
+      - _Shininess: 0.078125
+      colors:
+      - _Color: {r: 1, g: 1, b: 1, a: 1}
+      - _SpecColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
     textureParameters:
     - name: Pavement_01_Diffuse
       alphaSource: 5
@@ -166,10 +183,21 @@ SubstanceImporter:
       filterMode: 1
       aniso: 1
       wrapMode: 0
+    textureAssignments:
+    - shaderProp: _BumpMap
+      material: {instanceID: 0}
+      baseUID: 1224163822
+    - shaderProp: _MainTex
+      material: {instanceID: 0}
+      baseUID: 1224163837
     buildTargetSettings:
     - serializedVersion: 2
       buildTarget: 
       textureWidth: 512
       textureHeight: 512
       textureFormat: 0
+      loadingBehavior: 1
   deletedPrototypes: []
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
