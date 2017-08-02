@@ -62,7 +62,19 @@ public class SendSence : MonoBehaviour {
 		Application.LoadLevel ("Lobby");
 	}
 
-	public void ShowLoadingScene(){
+    public void ShowMultiMode1()
+    {
+        SoundManager.GetComponent<SoundManager>().PlayClickSound3();
+        Application.LoadLevel("Lobby 1");
+    }
+
+    public void ShowMultiMode2()
+    {
+        SoundManager.GetComponent<SoundManager>().PlayClickSound3();
+        Application.LoadLevel("Lobby 2");
+    }
+
+    public void ShowLoadingScene(){
 		SoundManager.GetComponent<SoundManager> ().PlayStageSelectSE ();
 		if (PlayerInfoManager.RunPoint > 0) {
 			PlayerInfoManager.RunPoint--; // Player 게임 횟수 1감소

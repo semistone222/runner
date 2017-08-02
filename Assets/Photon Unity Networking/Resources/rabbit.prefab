@@ -1061,8 +1061,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1676758112937520}
-  m_LocalRotation: {x: -0, y: 0.9720199, z: -0, w: 0.23489857}
-  m_LocalPosition: {x: 0.50257, y: 49.96, z: 3.121}
+  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
+  m_LocalPosition: {x: 8.788026, y: 10, z: 24.81826}
   m_LocalScale: {x: 1.3645276, y: 1.3645275, z: 1.3645275}
   m_Children:
   - {fileID: 4058992229283508}
@@ -1070,7 +1070,7 @@ Transform:
   - {fileID: 4356176279009914}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 152.82901, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!4 &4808124566874744
 Transform:
   m_ObjectHideFlags: 1
@@ -1348,11 +1348,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d776b3f3a60bf244a39739fdde29a5c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 0
-  jumpSpeed: 20
-  gravity: 40
+  moveSpeed: 100
+  jumpSpeed: 50
+  gravity: 180
   jumpVal: 0
   receivedSpeed: 0
+  NowSpeed: 0
   moveDustParticle: {fileID: 1625781326268768}
   Booster: {fileID: 96785003459787258}
   ani: {fileID: 95564869040261870}
@@ -1404,7 +1405,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1891844155984510}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fbf3575480402db40813e763382412fb, type: 3}
   m_Name: 
@@ -1489,8 +1490,8 @@ CharacterController:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Height: 2.1
-  m_Radius: 0.91
+  m_Height: 2.05
+  m_Radius: 0.58
   m_SlopeLimit: 0
   m_StepOffset: 0.3
   m_SkinWidth: 0.08
