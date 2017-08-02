@@ -29,15 +29,12 @@ public class MultiGimmickDeath : Gimmick
 		StartCoroutine ("DeadAnimarter");
 		Respawn(other);
 
+	 	SoundManager sm = GameObject.Find("SoundManager").GetComponent<SoundManager>();
 
+		DeathRetry.DeathRetryPopupAgain = false;
 
-
-                SoundManager sm = GameObject.Find("SoundManager").GetComponent<SoundManager>();
-
-				DeathRetry.DeathRetryPopupAgain = false;
-
-                sm.SetBGMNull();
-                sm.SetBGM1();
+        sm.SetBGMNull();
+        sm.SetBGM1();
 
 
 	}
@@ -57,12 +54,12 @@ public class MultiGimmickDeath : Gimmick
 		/*온라인일때*/
 		if (other.GetComponent<PlayerController>() != null)
 		{
-			//other.transform.position = other.GetComponent<PlayerController>().respawnPoint;
+			other.transform.position = other.GetComponent<PlayerController>().respawnPoint;
 		}
 		/*오프라인일때*/
 		else if (other.GetComponent<PlayerControllerOff>() != null)
 		{
-			other.transform.position = other.GetComponent<PlayerControllerOff>().respawnPoint;
+			//other.transform.position = other.GetComponent<PlayerControllerOff>().respawnPoint;
 		}
 	}
 
@@ -72,12 +69,12 @@ public class MultiGimmickDeath : Gimmick
 		GameObject.Find("ButtonJump").GetComponent<SimpleButton>().enabled = false;
 		GameObject.FindGameObjectWithTag ("Player").GetComponent<Animator> ().SetBool ("IsDead", true);
 		GameObject.Find (PlayerInfoManager.SelectCharacter + "Body").GetComponent<ChangeMaterial> ().ChangeLose ();  // 우는 표정으로 바꿈
-		GameObject.FindGameObjectWithTag ("Player").GetComponent<PlayerControllerOff> ().MOVESPD_ORIGIN = 0;
+		GameObject.FindGameObjectWithTag ("Player").GetComponent<PlayerController> ().moveSpeed = 0f;//!
 		Death = true;
 		yield return new WaitForSeconds(1.5f);
 		Death = false;
 		GameObject.Find("ButtonJump").GetComponent<SimpleButton>().enabled = true;
-		GameObject.FindGameObjectWithTag ("Player").GetComponent<PlayerControllerOff> ().MOVESPD_ORIGIN = PlayerControllerOff.DeathBeforeSpeed;
+        GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>().moveSpeed = 45f;//!
 		GameObject.FindGameObjectWithTag ("Player").GetComponent<Animator> ().SetBool ("IsDead", false);
 		GameObject.Find (PlayerInfoManager.SelectCharacter + "Body").GetComponent<ChangeMaterial> ().ChangeIdle ();  // 우는 표정으로 해제
 
