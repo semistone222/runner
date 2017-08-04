@@ -41,9 +41,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/01.Scenes/Ch.1Stage1-6/Ch.1_Stage1.unity
     guid: 298be13378ebd9f43afbba69935f49f2
-  - enabled: 0
-    path: 
-    guid: c298e38c2f8f83843bbc314302d5ad1b
   - enabled: 1
     path: Assets/01.Scenes/Ch.1Stage1-6/Ch.1_Stage2.unity
     guid: 7a9baae13a4f56446bd7f3359b86c4e8
@@ -64,7 +61,7 @@ EditorBuildSettings:
     guid: 00e0559b44247284cbc67b84340d1418
   - enabled: 1
     path: Assets/01.Scenes/Lobby 2.unity
-    guid: 00000000000000000000000000000000
+    guid: 26c82a3be9ab6994ba546a72f7488329
   - enabled: 1
     path: Assets/01.Scenes/MultiMap/map1.unity
     guid: 25a87404b2e4fbc41810ef107ca8b62e

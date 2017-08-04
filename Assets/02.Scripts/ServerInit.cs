@@ -1,182 +1,213 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using UnityEngine;
 
-public class ServerInit : MonoBehaviour {
-
-	public string version = "v1.0";
-	public InputField userId;
-	public InputField roomName;
-	public GameObject scrollContents;
-	public GameObject roomItem;
+public class ServerInit : MonoBehaviour
+{
+    public string version = "v1.0";
+    public InputField userId, roomName;
+    public GameObject scrollContents, roomItem;
     public string sceneName;
 
-	private string USER_ID = "USER_ID";
-	private string USER_PREFIX = "USER_";
-	private string ROOM_PREFIX = "ROOM_";
+    private string USER_ID = "USER_ID";
+    private string USER_PREFIX = "USER_";
+    private string ROOM_PREFIX = "ROOM_";
 
-	void Awake () {
-		if (!PhotonNetwork.connected) {
-			PhotonNetwork.ConnectUsingSettings (version);
-		}
+    private static ServerInit instance;
 
-		userId.text = GetUserId ();
-		roomName.text = GetRoomName ();
-	}
+    public static ServerInit GetInstance()
+    {
+        if (instance == null)
+        {
+            instance = FindObjectOfType<ServerInit>();
 
-	void Start(){
-		DontDestroyOnLoad (this.gameObject);
-	}
+            if (instance == null)
+            {
+                GameObject container = new GameObject("ServerInit");
 
-	void OnJoinedLobby() {
-		Debug.Log ("OnJoinedLobby !");
-	}
+                instance = container.AddComponent<ServerInit>();
+            }
+        }
 
-	// TODO : PeerCreated에서 멈춘다. autoJoinLobby 이것 때문인가...
-	// autoJoinLobby를 쓰지 않으면 방 목록을 불러 올 수 없는데...
-	// when autoJoinLobby == false...
-	void OnConnectedToMaster () {
-		Debug.Log ("Entered Master !");
-	}
+        return instance;
+    }
 
-	string GetUserId () {
-		string uid = PlayerPrefs.GetString (USER_ID);
+    void Awake()
+    {
+        if (!PhotonNetwork.connected)
+        {
+            PhotonNetwork.ConnectUsingSettings(version);
+        }
+        
+        PhotonNetwork.networkingPeer.DebugOut = ExitGames.Client.Photon.DebugLevel.ERROR;
+        PhotonNetwork.logLevel = PhotonLogLevel.ErrorsOnly;
 
-		if (string.IsNullOrEmpty (uid)) {
-			Random.InitState (System.Environment.TickCount);
-			uid = USER_PREFIX + Random.Range (0, 999);
-		}
+        userId.text = GetUserId();
+        roomName.text = GetRoomName();
+    }
 
-		return uid;
-	}
+    //void Start()
+    //{
+    //    DontDestroyOnLoad(gameObject);
+    //}
 
-	string GetRoomName() {
-		Random.InitState (System.Environment.TickCount);
-		string rn = ROOM_PREFIX + Random.Range (0, 999);
-		return rn;
-	}
+    //void OnJoinedLobby()
+    //{
+    //    Debug.Log("OnJoinedLobby !");
+    //}
 
-	void OnPhotonRandomJoinFailed() {
-		Debug.Log ("No Rooms !");
+    // TODO : PeerCreated에서 멈춘다. autoJoinLobby 이것 때문인가...
+    // autoJoinLobby를 쓰지 않으면 방 목록을 불러 올 수 없는데...
+    // when autoJoinLobby == false...
+    void OnConnectedToMaster()
+    {
+        Debug.Log("Entered Master !");
+    }
 
-		RoomOptions roomOptions = new RoomOptions ();
-		roomOptions.IsVisible = true;
-		roomOptions.IsOpen = true;
-		roomOptions.MaxPlayers = 20;
+    string GetUserId()
+    {
+        string uid = PlayerPrefs.GetString(USER_ID);
 
-		PhotonNetwork.CreateRoom ("MyRoom", roomOptions, TypedLobby.Default);
-	}
+        if (string.IsNullOrEmpty(uid))
+        {
+            Random.InitState(System.Environment.TickCount);
+            uid = USER_PREFIX + Random.Range(0, 999);
+        }
 
-	void OnPhotonCreateRoomFailed (object[] error) {
-		Debug.Log("OnPhotonCreateRoomFailed");
-		Debug.Log(error[0].ToString()); // error code
-		Debug.Log(error[1].ToString()); // error message
-	}
+        return uid;
+    }
 
-	void OnJoinedRoom() {
-		Debug.Log ("Enter Room");
-		StartCoroutine (this.LoadtoMap ());
-	}
+    string GetRoomName()
+    {
+        Random.InitState(System.Environment.TickCount);
 
-/*	IEnumerator LoadGround() {
-		PhotonNetwork.isMessageQueueRunning = false; // stop networking until loading scene
+        return ROOM_PREFIX + Random.Range(0, 999);
+    }
 
-		SceneManager.LoadScene ("Ground");
-		yield return null;
-	}*/
+    void OnPhotonRandomJoinFailed()
+    {
+        //Debug.Log("No Rooms !");
 
-	IEnumerator LoadtoMap() {
-		PhotonNetwork.isMessageQueueRunning = false; // stop networking until loading scene
+        PhotonNetwork.CreateRoom("MyRoom", new RoomOptions { IsVisible = true, IsOpen = true, MaxPlayers = 4 }, TypedLobby.Default);
+    }
+
+    void OnPhotonCreateRoomFailed(object[] error)
+    {
+        Debug.Log("OnPhotonCreateRoomFailed");
+        Debug.Log(error[0].ToString()); // error code
+        Debug.Log(error[1].ToString()); // error message
+    }
+
+    void OnJoinedRoom()
+    {
+        StartCoroutine(LoadtoMap());        
+    }
+
+    /*	
+     *	IEnumerator LoadGround() {
+            PhotonNetwork.isMessageQueueRunning = false; // stop networking until loading scene
+
+            SceneManager.LoadScene ("Ground");
+            yield return null;
+        }
+    */
+
+    IEnumerator LoadtoMap()
+    {
+        PhotonNetwork.isMessageQueueRunning = false; // stop networking until loading scene
 
         //SceneManager.LoadScene ("Ch.1_Stage1Multi");
         SceneManager.LoadScene(sceneName);
         yield return null;
-	}
+    }
 
+    public void OnClickJoinRandomRoom()
+    {
+        string _userId = userId.text;
 
-	public void OnClickJoinRandomRoom() {
-		string _userId = userId.text;
+        if (string.IsNullOrEmpty(_userId))
+        {
+            _userId = GetUserId();
+        }
 
-		if (string.IsNullOrEmpty (_userId)) {
-			_userId = GetUserId ();
-		}
+        PhotonNetwork.player.NickName = _userId;
+        PlayerPrefs.SetString(USER_ID, _userId);
 
-		PhotonNetwork.player.NickName = _userId;
-		PlayerPrefs.SetString (USER_ID, _userId);
-		PhotonNetwork.JoinRandomRoom ();
-	}
+        PhotonNetwork.JoinRandomRoom();
+    }
 
-	public void OnClickCreateRoom(string sceneName) {
+    public void OnClickCreateRoom(string sceneName)
+    {
         this.sceneName = sceneName;
-		string _userId = userId.text;
-		string _roomName = roomName.text;
+        string _userId = userId.text;
+        string _roomName = roomName.text;
 
-		if (string.IsNullOrEmpty (_userId)) {
-			_userId = GetUserId ();
-		}
+        if (string.IsNullOrEmpty(_userId))
+        {
+            _userId = GetUserId();
+        }
 
-		if(string.IsNullOrEmpty(_roomName)) {
-			_roomName = GetRoomName();
-		}
+        if (string.IsNullOrEmpty(_roomName))
+        {
+            _roomName = GetRoomName();
+        }
 
-		PhotonNetwork.player.NickName = _userId;
-		PlayerPrefs.SetString (USER_ID, _userId);
+        PhotonNetwork.player.NickName = _userId;
+        PlayerPrefs.SetString(USER_ID, _userId);
 
-		RoomOptions roomOptions = new RoomOptions ();
-		roomOptions.IsOpen = true;
-		roomOptions.IsVisible = true;
-		roomOptions.MaxPlayers = 20;
+        PhotonNetwork.CreateRoom(_roomName, new RoomOptions { IsOpen = true, IsVisible = true, MaxPlayers = 4 }, TypedLobby.Default);
+    }
 
-		PhotonNetwork.CreateRoom (_roomName, roomOptions, TypedLobby.Default);
-	}
+    void OnGUI()
+    {
+        GUILayout.Label(PhotonNetwork.connectionStateDetailed.ToString());
+    }
 
-	void OnGUI () {
-		GUILayout.Label (PhotonNetwork.connectionStateDetailed.ToString ());	
-	}
+    void OnReceivedRoomListUpdate()
+    {
+        foreach (GameObject obj in GameObject.FindGameObjectsWithTag("ROOM_ITEM"))
+        {
+            Destroy(obj);
+        }
 
-	void OnReceivedRoomListUpdate() {
+        int rowCount = 0;
 
-		foreach (GameObject obj in GameObject.FindGameObjectsWithTag("ROOM_ITEM")) {
-			Destroy (obj);
-		}
+        scrollContents.GetComponent<RectTransform>().sizeDelta = Vector2.zero;
 
-		int rowCount = 0;
-		scrollContents.GetComponent<RectTransform> ().sizeDelta = Vector2.zero;
+        foreach (RoomInfo _room in PhotonNetwork.GetRoomList())
+        {
+            GameObject room = Instantiate(roomItem);
+            room.transform.SetParent(scrollContents.transform, false);
 
-		foreach (RoomInfo _room in PhotonNetwork.GetRoomList ()) {
-			GameObject room = (GameObject)Instantiate (roomItem);
-			room.transform.SetParent (scrollContents.transform, false);
+            RoomData roomData = room.GetComponent<RoomData>();
+            roomData.roomName = _room.Name;
+            roomData.connectPlayer = _room.PlayerCount;
+            roomData.maxPlayers = _room.MaxPlayers;
 
-			RoomData roomData = room.GetComponent<RoomData> ();
-			roomData.roomName = _room.Name;
-			roomData.connectPlayer = _room.PlayerCount;
-			roomData.maxPlayers = _room.MaxPlayers;
+            roomData.DispRoomData();
 
-			roomData.DispRoomData ();
+            roomData.GetComponent<Button>().onClick.AddListener(delegate
+            {
+                OnClickRoomItem(roomData.roomName);
+            });
 
-			roomData.GetComponent<UnityEngine.UI.Button> ().onClick.AddListener (delegate {
-				OnClickRoomItem (roomData.roomName);
-			});
+            scrollContents.GetComponent<GridLayoutGroup>().constraintCount = ++rowCount;
+            scrollContents.GetComponent<RectTransform>().sizeDelta += new Vector2(0, 20);
+        }
+    }
 
-			scrollContents.GetComponent<GridLayoutGroup> ().constraintCount = ++rowCount;
-			scrollContents.GetComponent<RectTransform> ().sizeDelta += new Vector2 (0, 20);
-		}
-	}
+    void OnClickRoomItem(string roomName)
+    {
+        string _userId = userId.text;
 
-	void OnClickRoomItem(string roomName) {
-		string _userId = userId.text;
+        if (string.IsNullOrEmpty(_userId))
+        {
+            _userId = GetUserId();
+        }
 
-		if (string.IsNullOrEmpty (_userId)) {
-			_userId = GetUserId ();
-		}
-
-		PhotonNetwork.player.NickName = _userId;
-		PlayerPrefs.SetString (USER_ID, _userId);
-		PhotonNetwork.JoinRoom (roomName);
-	}
+        PhotonNetwork.player.NickName = _userId;
+        PlayerPrefs.SetString(USER_ID, _userId);
+        PhotonNetwork.JoinRoom(roomName);
+    }
 }
-
-
-

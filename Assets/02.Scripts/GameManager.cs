@@ -1,69 +1,76 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using UnityEngine;
 
-public class GameManager : MonoBehaviour {
+public class GameManager : MonoBehaviour
+{
+    public Text txtConnect;
+    public Text txtLogMsg;
 
-	public Text txtConnect;
-	public Text txtLogMsg;
+    private PhotonView myPhotonView;
 
-	private PhotonView myPhotonView;
-	
-	void Awake () {
-		myPhotonView = GetComponent<PhotonView> ();
-		PhotonNetwork.isMessageQueueRunning = true;
-		StartCoroutine (this.CreatePlayer ());
-		GetConnectPlayerCount ();
-	}
+    void Awake()
+    {
+        myPhotonView = GetComponent<PhotonView>();
+        PhotonNetwork.isMessageQueueRunning = true;
+        StartCoroutine(CreatePlayer());
+        GetConnectPlayerCount();
+    }
 
-	IEnumerator Start() {
-		yield return new WaitForSeconds (1.0f);
+    IEnumerator Start()
+    {
+        yield return new WaitForSeconds(1.0f);
 
-		string msg = "\n<color=#00ff00>[" + PhotonNetwork.player.NickName + "] Connected</color>";
-		myPhotonView.RPC("LogMsg", PhotonTargets.AllBuffered, msg);
-	}
+        string msg = "\n<color=#00ff00>[" + PhotonNetwork.player.NickName + "] Connected</color>";
+        myPhotonView.RPC("LogMsg", PhotonTargets.AllBuffered, msg);
+    }
 
-	IEnumerator CreatePlayer() {
-		float pos = Random.Range (-3f, 3f);
-		PhotonNetwork.Instantiate ("rabbit", new Vector3 (pos, 60.0f, pos), Quaternion.identity, 0);
-		yield return null;
-	}
+    IEnumerator CreatePlayer()
+    {
+        float pos = Random.Range(-3f, 3f);
+        PhotonNetwork.Instantiate("rabbit", new Vector3(pos, 60.0f, pos), Quaternion.identity, 0);
+        yield return null;
+    }
 
-	void GetConnectPlayerCount() {
-		Room currRoom = PhotonNetwork.room;
+    void GetConnectPlayerCount()
+    {
+        Room currRoom = PhotonNetwork.room;
 
-		txtConnect.text = currRoom.PlayerCount.ToString () + "/" + currRoom.MaxPlayers.ToString ();
-	}
+        txtConnect.text = currRoom.PlayerCount.ToString() + "/" + currRoom.MaxPlayers.ToString();
+    }
 
-	void OnPhotonPlayerConnected(PhotonPlayer newPlayer) {
-		Debug.Log("OnPhotonPlayerConnected: " + newPlayer);
-		Debug.Log (newPlayer.ToStringFull ());
-		GetConnectPlayerCount ();
-	}
+    void OnPhotonPlayerConnected(PhotonPlayer newPlayer)
+    {
+        Debug.Log("OnPhotonPlayerConnected: " + newPlayer);
+        Debug.Log(newPlayer.ToStringFull());
+        GetConnectPlayerCount();
+    }
 
-	void OnPhotonPlayerDisConnected(PhotonPlayer outPlayer) {
-		Debug.Log("OnPhotonPlayerDisconnected: " + outPlayer);
-		Debug.Log (outPlayer.ToStringFull ());
-		GetConnectPlayerCount ();
-	}
+    void OnPhotonPlayerDisConnected(PhotonPlayer outPlayer)
+    {
+        Debug.Log("OnPhotonPlayerDisconnected: " + outPlayer);
+        Debug.Log(outPlayer.ToStringFull());
+        GetConnectPlayerCount();
+    }
 
-	public void OnClickExitButton() {
+    public void OnClickExitButton()
+    {
+        string msg = "\n<color=#ff0000>[" + PhotonNetwork.player.NickName + "] Disconnected</color>";
+        myPhotonView.RPC("LogMsg", PhotonTargets.AllBuffered, msg);
 
-		string msg = "\n<color=#ff0000>[" + PhotonNetwork.player.NickName + "] Disconnected</color>";
-		myPhotonView.RPC ("LogMsg", PhotonTargets.AllBuffered, msg);
+        PhotonNetwork.LeaveRoom();
+    }
 
-		PhotonNetwork.LeaveRoom ();
-	}
+    void OnLeftRoom()
+    {
+        Debug.Log("OnLeftRoom");
+        SceneManager.LoadScene("Lobby");
+    }
 
-	void OnLeftRoom() {
-		Debug.Log("OnLeftRoom");
-		SceneManager.LoadScene("Lobby");
-	}
-
-	[PunRPC]
-	void LogMsg(string msg) {
-		txtLogMsg.text = txtLogMsg.text + msg;
-	}
+    [PunRPC]
+    void LogMsg(string msg)
+    {
+        txtLogMsg.text = txtLogMsg.text + msg;
+    }
 }
