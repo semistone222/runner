@@ -73,13 +73,14 @@ public class PlayerController : MonoBehaviour
         //		StartText = GetComponent<Text> ();
     }
 
-    //void FixedUpdate()
-    //{
-
-    //    if (!myPhotonView.isMine)
-    //        return;
-
-    //}
+    void FixedUpdate()
+    {
+        if (!myPhotonView.isMine)
+        {           
+            myTransform.position = Vector3.Lerp(myTransform.position, currPos, Time.deltaTime * 8.5f);
+            myTransform.rotation = Quaternion.Slerp(myTransform.rotation, currRot, Time.deltaTime * 8.5f);
+        }
+    }
 
     void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
     {
@@ -136,7 +137,7 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    void FixedUpdate()
+    void Update()
     {
         BoosterCheckSped = ButtonBooster.GetComponent<MultiBoosterButton>().AddBoosterSpeed;  // 부스터 효과체크를 위한 변수 
 
