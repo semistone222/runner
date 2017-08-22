@@ -49,4 +49,6 @@ MonoBehaviour:
   - OnReadyCancel
   - StopStartgame
   - OnCryAnim
+  - LoadRoom
+  - OnClickQuickStartButton
   DisableAutoOpenWizard: 1
