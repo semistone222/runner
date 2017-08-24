@@ -15,6 +15,7 @@ public class MainManager : MonoBehaviour
 
     void Start()
     {
+        PreserveBGM.SetBGM(1);
         InstantiateLobbyChar(PlayerInfo.playerChar);
     }
 

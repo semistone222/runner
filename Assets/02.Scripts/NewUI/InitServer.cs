@@ -124,7 +124,6 @@ public class InitServer : MonoBehaviour
     public void LoadRoom()
     {
         //Room닫기();
-
         StartCoroutine(this.LoadtoMap());
     }
 
@@ -151,6 +150,7 @@ public class InitServer : MonoBehaviour
 
     IEnumerator LoadtoMap()
     {
+        PhotonNetwork.automaticallySyncScene = true;
         PhotonNetwork.isMessageQueueRunning = false; // stop networking until loading scene
 
         //SceneManager.LoadScene ("Ch.1_Stage1Multi");
