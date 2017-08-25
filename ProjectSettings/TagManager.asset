@@ -13,6 +13,7 @@ TagManager:
   - StartText
   - StartBoundary
   - BGM
+  - CloudManager
   layers:
   - Default
   - TransparentFX
