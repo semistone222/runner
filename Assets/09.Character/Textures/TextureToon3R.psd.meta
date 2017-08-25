@@ -25,7 +25,7 @@ TextureImporter:
   textureFormat: -1
   maxTextureSize: 512
   textureSettings:
-    filterMode: -1
+    filterMode: 0
     aniso: 0
     mipBias: -1
     wrapMode: -1
@@ -65,7 +65,7 @@ TextureImporter:
     allowsAlphaSplitting: 0
     overridden: 0
   - buildTarget: Android
-    maxTextureSize: 256
+    maxTextureSize: 128
     textureFormat: 34
     textureCompression: 1
     compressionQuality: 50

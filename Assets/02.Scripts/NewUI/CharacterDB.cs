@@ -14,11 +14,11 @@ public class CharacterDB : MonoBehaviour
         characterList.Add("Rabbit");
         characterNameList.Add("토순이");
         characterList.Add("Fox");
-        characterNameList.Add("여울이");
+        characterNameList.Add("여웅이");
         characterList.Add("Dog");
-        characterNameList.Add("바둑이");
+        characterNameList.Add("슬뭉이");
         characterList.Add("Bear");
-        characterNameList.Add("곰순이");
+        characterNameList.Add("곰곰이");
     }
 
 }

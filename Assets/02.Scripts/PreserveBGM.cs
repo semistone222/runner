@@ -14,5 +14,13 @@ public class PreserveBGM : MonoBehaviour {
             Destroy(gameObject);
         }
     }
+
+    public static void SetBGM(int k)
+    {
+        GameObject.FindGameObjectWithTag("BGM").GetComponent<AudioSource>().clip =
+        Resources.Load<AudioClip>("BGM/BGM" + k.ToString());
+
+        GameObject.FindGameObjectWithTag("BGM").GetComponent<AudioSource>().Play();
+    }
 	
 }
