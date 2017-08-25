@@ -8,46 +8,48 @@ public class InitServer : MonoBehaviour
 {
 
     public string version = "v1.0";
-    public InputField roomName;
-    public GameObject scrollContents;
-    public GameObject roomItem;
-    public string sceneName;
+    public string sceneName = "3.Loading";
+    public Button runButton;
+    public Text playersText;
 
     private string USER_ID = "USER_ID";
     private string USER_PREFIX = "USER_";
     private string ROOM_PREFIX = "ROOM_";
+    private string roomName;
+
+    public byte MAX_PLAYER = 2;
 
     void Awake()
     {
-        if (!PhotonNetwork.connected)
-        {
-            PhotonNetwork.ConnectUsingSettings(version);
-        }
+        CheckConnection();
     }
 
     void Start()
     {
-        roomName.text = GetRoomName();
-
         DontDestroyOnLoad(this.gameObject);
+
+        if (FindObjectsOfType(GetType()).Length > 1)
+        {
+            Destroy(gameObject);
+        }
     }
 
-    void OnJoinedLobby()
+    void Update()
     {
-        Debug.Log("OnJoinedLobby !");
+        CheckConnection();
     }
 
-    // TODO : PeerCreated에서 멈춘다. autoJoinLobby 이것 때문인가...
-    // autoJoinLobby를 쓰지 않으면 방 목록을 불러 올 수 없는데...
-    // when autoJoinLobby == false...
-    void OnConnectedToMaster()
+    void CheckConnection()
     {
-        Debug.Log("Entered Master !");
-    }
-
-    string GetUserId()
-    {
-        return PlayerInfo.playerName;
+        if (!PhotonNetwork.connected && !PhotonNetwork.connecting)
+        {
+            if (runButton != null)
+            {
+                runButton.interactable = false;
+            }
+            PhotonNetwork.ConnectUsingSettings(version);
+            roomName = GetRoomName();
+        }
     }
 
     string GetRoomName()
@@ -57,6 +59,26 @@ public class InitServer : MonoBehaviour
         return rn;
     }
 
+    void OnJoinedLobby()
+    {
+        runButton.interactable = true;
+        Debug.Log("OnJoinedLobby !");
+    }
+
+    public void OnClickJoinRandomRoom()
+    {
+        string _userId = GetUserId();
+
+        PhotonNetwork.player.NickName = _userId;
+        //PlayerPrefs.SetString(USER_ID, _userId);
+        PhotonNetwork.JoinRandomRoom();
+    }
+
+    string GetUserId()
+    {
+        return PlayerInfo.playerName;
+    }
+
     void OnPhotonRandomJoinFailed()
     {
         Debug.Log("No Rooms !");
@@ -64,9 +86,10 @@ public class InitServer : MonoBehaviour
         RoomOptions roomOptions = new RoomOptions();
         roomOptions.IsVisible = true;
         roomOptions.IsOpen = true;
-        roomOptions.MaxPlayers = 20;
+        roomOptions.MaxPlayers = MAX_PLAYER;
 
-        PhotonNetwork.CreateRoom("MyRoom", roomOptions, TypedLobby.Default);
+        //PhotonNetwork.CreateRoom("MyRoom", roomOptions, TypedLobby.Default);
+        PhotonNetwork.CreateRoom(roomName, roomOptions, TypedLobby.Default);
     }
 
     void OnPhotonCreateRoomFailed(object[] error)
@@ -78,16 +101,52 @@ public class InitServer : MonoBehaviour
 
     void OnJoinedRoom()
     {
-        Debug.Log("Enter Room");
+        Debug.Log("Entered Room");
+        Debug.Log(PhotonNetwork.room);
+        GetConnectPlayerCount();
+        //StartCoroutine(this.LoadtoMap());
+    }
+
+    void GetConnectPlayerCount()
+    {
+        Room currRoom = PhotonNetwork.room;
+
+        playersText.text = currRoom.PlayerCount.ToString() + "/" + currRoom.MaxPlayers.ToString();
+    }
+
+    [PunRPC]
+    public void OnClickQuickStartButton()
+    {
+        GetComponent<PhotonView>().RPC("LoadRoom", PhotonTargets.AllViaServer, null);
+    }
+
+    [PunRPC]
+    public void LoadRoom()
+    {
+        //Room닫기();
         StartCoroutine(this.LoadtoMap());
     }
 
-    /*	IEnumerator LoadGround() {
-            PhotonNetwork.isMessageQueueRunning = false; // stop networking until loading scene
+    void OnPhotonPlayerConnected(PhotonPlayer newPlayer)
+    {
+        Debug.Log("OnPhotonPlayerConnected: " + newPlayer);
+        Debug.Log(newPlayer.ToStringFull());
+        GetConnectPlayerCount();
+    }
 
-            SceneManager.LoadScene ("Ground");
-            yield return null;
-        }*/
+    void OnPhotonPlayerDisConnected(PhotonPlayer outPlayer)
+    {
+        Debug.Log("OnPhotonPlayerDisconnected: " + outPlayer);
+        Debug.Log(outPlayer.ToStringFull());
+        GetConnectPlayerCount();
+    }
+
+    public void OnClickLobbyExitButton()
+    {
+        PhotonNetwork.LeaveRoom();
+        PhotonNetwork.LeaveLobby();
+        playersText.text = "...";
+    }
 
     IEnumerator LoadtoMap()
     {
@@ -99,20 +158,20 @@ public class InitServer : MonoBehaviour
     }
 
 
-    public void OnClickJoinRandomRoom()
-    {
-        string _userId = GetUserId();
 
-        PhotonNetwork.player.NickName = _userId;
-        PlayerPrefs.SetString(USER_ID, _userId);
-        PhotonNetwork.JoinRandomRoom();
-    }
+    /*	IEnumerator LoadGround() {
+            PhotonNetwork.isMessageQueueRunning = false; // stop networking until loading scene
 
+            SceneManager.LoadScene ("Ground");
+            yield return null;
+        }*/
+
+    /*
     public void OnClickCreateRoom(string sceneName)
     {
         this.sceneName = sceneName;
         string _userId = GetUserId();
-        string _roomName = roomName.text;
+        string _roomName = roomName;
 
         if (string.IsNullOrEmpty(_roomName))
         {
@@ -125,16 +184,10 @@ public class InitServer : MonoBehaviour
         RoomOptions roomOptions = new RoomOptions();
         roomOptions.IsOpen = true;
         roomOptions.IsVisible = true;
-        roomOptions.MaxPlayers = 20;
+        roomOptions.MaxPlayers = MAX_PLAYER;
 
         PhotonNetwork.CreateRoom(_roomName, roomOptions, TypedLobby.Default);
     }
-
-    void OnGUI()
-    {
-        GUILayout.Label(PhotonNetwork.connectionStateDetailed.ToString());
-    }
-
     void OnReceivedRoomListUpdate()
     {
 
@@ -175,7 +228,23 @@ public class InitServer : MonoBehaviour
         PhotonNetwork.player.NickName = _userId;
         PlayerPrefs.SetString(USER_ID, _userId);
         PhotonNetwork.JoinRoom(roomName);
+
     }
+
+    void OnGUI()
+    {
+        GUILayout.Label(PhotonNetwork.connectionStateDetailed.ToString());
+    }
+    */
+
+    // TODO : PeerCreated에서 멈춘다. autoJoinLobby 이것 때문인가...
+    // autoJoinLobby를 쓰지 않으면 방 목록을 불러 올 수 없는데...
+    // when autoJoinLobby == false...
+    void OnConnectedToMaster()
+    {
+        Debug.Log("Entered Master !");
+    }
+
 }
 
 
